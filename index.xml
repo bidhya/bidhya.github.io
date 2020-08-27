@@ -6,10 +6,19 @@
     <description>Recent content on My Blog Site with Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Aug 2020 14:10:52 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2020 14:38:06 -0400</lastBuildDate>
     
 	<atom:link href="https://bidhya.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Second Post</title>
+      <link>https://bidhya.github.io/post/second-post/</link>
+      <pubDate>Thu, 27 Aug 2020 14:38:06 -0400</pubDate>
+      
+      <guid>https://bidhya.github.io/post/second-post/</guid>
+      <description>Created after initial pushing site Just to test how the updates work</description>
+    </item>
     
     <item>
       <title>About me</title>
