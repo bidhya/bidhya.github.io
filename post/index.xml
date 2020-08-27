@@ -12,12 +12,13 @@
     
     
     <item>
-      <title>Second Post</title>
+      <title>Conda Enviornment Setup </title>
       <link>https://bidhya.github.io/post/second-post/</link>
       <pubDate>Thu, 27 Aug 2020 14:38:06 -0400</pubDate>
       
       <guid>https://bidhya.github.io/post/second-post/</guid>
-      <description>Created after initial pushing site Just to test how the updates work with link about me One more dummy line</description>
+      <description>Here&amp;rsquo;s my workflow for working in Python across platforms (Windows, Linux, and HPC clusters)
+ Install miniconda (Anaconda will do as well, but perhaps don&amp;rsquo;t follow this workflow with Anaconda) conda config &amp;ndash;add channels conda-forge #to make conda-forge default conda env update -f bidhya_environment.yaml #update everything from the yaml file conda update &amp;ndash;all #I run it periodically to update everything to latest version; but new things break more often so take care  Sample Conda_env.</description>
     </item>
     
     <item>
