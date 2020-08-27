@@ -21,14 +21,15 @@
     </item>
     
     <item>
-      <title>Hugo Setup on windows for Github Pages</title>
+      <title>Github user page using Hugo on Windows</title>
       <link>https://bidhya.github.io/post/my-first-post/</link>
       <pubDate>Thu, 27 Aug 2020 14:10:52 -0400</pubDate>
       
       <guid>https://bidhya.github.io/post/my-first-post/</guid>
-      <description>Github user page using Hugo on Windows Since most of the online instruction for Hugo was related to Mac/Linux, I decided to write post for my own sanity!
-Step1: Download Hugo executable from this site Unzip and put on any folder Set path to to this exe file so that you can start using hugo command from any folder location
- Create Hugo Project hugo new site blog cd blog git submodule add</description>
+      <description>Since most of the online instruction for Hugo was related to Mac/Linux, I decided to write post for my own sanity!
+  Download Hugo executable from this site Unzip and put on any folder Set path to to this exe file so that you can start using hugo command from any folder location
+  Create Hugo Project hugo new site blog cd blog git submodule add
+https://github.com/budparr/gohugo-theme-ananke.git themes/ananke</description>
     </item>
     
   </channel>
