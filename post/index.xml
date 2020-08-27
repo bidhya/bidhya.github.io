@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My Blog Site with Hugo</title>
+    <title>Posts on Bidhya N Yadav</title>
     <link>https://bidhya.github.io/post/</link>
-    <description>Recent content in Posts on My Blog Site with Hugo</description>
+    <description>Recent content in Posts on Bidhya N Yadav</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 27 Aug 2020 14:38:06 -0400</lastBuildDate>
@@ -21,12 +21,14 @@
     </item>
     
     <item>
-      <title>My First Post</title>
+      <title>Hugo Setup on windows for Github Pages</title>
       <link>https://bidhya.github.io/post/my-first-post/</link>
       <pubDate>Thu, 27 Aug 2020 14:10:52 -0400</pubDate>
       
       <guid>https://bidhya.github.io/post/my-first-post/</guid>
-      <description>Heading block for my blog </description>
+      <description>Github user page using Hugo on Windows Since most of the online instruction for Hugo was related to Mac/Linux, I decided to write post for my own sanity!
+Step1: Download Hugo executable from this site Unzip and put on any folder Set path to to this exe file so that you can start using hugo command from any folder location
+ Create Hugo Project hugo new site blog cd blog git submodule add</description>
     </item>
     
   </channel>
