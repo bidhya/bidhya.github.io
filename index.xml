@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Blog Site with Hugo</title>
+    <link>https://bidhya.github.io/</link>
+    <description>Recent content on My Blog Site with Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Aug 2020 14:10:52 -0400</lastBuildDate>
+    
+	<atom:link href="https://bidhya.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About me</title>
+      <link>https://bidhya.github.io/about/</link>
+      <pubDate>Thu, 27 Aug 2020 14:18:09 -0400</pubDate>
+      
+      <guid>https://bidhya.github.io/about/</guid>
+      <description>About Me Starting with hugo blogging
+More about me later</description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>https://bidhya.github.io/post/my-first-post/</link>
+      <pubDate>Thu, 27 Aug 2020 14:10:52 -0400</pubDate>
+      
+      <guid>https://bidhya.github.io/post/my-first-post/</guid>
+      <description>Heading block for my blog </description>
+    </item>
+    
+  </channel>
+</rss>
