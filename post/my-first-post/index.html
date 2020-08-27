@@ -44,7 +44,7 @@ Change1
  hugo new site blog cd blog git submodule add https://github.">
 <meta itemprop="datePublished" content="2020-08-27T14:10:52-04:00" />
 <meta itemprop="dateModified" content="2020-08-27T14:10:52-04:00" />
-<meta itemprop="wordCount" content="189">
+<meta itemprop="wordCount" content="220">
 
 
 
@@ -226,9 +226,9 @@ Create a new github project, say blog, for example
 git remote add origin <a href="https://github.com/">https://github.com/</a><!-- raw HTML omitted -->/blog.com.git</p>
 </li>
 <li>
-<p>Add github.io page
-First create bidhya.github.io page on remote
-On local machine:
+<p>Add github.io page<br>
+First create bidhya.github.io page on remote<br>
+On local machine:<br>
 git submodule add -b master <a href="https://github.com/">https://github.com/</a><!-- raw HTML omitted -->/<!-- raw HTML omitted -->.github.io.git public .<br>
 Make sure base url on config points to this site</p>
 </li>
@@ -240,7 +240,16 @@ git add &ndash;all<br>
 git commit -m &ldquo;generating web pages&rdquo;<br>
 git push origin master</p>
 </li>
+<li>
+<p>Add pages and update as follows
+hugo
+cd public
+git push</p>
+</li>
 </ol>
+<p>Note:
+Add .gitignore inside the blog repo and add <code>public/</code><br>
+That way public pages are not hosted on blog repo</p>
 <ul class="pa0">
   
 </ul>
