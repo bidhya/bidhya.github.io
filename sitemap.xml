@@ -5,34 +5,48 @@
   <url>
     <loc>https://bidhya.github.io/</loc>
     <lastmod>2020-08-27T14:38:06-04:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://bidhya.github.io/post/</loc>
     <lastmod>2020-08-27T14:38:06-04:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://bidhya.github.io/post/second-post/</loc>
     <lastmod>2020-08-27T14:38:06-04:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://bidhya.github.io/about/</loc>
     <lastmod>2020-08-27T14:18:09-04:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://bidhya.github.io/post/my-first-post/</loc>
     <lastmod>2020-08-27T14:10:52-04:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://bidhya.github.io/categories/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://bidhya.github.io/tags/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>
