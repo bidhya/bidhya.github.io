@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cat2 on Bidhya N Yadav</title>
+    <link>https://bidhya.github.io/categories/cat2/</link>
+    <description>Recent content in cat2 on Bidhya N Yadav</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Aug 2020 14:10:52 -0400</lastBuildDate>
+    
+	<atom:link href="https://bidhya.github.io/categories/cat2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Github user page using Hugo on Windows</title>
+      <link>https://bidhya.github.io/post/my-first-post/</link>
+      <pubDate>Thu, 27 Aug 2020 14:10:52 -0400</pubDate>
+      
+      <guid>https://bidhya.github.io/post/my-first-post/</guid>
+      <description>Since most of the online instruction for Hugo was related to Mac/Linux, I decided to write post for my own sanity!
+Change1
+  Download Hugo executable from this site
+ Unzip and put on any folder Set path to to this exe file so that you can start using hugo command from any folder location    Create Hugo Project
+ hugo new site blog cd blog git submodule add https://github.</description>
+    </item>
+    
+  </channel>
+</rss>

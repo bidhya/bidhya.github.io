@@ -44,11 +44,11 @@ Change1
  hugo new site blog cd blog git submodule add https://github.">
 <meta itemprop="datePublished" content="2020-08-27T14:10:52-04:00" />
 <meta itemprop="dateModified" content="2020-08-27T14:10:52-04:00" />
-<meta itemprop="wordCount" content="220">
+<meta itemprop="wordCount" content="247">
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="tag1," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Github user page using Hugo on Windows"/>
 <meta name="twitter:description" content="Since most of the online instruction for Hugo was related to Mac/Linux, I decided to write post for my own sanity!
@@ -241,16 +241,24 @@ git commit -m &ldquo;generating web pages&rdquo;<br>
 git push origin master</p>
 </li>
 <li>
-<p>Add pages and update as follows
-hugo
-cd public
+<p>Add pages and update as follows<br>
+hugo<br>
+cd public<br>
 git push</p>
 </li>
 </ol>
 <p>Note:
 Add .gitignore inside the blog repo and add <code>public/</code><br>
 That way public pages are not hosted on blog repo</p>
+<p>Notes Specific to Hugo
+archetypes: to define frontmatter templates
+shortcodes: predefined html that can be inserted into md file
+taxonomies: tags inside the fornt matter or categories</p>
 <ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/tag1" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tag1</a>
+   </li>
   
 </ul>
 <div class="mt6 instapaper_ignoref">
