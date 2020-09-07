@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Bidhya N Yadav</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Aug 2020 14:38:06 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://bidhya.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GPU_for_tensorflow</title>
+      <link>https://bidhya.github.io/post/gpu_tf/</link>
+      <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bidhya.github.io/post/gpu_tf/</guid>
+      <description>GPU installation on Windows 10 for Tensorflow Even though installation of Tensorflow is more streamlined (even on Windows), there are still few nuances on uisng GPU. Here are the steps to using GPU with tensorflow.
+Refere to this page for specific GPU version of sofware/driver
+Important : Make sure to download the exact version specified on google site. Since, there is rapid updates to both tensorflow and nvidia downloading the latest NVIDIA drivers will not work.</description>
+    </item>
     
     <item>
       <title>Conda Enviornment Setup </title>
