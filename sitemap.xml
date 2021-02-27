@@ -4,20 +4,27 @@
   
   <url>
     <loc>https://bidhya.github.io/</loc>
-    <lastmod>2020-09-06T00:00:00+00:00</lastmod>
+    <lastmod>2021-02-27T15:12:38-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bidhya.github.io/post/gpu_tf/</loc>
-    <lastmod>2020-09-06T00:00:00+00:00</lastmod>
+    <loc>https://bidhya.github.io/post/links/</loc>
+    <lastmod>2021-02-27T15:12:38-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://bidhya.github.io/post/</loc>
+    <lastmod>2021-02-27T15:12:38-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://bidhya.github.io/post/gpu_tf/</loc>
     <lastmod>2020-09-06T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

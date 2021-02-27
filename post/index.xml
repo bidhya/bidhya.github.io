@@ -6,10 +6,35 @@
     <description>Recent content in Posts on Bidhya N Yadav</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Feb 2021 15:12:38 -0500</lastBuildDate>
     
 	<atom:link href="https://bidhya.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Links</title>
+      <link>https://bidhya.github.io/post/links/</link>
+      <pubDate>Sat, 27 Feb 2021 15:12:38 -0500</pubDate>
+      
+      <guid>https://bidhya.github.io/post/links/</guid>
+      <description>Link to interesting websites Geospatial https://rastervision.io/
+https://pangeo.io/ http://gallery.pangeo.io/
+http://stacspec.org/
+https://intake-stac.readthedocs.io/en/latest/
+Remote Sensing https://appliedsciences.nasa.gov/what-we-do/capacity-building/arset https://www.planet.com/markets/nasa/
+https://github.com/avanetten/CosmiQ_SN7_Baseline
+https://github.com/radiantearth
+HPC/SLURM https://help.rc.ufl.edu/doc/Sample_SLURM_Scripts
+https://help.rc.ufl.edu/doc/Prerecorded_Training
+Planet Interactive Guides: https://github.com/planetlabs/notebooks
+Keras Resources: https://github.com/fchollet/keras-resources
+https://github.com/fchollet/deep-learning-with-python-notebooks
+Pyocr: https://gitlab.gnome.org/World/OpenPaperwork/pyocr Geographic Data Science with PySAL - Scipy&#39;16: https://github.com/darribas/gds_scipy16
+Code for the book Open source geoprocessing with Python: https://github.com/cgarrard/osgeopy-code
+Documentation and samples for ArcGIS Python API: https://github.com/Esri/arcgis-python-api
+Civic Data Design Lab (MIT): https://github.com/civic-data-design-lab/big-data-spring2017
+Hydrology Related Tethys Platform - Water resources web app development platform: https://github.</description>
+    </item>
     
     <item>
       <title>GPU installation on Windows 10 for Tensorflow</title>
