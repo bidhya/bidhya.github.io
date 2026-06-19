@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gis-python-coding-quick-reference-bidhyas-stack" class="md-skip">
+        <a href="#geospatial-analysis-and-multi-dimensional-data-pipelines-vector-and-raster-reference-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -744,10 +744,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#your-preferred-library-stack" class="md-nav__link">
+  <a href="#core-architectural-library-stack" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Your Preferred Library Stack
+        Core Architectural Library Stack
       
     </span>
   </a>
@@ -805,15 +805,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#raster-operations-rioxarray-your-preferred-method" class="md-nav__link">
+  <a href="#raster-operations-rioxarray-dataset-integration-processing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raster Operations (Rioxarray - Your Preferred Method)
+        Raster Operations (Rioxarray - Dataset Integration &amp; Processing)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Raster Operations (Rioxarray - Your Preferred Method)">
+    <nav class="md-nav" aria-label="Raster Operations (Rioxarray - Dataset Integration &amp; Processing)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1785,10 +1785,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#your-preferred-library-stack" class="md-nav__link">
+  <a href="#core-architectural-library-stack" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Your Preferred Library Stack
+        Core Architectural Library Stack
       
     </span>
   </a>
@@ -1846,15 +1846,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#raster-operations-rioxarray-your-preferred-method" class="md-nav__link">
+  <a href="#raster-operations-rioxarray-dataset-integration-processing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raster Operations (Rioxarray - Your Preferred Method)
+        Raster Operations (Rioxarray - Dataset Integration &amp; Processing)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Raster Operations (Rioxarray - Your Preferred Method)">
+    <nav class="md-nav" aria-label="Raster Operations (Rioxarray - Dataset Integration &amp; Processing)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2389,10 +2389,11 @@
 
 
 
-<h1 id="gis-python-coding-quick-reference-bidhyas-stack">GIS Python Coding - Quick Reference (Bidhya's Stack)</h1>
-<h2 id="your-preferred-library-stack">Your Preferred Library Stack</h2>
+<h1 id="geospatial-analysis-and-multi-dimensional-data-pipelines-vector-and-raster-reference-guide">Geospatial Analysis and Multi-Dimensional Data Pipelines: Vector and Raster Reference Guide</h1>
+<p>This reference outlines production conventions and optimized design patterns for handling high-resolution satellite imagery, spatiotemporal array telemetry, and vector layers in Python.</p>
+<h2 id="core-architectural-library-stack">Core Architectural Library Stack</h2>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># ============================================================</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># CORE IMPORTS - YOUR GO-TO STACK</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># CORE IMPORTS - STANDARD PRODUCTION STACK</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># ============================================================</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># VECTOR OPERATIONS</span>
@@ -2400,21 +2401,21 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">box</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># RASTER OPERATIONS  </span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span>                 <span class="c1"># Modern raster I/O</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span>                 <span class="c1"># Optimized index and coordinate-aware raster I/O</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># GRIDDED/CLIMATE DATA (NetCDF)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># GRIDDED / SPATIOTEMPORAL DATA (NetCDF, GRIB, Zarr)</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># DATA &amp; COMPUTATION</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># MATRICES &amp; COMPUTATIONAL UTILITIES</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># FILE/WEB OPERATIONS</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># FILE &amp; SYSTEM OPERATIONS</span>
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>                        <span class="c1"># Your preferred file handling</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>                        <span class="c1"># Standard OS and file-system path operations</span>
 </span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
 </span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1"># ============================================================</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1"># BACKUP (Only if absolutely necessary!)</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1"># SUBSYSTEM BACKUPS (Reserved for legacy / low-level integrations)</span>
 </span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1"># ============================================================</span>
 </span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="c1"># import rasterio                # Use only if rioxarray won&#39;t work</span>
 </span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="c1"># import gdal                    # Last resort only</span>
@@ -2462,7 +2463,7 @@
 </span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
 </span></code></pre></div>
 <hr />
-<h2 id="raster-operations-rioxarray-your-preferred-method">Raster Operations (Rioxarray - Your Preferred Method)</h2>
+<h2 id="raster-operations-rioxarray-dataset-integration-processing">Raster Operations (Rioxarray - Dataset Integration &amp; Processing)</h2>
 <h3 id="read-raster">Read Raster</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>

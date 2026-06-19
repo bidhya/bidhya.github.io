@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kalman-filter-lidar-fusion-quick-reference" class="md-skip">
+        <a href="#implementing-kalman-filters-a-geosensing-guide-to-state-estimation-and-lidar-fusion" class="md-skip">
           Skip to content
         </a>
       
@@ -921,6 +921,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-production-considerations-and-implementation-trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Production Considerations and Implementation Trade-offs
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1496,6 +1507,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-production-considerations-and-implementation-trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Production Considerations and Implementation Trade-offs
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1513,12 +1535,8 @@
 
 
 
-<p>kalman_filter_lidar_notes.md</p>
-<p>Download</p>
-<h1 id="kalman-filter-lidar-fusion-quick-reference">Kalman Filter &amp; LiDAR Fusion — Quick Reference</h1>
-<blockquote>
-<p>Study notes for HD Mapping / LiDAR Software Engineer interview prep</p>
-</blockquote>
+<h1 id="implementing-kalman-filters-a-geosensing-guide-to-state-estimation-and-lidar-fusion">Implementing Kalman Filters: A Geosensing Guide to State Estimation and LiDAR Fusion</h1>
+<p>An engineering reference guide on the mathematical framework, covariance analysis, and multi-sensor fusion applications of Kalman filters in dynamic systems.</p>
 <hr />
 <h2 id="1-what-is-a-kalman-filter">1. What Is a Kalman Filter?</h2>
 <p>A mathematical algorithm that estimates the <strong>state of a dynamic system</strong> from noisy measurements over time.</p>
@@ -1650,7 +1668,13 @@ e.g. uncertainty in X position often correlates with uncertainty in X velocity.<
 <h2 id="4-key-advantage-for-autonomous-vehicles">4. Key Advantage for Autonomous Vehicles</h2>
 <p>Kalman filters handle <strong>uncertainty quantification</strong> via covariance matrices — knowing when to trust predictions vs. measurements. This is essential in noisy sensor environments like AV stacks combining LiDAR, IMU, and GPS.</p>
 <hr />
-<p><em>Notes compiled for Gatik Software Engineer — LiDAR/HD Mapping interview prep.</em></p>
+<h2 id="5-production-considerations-and-implementation-trade-offs">5. Production Considerations and Implementation Trade-offs</h2>
+<p>When deploying state estimation algorithms in real-time robotics, autonomous vehicle, or geospatial tracking pipelines, developers must address several engineering challenges:</p>
+<ul>
+<li><strong>Non-Linear State Transitions</strong>: Standard Kalman Filters (KF) assume linear relationships. Real-world systems require Extended Kalman Filters (EKF), which linearize non-linear state transitions using Jacobian matrices, or Unscented Kalman Filters (UKF), which use deterministic sigma points to capture the probability distribution. Selecting between EKF and UKF involves an engineering trade-off between computational cost and estimation accuracy.</li>
+<li><strong>Sensor Latency and Out-of-Sequence Measurements (OOSM)</strong>: Sensors report data at vastly different frequencies and with varying propagation delays. Real-time fusion engines must maintain a chronological buffer of states and covariances to rewind, insert a delayed measurement, and re-propagate predictions.</li>
+<li><strong>Covariance Optimization (Tuning)</strong>: Process noise <span class="arithmatex">\(Q\)</span> and measurement noise <span class="arithmatex">\(R\)</span> represent the mathematical representations of state physics uncertainty and sensor fidelity. Overestimating sensor reliability causes the filter to track noise, while underestimating it leads to lag. Tuning is usually achieved using system identification, statistical test runs, or optimization algorithms from flight/drive logs.</li>
+</ul>
 
 
 
