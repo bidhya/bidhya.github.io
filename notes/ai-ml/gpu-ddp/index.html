@@ -1,0 +1,3066 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Portfolio site showcasing expertise in Spatial Data Science, Remote Sensing, and Machine Learning.">
+      
+      
+        <meta name="author" content="Bidhyananda Yadav">
+      
+      
+        <link rel="canonical" href="https://bidhya.github.io/notes/ai-ml/gpu-ddp/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../transformers/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>GPU & Distributed Training - Bidhyananda Yadav | Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gpu-training-for-aiml-single-gpu-multi-gpu-ddp-and-hpc-primer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Bidhyananda Yadav | Portfolio" class="md-header__button md-logo" aria-label="Bidhyananda Yadav | Portfolio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bidhyananda Yadav | Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GPU & Distributed Training
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../profile/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About & Expertise
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Core Notes
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tutorials/" class="md-tabs__link">
+          
+  
+  
+  Code Tutorials & Notebooks
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Bidhyananda Yadav | Portfolio" class="md-nav__button md-logo" aria-label="Bidhyananda Yadav | Portfolio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bidhyananda Yadav | Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../profile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About & Expertise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI & Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI & Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU & Distributed Training
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU & Distributed Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-big-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Big Picture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-gpus-are-useful-for-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Why GPUs Are Useful for AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-cpu-vs-gpu-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. CPU vs GPU Mental Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-single-gpu-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Single-GPU Training
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-when-one-gpu-is-not-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. When One GPU Is Not Enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-types-of-multi-gpu-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Types of Multi-GPU Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-data-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Data Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-effective-batch-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Effective Batch Size
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-pytorch-dataparallel-vs-distributeddataparallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. PyTorch DataParallel vs DistributedDataParallel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-ddp-core-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. DDP Core Mental Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-what-torchrun-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. What torchrun Does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-same-node-multi-gpu-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Same Node Multi-GPU Training
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-multi-node-multi-gpu-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Multi-Node Multi-GPU Training
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-gradient-synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Gradient Synchronization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-nccl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. NCCL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-allreduce-intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. AllReduce Intuition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-distributedsampler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. DistributedSampler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-minimal-ddp-code-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Minimal DDP Code Pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-single-gpu-as-a-special-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Single GPU as a Special Case
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-slurm-and-gpu-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Slurm and GPU Allocation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-node-sharing-and-gpu-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. Node Sharing and GPU Allocation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-example-slurm-script-single-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. Example Slurm Script: Single GPU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-example-slurm-script-single-node-multi-gpu-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. Example Slurm Script: Single Node, Multi-GPU DDP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-example-slurm-script-multi-node-ddp-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24. Example Slurm Script: Multi-Node DDP Concept
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-failure-behavior-in-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25. Failure Behavior in DDP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-checkpointing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26. Checkpointing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-straggler-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27. Straggler Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-common-bottlenecks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28. Common Bottlenecks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="28. Common Bottlenecks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpu-compute-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU compute bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu-memory-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU memory bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-loading-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data loading bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communication-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-common-debugging-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29. Common Debugging Scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="29. Common Debugging Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#only-one-gpu-is-being-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Only one GPU is being used
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-gpu-job-is-slower-than-expected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-GPU job is slower than expected
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ddp-job-hangs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DDP job hangs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-of-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out of memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30-relationship-to-openmp-mpi-dask-and-joblib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30. Relationship to OpenMP, MPI, Dask, and Joblib
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-training-vs-inference-on-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        31. Training vs Inference on GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-large-transformer-training-and-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        32. Large Transformer Training and GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-model-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        33. Model Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-tensor-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        34. Tensor Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-pipeline-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35. Pipeline Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-hybrid-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36. Hybrid Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-practical-mental-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37. Practical Mental Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="37. Practical Mental Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-node-multi-gpu-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Node Multi-GPU DDP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-node-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Node DDP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-key-terms-glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        38. Key Terms Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        39. Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#40-one-line-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        40. One-Line Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformer Decoders & QKV
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial & Remote Sensing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geospatial & Remote Sensing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/gis-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Stack (Bidhya)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/kalman-filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kalman Filters & LiDAR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/hyperspectral-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hyperspectral Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Tutorials & Notebooks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Code Tutorials & Notebooks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/ocean-color/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NASA PACE Ocean Color
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/change-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sentinel-2 Change Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-big-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Big Picture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-gpus-are-useful-for-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Why GPUs Are Useful for AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-cpu-vs-gpu-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. CPU vs GPU Mental Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-single-gpu-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Single-GPU Training
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-when-one-gpu-is-not-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. When One GPU Is Not Enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-types-of-multi-gpu-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Types of Multi-GPU Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-data-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Data Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-effective-batch-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Effective Batch Size
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-pytorch-dataparallel-vs-distributeddataparallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. PyTorch DataParallel vs DistributedDataParallel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-ddp-core-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. DDP Core Mental Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-what-torchrun-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. What torchrun Does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-same-node-multi-gpu-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Same Node Multi-GPU Training
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-multi-node-multi-gpu-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Multi-Node Multi-GPU Training
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-gradient-synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Gradient Synchronization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-nccl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. NCCL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-allreduce-intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. AllReduce Intuition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-distributedsampler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. DistributedSampler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-minimal-ddp-code-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Minimal DDP Code Pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-single-gpu-as-a-special-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Single GPU as a Special Case
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-slurm-and-gpu-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Slurm and GPU Allocation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-node-sharing-and-gpu-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. Node Sharing and GPU Allocation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-example-slurm-script-single-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. Example Slurm Script: Single GPU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-example-slurm-script-single-node-multi-gpu-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. Example Slurm Script: Single Node, Multi-GPU DDP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-example-slurm-script-multi-node-ddp-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24. Example Slurm Script: Multi-Node DDP Concept
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-failure-behavior-in-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25. Failure Behavior in DDP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-checkpointing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26. Checkpointing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-straggler-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27. Straggler Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-common-bottlenecks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28. Common Bottlenecks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="28. Common Bottlenecks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpu-compute-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU compute bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu-memory-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU memory bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-loading-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data loading bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communication-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-common-debugging-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29. Common Debugging Scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="29. Common Debugging Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#only-one-gpu-is-being-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Only one GPU is being used
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-gpu-job-is-slower-than-expected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-GPU job is slower than expected
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ddp-job-hangs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DDP job hangs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-of-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out of memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30-relationship-to-openmp-mpi-dask-and-joblib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30. Relationship to OpenMP, MPI, Dask, and Joblib
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-training-vs-inference-on-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        31. Training vs Inference on GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-large-transformer-training-and-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        32. Large Transformer Training and GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-model-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        33. Model Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-tensor-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        34. Tensor Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-pipeline-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35. Pipeline Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-hybrid-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36. Hybrid Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-practical-mental-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37. Practical Mental Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="37. Practical Mental Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-node-multi-gpu-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Node Multi-GPU DDP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-node-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Node DDP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline Parallelism
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-key-terms-glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        38. Key Terms Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        39. Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#40-one-line-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        40. One-Line Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="gpu-training-for-aiml-single-gpu-multi-gpu-ddp-and-hpc-primer">GPU Training for AI/ML — Single-GPU, Multi-GPU, DDP, and HPC Primer</h1>
+<h2 id="1-big-picture">1. Big Picture</h2>
+<p>Modern deep learning training is dominated by large tensor operations such as matrix multiplication, convolution, and attention. GPUs are designed for high-throughput parallel computation, which makes them well suited for neural network training.</p>
+<p>At a high level:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CPU: good at general-purpose control logic and sequential work
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>GPU: good at doing many similar numerical operations in parallel
+</span></code></pre></div>
+<p>Deep learning models repeatedly apply the same mathematical operations to large batches of data. This maps naturally to GPU hardware.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Training Data] --&gt; B[Model Forward Pass]
+    B --&gt; C[Loss Computation]
+    C --&gt; D[Backward Pass / Gradients]
+    D --&gt; E[Optimizer Step]
+    E --&gt; B</code></pre>
+<hr />
+<h2 id="2-why-gpus-are-useful-for-ai">2. Why GPUs Are Useful for AI</h2>
+<p>GPUs are useful for AI because neural networks are mostly built from dense linear algebra.</p>
+<p>Common GPU-accelerated operations include:</p>
+<ul>
+<li>matrix multiplication</li>
+<li>convolution</li>
+<li>attention</li>
+<li>normalization</li>
+<li>activation functions</li>
+<li>tensor reshaping and reductions</li>
+</ul>
+<p>The most important operation in many models is matrix multiplication:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Y = XW
+</span></code></pre></div>
+<p>where:</p>
+<ul>
+<li><code>X</code> is input data</li>
+<li><code>W</code> is model weights</li>
+<li><code>Y</code> is output activations</li>
+</ul>
+<p>These operations can be split into many small parallel computations, which GPUs handle efficiently.</p>
+<hr />
+<h2 id="3-cpu-vs-gpu-mental-model">3. CPU vs GPU Mental Model</h2>
+<p>A useful simplified view:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>CPU = few powerful workers
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>GPU = many simpler workers
+</span></code></pre></div>
+<p>CPUs are strong for:</p>
+<ul>
+<li>operating system tasks</li>
+<li>job orchestration</li>
+<li>data loading</li>
+<li>preprocessing</li>
+<li>control flow</li>
+</ul>
+<p>GPUs are strong for:</p>
+<ul>
+<li>tensor math</li>
+<li>training neural networks</li>
+<li>large-batch inference</li>
+<li>matrix multiplication</li>
+</ul>
+<p>In deep learning training, the CPU often feeds data to the GPU, while the GPU performs the heavy numerical computation.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Disk / Dataset] --&gt; B[CPU DataLoader]
+    B --&gt; C[Preprocessing]
+    C --&gt; D[GPU Tensor Computation]
+    D --&gt; E[Loss / Gradients]</code></pre>
+<hr />
+<h2 id="4-single-gpu-training">4. Single-GPU Training</h2>
+<p>Single-GPU training is the simplest case.</p>
+<p>A typical PyTorch workflow looks like:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>load data → move batch to GPU → forward pass → loss → backward pass → optimizer step
+</span></code></pre></div>
+<p>Conceptually:</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Batch of Data] --&gt; B[Move to GPU]
+    B --&gt; C[Model Forward]
+    C --&gt; D[Loss]
+    D --&gt; E[Backward / Gradients]
+    E --&gt; F[Optimizer Step]</code></pre>
+<p>In PyTorch, this usually means:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Single-GPU training is easy to reason about, but it is limited by:</p>
+<ul>
+<li>GPU memory</li>
+<li>GPU compute capacity</li>
+<li>data loading speed</li>
+<li>training time</li>
+</ul>
+<hr />
+<h2 id="5-when-one-gpu-is-not-enough">5. When One GPU Is Not Enough</h2>
+<p>Multiple GPUs may be needed when:</p>
+<ol>
+<li>The model is too large for one GPU.</li>
+<li>The batch size is too large for one GPU.</li>
+<li>Training time on one GPU is too slow.</li>
+<li>The dataset is very large.</li>
+<li>The model is a large Transformer or other foundation model.</li>
+</ol>
+<p>There are different ways to use multiple GPUs depending on the bottleneck.</p>
+<hr />
+<h2 id="6-types-of-multi-gpu-parallelism">6. Types of Multi-GPU Parallelism</h2>
+<p>The major categories are:</p>
+<ol>
+<li>Data parallelism</li>
+<li>Model parallelism</li>
+<li>Tensor parallelism</li>
+<li>Pipeline parallelism</li>
+<li>Hybrid parallelism</li>
+</ol>
+<pre class="mermaid"><code>flowchart TD
+    A[Multi-GPU Training] --&gt; B[Data Parallelism]
+    A --&gt; C[Model / Tensor Parallelism]
+    A --&gt; D[Pipeline Parallelism]
+    A --&gt; E[Hybrid Parallelism]</code></pre>
+<p>For many users and many research workflows, <strong>data parallelism with PyTorch DistributedDataParallel (DDP)</strong> is the most common starting point.</p>
+<hr />
+<h2 id="7-data-parallelism">7. Data Parallelism</h2>
+<p>Data parallelism means:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>same model on each GPU
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>different data on each GPU
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>synchronize gradients after backward pass
+</span></code></pre></div>
+<p>Example with four GPUs:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>GPU0: model copy + batch A
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>GPU1: model copy + batch B
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>GPU2: model copy + batch C
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>GPU3: model copy + batch D
+</span></code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+    A[Dataset Batch] --&gt; B[Split Batch]
+    B --&gt; C[GPU0: batch A]
+    B --&gt; D[GPU1: batch B]
+    B --&gt; E[GPU2: batch C]
+    B --&gt; F[GPU3: batch D]
+
+    C --&gt; G[Gradients]
+    D --&gt; G
+    E --&gt; G
+    F --&gt; G
+    G --&gt; H[Average Gradients]
+    H --&gt; I[Update All Model Copies]</code></pre>
+<p>Each GPU computes gradients based on its own mini-batch. Then gradients are averaged so that all model copies remain synchronized.</p>
+<hr />
+<h2 id="8-effective-batch-size">8. Effective Batch Size</h2>
+<p>In data parallel training, the effective batch size increases with the number of GPUs.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>effective_batch_size = batch_size_per_gpu × number_of_gpus
+</span></code></pre></div>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>batch_size_per_gpu = 32
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>number_of_gpus = 4
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>effective_batch_size = 32 × 4 = 128
+</span></code></pre></div>
+<p>This matters because changing effective batch size can affect optimization behavior. Sometimes the learning rate or training schedule needs adjustment when scaling to many GPUs.</p>
+<hr />
+<h2 id="9-pytorch-dataparallel-vs-distributeddataparallel">9. PyTorch DataParallel vs DistributedDataParallel</h2>
+<p>PyTorch has historically offered two common approaches:</p>
+<ol>
+<li><code>torch.nn.DataParallel</code></li>
+<li><code>torch.nn.parallel.DistributedDataParallel</code></li>
+</ol>
+<p><code>DataParallel</code> is simpler but generally not recommended for modern multi-GPU training. It uses one Python process and splits work across GPUs, often creating a bottleneck on the primary GPU.</p>
+<p><code>DistributedDataParallel</code> (DDP) is the recommended approach. It uses one process per GPU and performs efficient gradient synchronization.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>DataParallel:
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>1 process → multiple GPUs
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>DistributedDataParallel:
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>multiple processes → one GPU per process
+</span></code></pre></div>
+<pre class="mermaid"><code>flowchart TD
+    A[Multi-GPU PyTorch] --&gt; B[DataParallel]
+    A --&gt; C[DistributedDataParallel]
+    B --&gt; B1[Single process; easier but slower]
+    C --&gt; C1[One process per GPU; recommended]</code></pre>
+<hr />
+<h2 id="10-ddp-core-mental-model">10. DDP Core Mental Model</h2>
+<p>The most useful mental model for DDP is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Each GPU has one process.
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Each process has one model copy.
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Each process receives different data.
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Gradients are synchronized every training step.
+</span></code></pre></div>
+<p>With four GPUs:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Process 0 → GPU0 → model copy → data shard A
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Process 1 → GPU1 → model copy → data shard B
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Process 2 → GPU2 → model copy → data shard C
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Process 3 → GPU3 → model copy → data shard D
+</span></code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+    P0[Process 0] --&gt; G0[GPU 0]
+    P1[Process 1] --&gt; G1[GPU 1]
+    P2[Process 2] --&gt; G2[GPU 2]
+    P3[Process 3] --&gt; G3[GPU 3]
+
+    G0 --&gt; S[Gradient Synchronization]
+    G1 --&gt; S
+    G2 --&gt; S
+    G3 --&gt; S</code></pre>
+<hr />
+<h2 id="11-what-torchrun-does">11. What <code>torchrun</code> Does</h2>
+<p>For DDP, you usually do not launch the script with plain <code>python train.py</code> when using multiple GPUs.</p>
+<p>Instead, you use:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>torchrun<span class="w"> </span>--nproc_per_node<span class="o">=</span><span class="m">4</span><span class="w"> </span>train.py
+</span></code></pre></div>
+<p>This launches four Python processes on the node.</p>
+<p><code>torchrun</code> sets environment variables such as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>LOCAL_RANK
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>RANK
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>WORLD_SIZE
+</span></code></pre></div>
+<p>Meaning:</p>
+<ul>
+<li><code>LOCAL_RANK</code>: process index on the local node, often maps to local GPU ID</li>
+<li><code>RANK</code>: global process index across all processes</li>
+<li><code>WORLD_SIZE</code>: total number of processes</li>
+</ul>
+<p>For one node with four GPUs:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>WORLD_SIZE = 4
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>RANK = 0, 1, 2, 3
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>LOCAL_RANK = 0, 1, 2, 3
+</span></code></pre></div>
+<hr />
+<h2 id="12-same-node-multi-gpu-training">12. Same Node Multi-GPU Training</h2>
+<p>When all GPUs are on the same physical node, communication happens through local GPU interconnects such as PCIe or NVLink.</p>
+<p>Example:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>torchrun<span class="w"> </span>--nproc_per_node<span class="o">=</span><span class="m">4</span><span class="w"> </span>train.py
+</span></code></pre></div>
+<p>A common Slurm job request might look like:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">#SBATCH --nodes=1</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="c1">#SBATCH --gres=gpu:4</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1">#SBATCH --cpus-per-task=8</span>
+</span></code></pre></div>
+<p>Inside the job script:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>torchrun<span class="w"> </span>--nproc_per_node<span class="o">=</span><span class="m">4</span><span class="w"> </span>train.py
+</span></code></pre></div>
+<p>Same-node multi-GPU is generally easier and faster than multi-node training because communication stays within one machine.</p>
+<hr />
+<h2 id="13-multi-node-multi-gpu-training">13. Multi-Node Multi-GPU Training</h2>
+<p>Multi-node training extends the same DDP idea across multiple machines.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>4 nodes × 4 GPUs per node = 16 GPUs total
+</span></code></pre></div>
+<p>The conceptual model remains:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>one process per GPU
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>one model copy per process
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>different data per process
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>gradient synchronization across all processes
+</span></code></pre></div>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Node1
+        A1[GPU0/P0]
+        A2[GPU1/P1]
+        A3[GPU2/P2]
+        A4[GPU3/P3]
+    end
+
+    subgraph Node2
+        B1[GPU0/P4]
+        B2[GPU1/P5]
+        B3[GPU2/P6]
+        B4[GPU3/P7]
+    end
+
+    A1 --&gt; S[Global Gradient Sync]
+    A2 --&gt; S
+    A3 --&gt; S
+    A4 --&gt; S
+    B1 --&gt; S
+    B2 --&gt; S
+    B3 --&gt; S
+    B4 --&gt; S</code></pre>
+<p>The main difference is that synchronization now crosses the network. This makes communication performance much more important.</p>
+<hr />
+<h2 id="14-gradient-synchronization">14. Gradient Synchronization</h2>
+<p>In DDP, synchronization happens during the backward pass.</p>
+<p>Each GPU computes gradients from its own data. Then DDP averages gradients across all processes.</p>
+<p>Conceptually:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>final_gradient = average(gradient_GPU0, gradient_GPU1, gradient_GPU2, gradient_GPU3)
+</span></code></pre></div>
+<p>Then each process applies the same optimizer update.</p>
+<p>This keeps all model copies identical.</p>
+<p>Important point:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Gradient synchronization happens every batch / step, not once per epoch.
+</span></code></pre></div>
+<pre class="mermaid"><code>sequenceDiagram
+    participant G0 as GPU0
+    participant G1 as GPU1
+    participant G2 as GPU2
+    participant G3 as GPU3
+
+    G0-&gt;&gt;G0: Forward + Backward
+    G1-&gt;&gt;G1: Forward + Backward
+    G2-&gt;&gt;G2: Forward + Backward
+    G3-&gt;&gt;G3: Forward + Backward
+
+    G0-&gt;&gt;G1: AllReduce gradients
+    G1-&gt;&gt;G2: AllReduce gradients
+    G2-&gt;&gt;G3: AllReduce gradients
+    G3-&gt;&gt;G0: AllReduce gradients
+
+    G0-&gt;&gt;G0: Optimizer step
+    G1-&gt;&gt;G1: Optimizer step
+    G2-&gt;&gt;G2: Optimizer step
+    G3-&gt;&gt;G3: Optimizer step</code></pre>
+<hr />
+<h2 id="15-nccl">15. NCCL</h2>
+<p>NCCL stands for NVIDIA Collective Communications Library.</p>
+<p>It is a communication backend optimized for GPU-to-GPU communication.</p>
+<p>PyTorch DDP commonly uses NCCL for GPU training:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">dist</span><span class="o">.</span><span class="n">init_process_group</span><span class="p">(</span><span class="s2">&quot;nccl&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>NCCL handles collective operations such as:</p>
+<ul>
+<li>AllReduce</li>
+<li>Broadcast</li>
+<li>ReduceScatter</li>
+<li>AllGather</li>
+</ul>
+<p>For DDP, the most important concept is AllReduce, which is used to combine gradients across GPUs.</p>
+<hr />
+<h2 id="16-allreduce-intuition">16. AllReduce Intuition</h2>
+<p>AllReduce is a collective operation where all processes contribute values and all receive the combined result.</p>
+<p>For gradient averaging:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Each GPU contributes its gradients.
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>All GPUs receive the averaged gradients.
+</span></code></pre></div>
+<p>This avoids sending everything to one central GPU and helps communication scale better.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[GPU0 Gradient] --&gt; E[AllReduce]
+    B[GPU1 Gradient] --&gt; E
+    C[GPU2 Gradient] --&gt; E
+    D[GPU3 Gradient] --&gt; E
+    E --&gt; F[Average Gradient on GPU0]
+    E --&gt; G[Average Gradient on GPU1]
+    E --&gt; H[Average Gradient on GPU2]
+    E --&gt; I[Average Gradient on GPU3]</code></pre>
+<hr />
+<h2 id="17-distributedsampler">17. DistributedSampler</h2>
+<p>In DDP, each process should see a different slice of the dataset.</p>
+<p>Without this, every GPU might train on the same examples, wasting computation.</p>
+<p>PyTorch provides <code>DistributedSampler</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data.distributed</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistributedSampler</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">sampler</span> <span class="o">=</span> <span class="n">DistributedSampler</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="n">loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">sampler</span><span class="o">=</span><span class="n">sampler</span><span class="p">)</span>
+</span></code></pre></div>
+<p>At the start of each epoch, it is common to call:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">sampler</span><span class="o">.</span><span class="n">set_epoch</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span>
+</span></code></pre></div>
+<p>This ensures proper shuffling across epochs.</p>
+<hr />
+<h2 id="18-minimal-ddp-code-pattern">18. Minimal DDP Code Pattern</h2>
+<p>A simplified DDP structure:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch.distributed</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dist</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">torch.nn.parallel</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistributedDataParallel</span> <span class="k">as</span> <span class="n">DDP</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">setup_distributed</span><span class="p">():</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>    <span class="n">distributed</span> <span class="o">=</span> <span class="s2">&quot;RANK&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>    <span class="k">if</span> <span class="n">distributed</span><span class="p">:</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>        <span class="n">dist</span><span class="o">.</span><span class="n">init_process_group</span><span class="p">(</span><span class="s2">&quot;nccl&quot;</span><span class="p">)</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>        <span class="n">local_rank</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;LOCAL_RANK&quot;</span><span class="p">])</span>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>        <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">set_device</span><span class="p">(</span><span class="n">local_rank</span><span class="p">)</span>
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>        <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">,</span> <span class="n">local_rank</span><span class="p">)</span>
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>        <span class="n">local_rank</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>        <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>
+</span><span id="__span-26-19"><a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>    <span class="k">return</span> <span class="n">distributed</span><span class="p">,</span> <span class="n">local_rank</span><span class="p">,</span> <span class="n">device</span>
+</span><span id="__span-26-20"><a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>
+</span><span id="__span-26-21"><a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>
+</span><span id="__span-26-22"><a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a><span class="n">distributed</span><span class="p">,</span> <span class="n">local_rank</span><span class="p">,</span> <span class="n">device</span> <span class="o">=</span> <span class="n">setup_distributed</span><span class="p">()</span>
+</span><span id="__span-26-23"><a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a>
+</span><span id="__span-26-24"><a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a><span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</span><span id="__span-26-25"><a id="__codelineno-26-25" name="__codelineno-26-25" href="#__codelineno-26-25"></a>
+</span><span id="__span-26-26"><a id="__codelineno-26-26" name="__codelineno-26-26" href="#__codelineno-26-26"></a><span class="k">if</span> <span class="n">distributed</span><span class="p">:</span>
+</span><span id="__span-26-27"><a id="__codelineno-26-27" name="__codelineno-26-27" href="#__codelineno-26-27"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">DDP</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">device_ids</span><span class="o">=</span><span class="p">[</span><span class="n">local_rank</span><span class="p">])</span>
+</span></code></pre></div>
+<p>This pattern allows the same script to run in single-GPU or multi-GPU mode.</p>
+<hr />
+<h2 id="19-single-gpu-as-a-special-case">19. Single GPU as a Special Case</h2>
+<p>A robust training script can treat single-GPU training as a special case of distributed training.</p>
+<p>Typical execution modes:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>python<span class="w"> </span>train.py
+</span></code></pre></div>
+<p>for single GPU, or:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>torchrun<span class="w"> </span>--nproc_per_node<span class="o">=</span><span class="m">4</span><span class="w"> </span>train.py
+</span></code></pre></div>
+<p>for four GPUs.</p>
+<p>The code can detect whether distributed variables exist and adapt automatically.</p>
+<p>This is useful because the same core training script can scale from a local workstation to an HPC node.</p>
+<hr />
+<h2 id="20-slurm-and-gpu-allocation">20. Slurm and GPU Allocation</h2>
+<p>On HPC systems, Slurm allocates GPUs as scheduled resources.</p>
+<p>A job may request GPUs like this:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1">#SBATCH --gres=gpu:1</span>
+</span></code></pre></div>
+<p>or:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1">#SBATCH --gres=gpu:4</span>
+</span></code></pre></div>
+<p>Slurm controls which GPUs are visible to the job using environment variables such as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>CUDA_VISIBLE_DEVICES
+</span></code></pre></div>
+<p>If a node has four GPUs and a job requests two, Slurm may expose only two GPUs to that job.</p>
+<p>Inside the job, PyTorch sees those assigned GPUs as logical device IDs starting from 0.</p>
+<hr />
+<h2 id="21-node-sharing-and-gpu-allocation">21. Node Sharing and GPU Allocation</h2>
+<p>If a node has multiple GPUs, Slurm may allow multiple users to share the node as long as resources do not conflict.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Node has 4 GPUs
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>User A requests 2 GPUs
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>User B requests 1 GPU
+</span></code></pre></div>
+<p>Both jobs may run on the same node if enough CPU, memory, and GPU resources remain.</p>
+<p>If a node has only one GPU and two users each request one GPU, both GPU jobs should not run at the same time on that node. One job should wait until the GPU is free.</p>
+<p>A GPU job and a CPU-only job can often share the same node if the cluster policy allows it, because only one job needs the GPU.</p>
+<hr />
+<h2 id="22-example-slurm-script-single-gpu">22. Example Slurm Script: Single GPU</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="c1">#SBATCH --job-name=single_gpu_train</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="c1">#SBATCH --nodes=1</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="c1">#SBATCH --gres=gpu:1</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="c1">#SBATCH --cpus-per-task=8</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="c1">#SBATCH --time=02:00:00</span>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="c1">#SBATCH --output=single_gpu_%j.out</span>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>module<span class="w"> </span>load<span class="w"> </span>cuda
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>conda<span class="w"> </span>activate<span class="w"> </span>myenv
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>python<span class="w"> </span>train.py
+</span></code></pre></div>
+<p>This runs one Python process using one GPU.</p>
+<hr />
+<h2 id="23-example-slurm-script-single-node-multi-gpu-ddp">23. Example Slurm Script: Single Node, Multi-GPU DDP</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="c1">#SBATCH --job-name=ddp_single_node</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="c1">#SBATCH --nodes=1</span>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="c1">#SBATCH --gres=gpu:4</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="c1">#SBATCH --cpus-per-task=8</span>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="c1">#SBATCH --time=02:00:00</span>
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="c1">#SBATCH --output=ddp_%j.out</span>
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>module<span class="w"> </span>load<span class="w"> </span>cuda
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>conda<span class="w"> </span>activate<span class="w"> </span>myenv
+</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>
+</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>torchrun<span class="w"> </span>--nproc_per_node<span class="o">=</span><span class="m">4</span><span class="w"> </span>train.py
+</span></code></pre></div>
+<p>This launches four processes, one per GPU.</p>
+<hr />
+<h2 id="24-example-slurm-script-multi-node-ddp-concept">24. Example Slurm Script: Multi-Node DDP Concept</h2>
+<p>A multi-node DDP script requires coordination between nodes. The exact script depends on cluster configuration, but conceptually it needs:</p>
+<ul>
+<li>number of nodes</li>
+<li>processes per node</li>
+<li>master address</li>
+<li>master port</li>
+<li>node rank</li>
+</ul>
+<p>Example structure:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="c1">#SBATCH --job-name=ddp_multi_node</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="c1">#SBATCH --nodes=2</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="c1">#SBATCH --gres=gpu:4</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="c1">#SBATCH --ntasks-per-node=1</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="c1">#SBATCH --cpus-per-task=16</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="c1">#SBATCH --time=04:00:00</span>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="c1">#SBATCH --output=ddp_multinode_%j.out</span>
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>module<span class="w"> </span>load<span class="w"> </span>cuda
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>conda<span class="w"> </span>activate<span class="w"> </span>myenv
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="nv">MASTER_ADDR</span><span class="o">=</span><span class="k">$(</span>scontrol<span class="w"> </span>show<span class="w"> </span>hostnames<span class="w"> </span><span class="nv">$SLURM_JOB_NODELIST</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="k">)</span>
+</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="nv">MASTER_PORT</span><span class="o">=</span><span class="m">29500</span>
+</span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a><span class="nv">NNODES</span><span class="o">=</span><span class="nv">$SLURM_JOB_NUM_NODES</span>
+</span><span id="__span-35-16"><a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="nv">NPROC_PER_NODE</span><span class="o">=</span><span class="m">4</span>
+</span><span id="__span-35-17"><a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a><span class="nv">NODE_RANK</span><span class="o">=</span><span class="nv">$SLURM_NODEID</span>
+</span><span id="__span-35-18"><a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a>
+</span><span id="__span-35-19"><a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a>torchrun<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-35-20"><a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a><span class="w">  </span>--nnodes<span class="o">=</span><span class="nv">$NNODES</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-35-21"><a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a><span class="w">  </span>--nproc_per_node<span class="o">=</span><span class="nv">$NPROC_PER_NODE</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-35-22"><a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a><span class="w">  </span>--node_rank<span class="o">=</span><span class="nv">$NODE_RANK</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-35-23"><a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a><span class="w">  </span>--master_addr<span class="o">=</span><span class="nv">$MASTER_ADDR</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-35-24"><a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a><span class="w">  </span>--master_port<span class="o">=</span><span class="nv">$MASTER_PORT</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-35-25"><a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a><span class="w">  </span>train.py
+</span></code></pre></div>
+<p>Some clusters prefer launching with <code>srun</code>; others use <code>torchrun</code> directly inside the allocation. The best approach depends on site policy.</p>
+<hr />
+<h2 id="25-failure-behavior-in-ddp">25. Failure Behavior in DDP</h2>
+<p>Standard DDP is synchronous and not fault tolerant by default.</p>
+<p>This means:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>slow GPU → all GPUs wait
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>failed GPU/process → whole job usually fails
+</span></code></pre></div>
+<p>DDP does not automatically remove a bad GPU or redistribute its data to other GPUs.</p>
+<p>The usual mitigation is checkpointing.</p>
+<hr />
+<h2 id="26-checkpointing">26. Checkpointing</h2>
+<p>Checkpointing periodically saves training state so that a failed job can restart from the last saved point.</p>
+<p>A useful checkpoint may include:</p>
+<ul>
+<li>model weights</li>
+<li>optimizer state</li>
+<li>scheduler state</li>
+<li>epoch number</li>
+<li>random number generator states</li>
+</ul>
+<p>In DDP, usually only rank 0 saves the checkpoint to avoid multiple processes writing the same file.</p>
+<p>Example pattern:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">distributed</span> <span class="ow">or</span> <span class="n">dist</span><span class="o">.</span><span class="n">get_rank</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">,</span> <span class="s2">&quot;checkpoint.pt&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>When using DDP, the underlying model may be accessed as:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="n">model</span><span class="o">.</span><span class="n">module</span>
+</span></code></pre></div>
+<p>because DDP wraps the original model.</p>
+<hr />
+<h2 id="27-straggler-problem">27. Straggler Problem</h2>
+<p>Because DDP is synchronous, all processes must reach synchronization points together.</p>
+<p>If one GPU is slow, all other GPUs wait.</p>
+<p>Causes of stragglers include:</p>
+<ul>
+<li>uneven data loading</li>
+<li>slow storage access</li>
+<li>overloaded CPU</li>
+<li>hardware differences</li>
+<li>network issues</li>
+<li>thermal throttling</li>
+</ul>
+<pre class="mermaid"><code>sequenceDiagram
+    participant G0 as Fast GPU
+    participant G1 as Fast GPU
+    participant G2 as Slow GPU
+
+    G0-&gt;&gt;G0: Finish backward early
+    G1-&gt;&gt;G1: Finish backward early
+    G2-&gt;&gt;G2: Still computing
+    G0-&gt;&gt;G0: Wait
+    G1-&gt;&gt;G1: Wait
+    G2-&gt;&gt;G2: Finish backward
+    G0-&gt;&gt;G2: Synchronize gradients
+    G1-&gt;&gt;G2: Synchronize gradients</code></pre>
+<hr />
+<h2 id="28-common-bottlenecks">28. Common Bottlenecks</h2>
+<p>Multi-GPU training can be limited by several bottlenecks.</p>
+<h3 id="gpu-compute-bottleneck">GPU compute bottleneck</h3>
+<p>The model is using the GPU heavily and training speed is limited by GPU math throughput.</p>
+<h3 id="gpu-memory-bottleneck">GPU memory bottleneck</h3>
+<p>The model or batch size is too large for GPU memory.</p>
+<h3 id="data-loading-bottleneck">Data loading bottleneck</h3>
+<p>The GPU waits for the CPU or storage system to prepare batches.</p>
+<h3 id="communication-bottleneck">Communication bottleneck</h3>
+<p>GPUs spend too much time synchronizing gradients.</p>
+<h3 id="network-bottleneck">Network bottleneck</h3>
+<p>In multi-node training, inter-node communication may limit scaling.</p>
+<hr />
+<h2 id="29-common-debugging-scenarios">29. Common Debugging Scenarios</h2>
+<h3 id="only-one-gpu-is-being-used">Only one GPU is being used</h3>
+<p>Likely causes:</p>
+<ul>
+<li>launched with <code>python train.py</code> instead of <code>torchrun</code></li>
+<li>model not wrapped in DDP</li>
+<li>code hardcoded to one GPU</li>
+</ul>
+<h3 id="multi-gpu-job-is-slower-than-expected">Multi-GPU job is slower than expected</h3>
+<p>Likely causes:</p>
+<ul>
+<li>data loading bottleneck</li>
+<li>too small batch size per GPU</li>
+<li>excessive communication</li>
+<li>slow storage</li>
+<li>imbalance across processes</li>
+</ul>
+<h3 id="ddp-job-hangs">DDP job hangs</h3>
+<p>Likely causes:</p>
+<ul>
+<li>one process crashed silently</li>
+<li>mismatch in number of processes</li>
+<li>all processes did not call the same collective operation</li>
+<li>networking or NCCL issue</li>
+<li>different code path on different ranks</li>
+</ul>
+<h3 id="out-of-memory">Out of memory</h3>
+<p>Likely fixes:</p>
+<ul>
+<li>reduce batch size</li>
+<li>use mixed precision</li>
+<li>use gradient checkpointing</li>
+<li>use model/tensor parallelism</li>
+<li>reduce sequence length</li>
+</ul>
+<hr />
+<h2 id="30-relationship-to-openmp-mpi-dask-and-joblib">30. Relationship to OpenMP, MPI, Dask, and Joblib</h2>
+<p>Traditional HPC often uses MPI and OpenMP.</p>
+<p>OpenMP:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>shared-memory threading within a node
+</span></code></pre></div>
+<p>MPI:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>process-based distributed communication across nodes
+</span></code></pre></div>
+<p>PyTorch DDP is conceptually closer to MPI because it uses multiple processes and collective communication. However, users usually do not write MPI code directly.</p>
+<p>Dask and joblib are higher-level Python tools for parallelism.</p>
+<p>A useful mapping:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>joblib → high-level local parallelism
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>dask → high-level distributed task parallelism
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>DDP → distributed synchronous deep learning training
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>MPI → lower-level distributed message passing
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>OpenMP → lower-level shared-memory threading
+</span></code></pre></div>
+<hr />
+<h2 id="31-training-vs-inference-on-gpus">31. Training vs Inference on GPUs</h2>
+<p>Training requires:</p>
+<ul>
+<li>forward pass</li>
+<li>loss computation</li>
+<li>backward pass</li>
+<li>gradient synchronization</li>
+<li>optimizer update</li>
+</ul>
+<p>Inference usually requires:</p>
+<ul>
+<li>forward pass only</li>
+</ul>
+<p>Training is typically much more memory-intensive because it must store activations for backpropagation.</p>
+<p>For decoder-only Transformers, inference generates one token at a time, often using a KV cache to avoid recomputing previous attention keys and values.</p>
+<hr />
+<h2 id="32-large-transformer-training-and-gpus">32. Large Transformer Training and GPUs</h2>
+<p>Large Transformer training may require more than data parallelism.</p>
+<p>Reasons:</p>
+<ul>
+<li>model too large for one GPU</li>
+<li>optimizer states too large</li>
+<li>activation memory too large</li>
+<li>sequence length too long</li>
+</ul>
+<p>Additional strategies include:</p>
+<ul>
+<li>mixed precision training</li>
+<li>gradient checkpointing</li>
+<li>tensor parallelism</li>
+<li>pipeline parallelism</li>
+<li>ZeRO optimizer sharding</li>
+<li>fully sharded data parallelism</li>
+</ul>
+<p>These techniques reduce memory pressure and/or distribute model components across GPUs.</p>
+<hr />
+<h2 id="33-model-parallelism">33. Model Parallelism</h2>
+<p>Model parallelism splits the model across GPUs.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>GPU0 → first layers
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>GPU1 → later layers
+</span></code></pre></div>
+<p>This is useful when the model does not fit on one GPU.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Input] --&gt; B[Layers 1-12 on GPU0]
+    B --&gt; C[Layers 13-24 on GPU1]
+    C --&gt; D[Output]</code></pre>
+<p>The downside is that GPUs may wait on each other unless carefully pipelined.</p>
+<hr />
+<h2 id="34-tensor-parallelism">34. Tensor Parallelism</h2>
+<p>Tensor parallelism splits individual matrix operations across GPUs.</p>
+<p>Instead of putting different layers on different GPUs, a single large layer may be partitioned.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>Large weight matrix split across multiple GPUs
+</span></code></pre></div>
+<p>This is common in very large language model training.</p>
+<hr />
+<h2 id="35-pipeline-parallelism">35. Pipeline Parallelism</h2>
+<p>Pipeline parallelism splits model layers into stages and sends micro-batches through them.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Microbatch 1] --&gt; B[Stage 1 / GPU0]
+    B --&gt; C[Stage 2 / GPU1]
+    C --&gt; D[Stage 3 / GPU2]
+    D --&gt; E[Stage 4 / GPU3]</code></pre>
+<p>It improves utilization compared with simple layer splitting, but introduces scheduling complexity and pipeline bubbles.</p>
+<hr />
+<h2 id="36-hybrid-parallelism">36. Hybrid Parallelism</h2>
+<p>Large-scale training often combines multiple methods:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>data parallelism + tensor parallelism + pipeline parallelism + optimizer sharding
+</span></code></pre></div>
+<p>For example:</p>
+<ul>
+<li>data parallelism across groups of nodes</li>
+<li>tensor parallelism within a node</li>
+<li>pipeline parallelism across layers</li>
+<li>optimizer states sharded across processes</li>
+</ul>
+<p>This is common for very large Transformer models.</p>
+<hr />
+<h2 id="37-practical-mental-models">37. Practical Mental Models</h2>
+<h3 id="single-gpu">Single GPU</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>one process → one GPU → one model → one batch at a time
+</span></code></pre></div>
+<h3 id="single-node-multi-gpu-ddp">Single Node Multi-GPU DDP</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>N processes → N GPUs → N model copies → different data → gradient averaging
+</span></code></pre></div>
+<h3 id="multi-node-ddp">Multi-Node DDP</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>same as above, but processes are spread across nodes and synchronize over the network
+</span></code></pre></div>
+<h3 id="data-parallelism">Data Parallelism</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>split data, replicate model
+</span></code></pre></div>
+<h3 id="model-parallelism">Model Parallelism</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>split model, coordinate computation
+</span></code></pre></div>
+<h3 id="pipeline-parallelism">Pipeline Parallelism</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>split model into stages, stream micro-batches
+</span></code></pre></div>
+<hr />
+<h2 id="38-key-terms-glossary">38. Key Terms Glossary</h2>
+<p><strong>GPU</strong>: Graphics Processing Unit; accelerates parallel tensor computation.</p>
+<p><strong>CUDA</strong>: NVIDIA programming platform for GPU computing.</p>
+<p><strong>CUDA_VISIBLE_DEVICES</strong>: Environment variable controlling which GPUs are visible to a process.</p>
+<p><strong>DDP</strong>: DistributedDataParallel; PyTorch's recommended multi-GPU training approach.</p>
+<p><strong>Rank</strong>: Global ID of a distributed process.</p>
+<p><strong>Local rank</strong>: Process ID within a node, usually used to select the local GPU.</p>
+<p><strong>World size</strong>: Total number of distributed processes.</p>
+<p><strong>NCCL</strong>: NVIDIA communication library used for GPU collectives.</p>
+<p><strong>AllReduce</strong>: Collective operation that combines values across processes and returns the result to all processes.</p>
+<p><strong>DistributedSampler</strong>: PyTorch sampler that partitions data across DDP processes.</p>
+<p><strong>Effective batch size</strong>: Batch size per GPU multiplied by number of GPUs.</p>
+<p><strong>Straggler</strong>: A slow process or GPU that causes others to wait.</p>
+<p><strong>Checkpoint</strong>: Saved training state used for recovery or resuming training.</p>
+<p><strong>Data parallelism</strong>: Replicate model, split data.</p>
+<p><strong>Model parallelism</strong>: Split model across GPUs.</p>
+<p><strong>Tensor parallelism</strong>: Split individual tensor operations across GPUs.</p>
+<p><strong>Pipeline parallelism</strong>: Split layers into stages and stream micro-batches.</p>
+<p><strong>Mixed precision</strong>: Use lower precision such as FP16/BF16 to reduce memory and improve speed.</p>
+<hr />
+<h2 id="39-summary">39. Summary</h2>
+<p>GPU training starts with a simple idea: use GPUs for parallel tensor computation. Single-GPU training is straightforward, but scaling to multiple GPUs requires coordinating multiple devices.</p>
+<p>The most common modern approach is PyTorch DistributedDataParallel, where each GPU is controlled by its own process, each process trains on different data, and gradients are synchronized every training step using NCCL collectives such as AllReduce.</p>
+<p>Multi-GPU training can happen within one node or across many nodes. The mental model remains similar, but multi-node training introduces network communication and more failure modes. DDP is synchronous, so slow or failed workers affect the whole job. Practical robustness comes from good resource allocation, balanced data loading, monitoring, and checkpointing.</p>
+<p>For very large models, data parallelism may not be enough. Techniques such as model parallelism, tensor parallelism, pipeline parallelism, mixed precision, and sharding are used to fit and train models at scale.</p>
+<hr />
+<h2 id="40-one-line-summary">40. One-Line Summary</h2>
+<p>GPU training accelerates deep learning by parallelizing tensor operations, and multi-GPU training scales this by distributing work across GPUs while synchronizing model updates through mechanisms such as PyTorch DDP and NCCL AllReduce.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
