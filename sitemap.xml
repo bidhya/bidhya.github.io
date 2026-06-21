@@ -13,7 +13,27 @@
          <lastmod>2026-06-21</lastmod>
     </url>
     <url>
+         <loc>https://bidhya.github.io/notes/ai-ml/fine-tuning/</loc>
+         <lastmod>2026-06-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/ai-ml/geospatial-peft/</loc>
+         <lastmod>2026-06-21</lastmod>
+    </url>
+    <url>
          <loc>https://bidhya.github.io/notes/ai-ml/gpu-ddp/</loc>
+         <lastmod>2026-06-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/ai-ml/pytorch-foundations/</loc>
+         <lastmod>2026-06-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/ai-ml/stats-to-deep-learning/</loc>
+         <lastmod>2026-06-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/ai-ml/tokenization-embeddings/</loc>
          <lastmod>2026-06-21</lastmod>
     </url>
     <url>
@@ -34,6 +54,10 @@
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/geospatial/kalman-filter/</loc>
+         <lastmod>2026-06-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/geospatial/pyproj-crs/</loc>
          <lastmod>2026-06-21</lastmod>
     </url>
     <url>

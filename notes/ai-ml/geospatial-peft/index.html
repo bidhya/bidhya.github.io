@@ -12,13 +12,13 @@
         <meta name="author" content="Bidhyananda Yadav">
       
       
-        <link rel="canonical" href="https://bidhya.github.io/notes/geospatial/kalman-filter/">
+        <link rel="canonical" href="https://bidhya.github.io/notes/ai-ml/geospatial-peft/">
       
       
-        <link rel="prev" href="../pyproj-crs/">
+        <link rel="prev" href="../fine-tuning/">
       
       
-        <link rel="next" href="../hyperspectral-concepts/">
+        <link rel="next" href="../../geospatial/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>State Estimation & Kalman Filtering - Bidhyananda Yadav | Portfolio</title>
+        <title>PEFT for Geospatial Models - Bidhyananda Yadav | Portfolio</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#implementing-kalman-filters-a-geosensing-guide-to-state-estimation-and-lidar-fusion" class="md-skip">
+        <a href="#comprehensive-guide-to-parameter-efficient-fine-tuning-peft-for-geospatial-ai" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              State Estimation & Kalman Filtering
+              PEFT for Geospatial Models
             
           </span>
         </div>
@@ -267,7 +267,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../ai-ml/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -449,293 +449,6 @@
                 
   
   
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI & Machine Learning
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    AI & Machine Learning
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/stats-to-deep-learning/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    From Statistics to Deep Learning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/pytorch-foundations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    PyTorch Training Fundamentals
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/transformers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Transformer Architecture & Attention
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/tokenization-embeddings/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tokenization & Embeddings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/gpu-ddp/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GPU Memory & Distributed Training
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/fine-tuning/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Model Adaptation & Fine-Tuning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/geospatial-peft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    PEFT for Geospatial Models
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -757,17 +470,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   
 
     
@@ -778,12 +491,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   
 
           </label>
@@ -824,14 +537,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../gis-cheatsheet/" class="md-nav__link">
+      <a href="../stats-to-deep-learning/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Geospatial Python Stack
+    From Statistics to Deep Learning
   
 
     
@@ -852,14 +565,126 @@
   
   
     <li class="md-nav__item">
-      <a href="../pyproj-crs/" class="md-nav__link">
+      <a href="../pytorch-foundations/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Coordinate Reference Systems
+    PyTorch Training Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformer Architecture & Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tokenization-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tokenization & Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu-ddp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Memory & Distributed Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Adaptation & Fine-Tuning
   
 
     
@@ -896,7 +721,7 @@
   <span class="md-ellipsis">
     
   
-    State Estimation & Kalman Filtering
+    PEFT for Geospatial Models
   
 
     
@@ -914,7 +739,7 @@
   <span class="md-ellipsis">
     
   
-    State Estimation & Kalman Filtering
+    PEFT for Geospatial Models
   
 
     
@@ -940,22 +765,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-what-is-a-kalman-filter" class="md-nav__link">
+  <a href="#section-1-conceptual-overview-architectural-rationale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. What Is a Kalman Filter?
+        Section 1: Conceptual Overview &amp; Architectural Rationale
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. What Is a Kalman Filter?">
+    <nav class="md-nav" aria-label="Section 1: Conceptual Overview &amp; Architectural Rationale">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#core-cycle-repeats-continuously" class="md-nav__link">
+  <a href="#1-what-is-peft" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core cycle (repeats continuously)
+        1. What is PEFT?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-the-core-mechanics-of-low-rank-adaptation-lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Core Mechanics of Low-Rank Adaptation (LoRA)
       
     </span>
   </a>
@@ -968,22 +804,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-lidar-fusion-applications" class="md-nav__link">
+  <a href="#section-2-strategic-alignment-with-earth-sciences" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. LiDAR Fusion Applications
+        Section 2: Strategic Alignment with Earth Sciences
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. LiDAR Fusion Applications">
+    <nav class="md-nav" aria-label="Section 2: Strategic Alignment with Earth Sciences">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#2a-vehicle-localization" class="md-nav__link">
+  <a href="#1-overcoming-the-small-data-problem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2a. Vehicle Localization
+        1. Overcoming "The Small Data Problem"
       
     </span>
   </a>
@@ -991,10 +827,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2b-object-tracking" class="md-nav__link">
+  <a href="#2-radical-hardware-efficiency" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2b. Object Tracking
+        2. Radical Hardware Efficiency
       
     </span>
   </a>
@@ -1002,10 +838,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2c-multi-sensor-fusion-pipeline" class="md-nav__link">
+  <a href="#3-modular-adapter-deployment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2c. Multi-Sensor Fusion Pipeline
+        3. Modular Adapter Deployment
       
     </span>
   </a>
@@ -1018,71 +854,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-the-covariance-matrix-in-plain-english" class="md-nav__link">
+  <a href="#section-3-prototyping-code-template-pytorch-hugging-face-peft" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. The Covariance Matrix — In Plain English
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. The Covariance Matrix — In Plain English">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-it-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What it is
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#real-world-analogy-finding-a-friend-in-a-mall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Real-world analogy — finding a friend in a mall
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-the-filter-uses-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How the filter uses it
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-takeaway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key takeaway
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-key-advantage-for-autonomous-vehicles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Key Advantage for Autonomous Vehicles
+        Section 3: Prototyping Code Template (PyTorch + Hugging Face PEFT)
       
     </span>
   </a>
@@ -1090,10 +865,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-production-considerations-and-implementation-trade-offs" class="md-nav__link">
+  <a href="#section-4-context-guidelines-for-future-ai-agents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Production Considerations and Implementation Trade-offs
+        Section 4: Context Guidelines for Future AI Agents
       
     </span>
   </a>
@@ -1109,6 +884,69 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial & Remote Sensing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geospatial & Remote Sensing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
                 
   
@@ -1116,7 +954,119 @@
   
   
     <li class="md-nav__item">
-      <a href="../hyperspectral-concepts/" class="md-nav__link">
+      <a href="../../geospatial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/gis-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial Python Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/pyproj-crs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinate Reference Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/kalman-filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Estimation & Kalman Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/hyperspectral-concepts/" class="md-nav__link">
         
   
   
@@ -1526,22 +1476,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-what-is-a-kalman-filter" class="md-nav__link">
+  <a href="#section-1-conceptual-overview-architectural-rationale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. What Is a Kalman Filter?
+        Section 1: Conceptual Overview &amp; Architectural Rationale
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. What Is a Kalman Filter?">
+    <nav class="md-nav" aria-label="Section 1: Conceptual Overview &amp; Architectural Rationale">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#core-cycle-repeats-continuously" class="md-nav__link">
+  <a href="#1-what-is-peft" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core cycle (repeats continuously)
+        1. What is PEFT?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-the-core-mechanics-of-low-rank-adaptation-lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Core Mechanics of Low-Rank Adaptation (LoRA)
       
     </span>
   </a>
@@ -1554,22 +1515,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-lidar-fusion-applications" class="md-nav__link">
+  <a href="#section-2-strategic-alignment-with-earth-sciences" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. LiDAR Fusion Applications
+        Section 2: Strategic Alignment with Earth Sciences
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. LiDAR Fusion Applications">
+    <nav class="md-nav" aria-label="Section 2: Strategic Alignment with Earth Sciences">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#2a-vehicle-localization" class="md-nav__link">
+  <a href="#1-overcoming-the-small-data-problem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2a. Vehicle Localization
+        1. Overcoming "The Small Data Problem"
       
     </span>
   </a>
@@ -1577,10 +1538,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2b-object-tracking" class="md-nav__link">
+  <a href="#2-radical-hardware-efficiency" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2b. Object Tracking
+        2. Radical Hardware Efficiency
       
     </span>
   </a>
@@ -1588,10 +1549,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2c-multi-sensor-fusion-pipeline" class="md-nav__link">
+  <a href="#3-modular-adapter-deployment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2c. Multi-Sensor Fusion Pipeline
+        3. Modular Adapter Deployment
       
     </span>
   </a>
@@ -1604,71 +1565,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-the-covariance-matrix-in-plain-english" class="md-nav__link">
+  <a href="#section-3-prototyping-code-template-pytorch-hugging-face-peft" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. The Covariance Matrix — In Plain English
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. The Covariance Matrix — In Plain English">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-it-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What it is
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#real-world-analogy-finding-a-friend-in-a-mall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Real-world analogy — finding a friend in a mall
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-the-filter-uses-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How the filter uses it
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-takeaway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key takeaway
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-key-advantage-for-autonomous-vehicles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Key Advantage for Autonomous Vehicles
+        Section 3: Prototyping Code Template (PyTorch + Hugging Face PEFT)
       
     </span>
   </a>
@@ -1676,10 +1576,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-production-considerations-and-implementation-trade-offs" class="md-nav__link">
+  <a href="#section-4-context-guidelines-for-future-ai-agents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Production Considerations and Implementation Trade-offs
+        Section 4: Context Guidelines for Future AI Agents
       
     </span>
   </a>
@@ -1734,7 +1634,7 @@
     
     
       <li class="md-path__item">
-        <a href="../../ai-ml/" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
     Engineering Notes
@@ -1758,7 +1658,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   </span>
 
         </a>
@@ -1777,146 +1677,94 @@
 
 
 
-<h1 id="implementing-kalman-filters-a-geosensing-guide-to-state-estimation-and-lidar-fusion">Implementing Kalman Filters: A Geosensing Guide to State Estimation and LiDAR Fusion</h1>
-<p>An engineering reference guide on the mathematical framework, covariance analysis, and multi-sensor fusion applications of Kalman filters in dynamic systems.</p>
+<h1 id="comprehensive-guide-to-parameter-efficient-fine-tuning-peft-for-geospatial-ai">Comprehensive Guide to Parameter-Efficient Fine-Tuning (PEFT) for Geospatial AI</h1>
+<h2 id="section-1-conceptual-overview-architectural-rationale">Section 1: Conceptual Overview &amp; Architectural Rationale</h2>
+<h3 id="1-what-is-peft">1. What is PEFT?</h3>
+<p>Parameter-Efficient Fine-Tuning (PEFT) is a framework designed to adapt massive, pretrained foundation models to downstream, specialized tasks without updating all of the model's original weights. </p>
+<p>In traditional deep learning, adapting a model involves <strong>Full Fine-Tuning</strong>, which updates 100% of the model's parameters. PEFT replaces this by freezing the base architecture and training a microscopic subset of new parameters (typically &lt;1% of the total model size).</p>
+<h3 id="2-the-core-mechanics-of-low-rank-adaptation-lora">2. The Core Mechanics of Low-Rank Adaptation (LoRA)</h3>
+<p>The most dominant technique within PEFT is <strong>LoRA (Low-Rank Adaptation)</strong>. It works on a simple mathematical principle: weight updates during adaptation have a low "intrinsic rank."</p>
+<ul>
+<li><strong>The Math:</strong> If a weight layer in a Vision Transformer (ViT) consists of a dense matrix <span class="arithmatex">\(W_0\)</span> of size <span class="arithmatex">\(d \times k\)</span>, updating it traditionally requires an update matrix <span class="arithmatex">\(\Delta W\)</span> of the exact same size (<span class="arithmatex">\(d \times k\)</span>). </li>
+<li><strong>The LoRA Solution:</strong> LoRA factorizes the update matrix into two low-rank matrices, <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>, such that:
+  [\Delta W = B \times A]
+  Where <span class="arithmatex">\(B\)</span> is of size <span class="arithmatex">\(d \times r\)</span> and <span class="arithmatex">\(A\)</span> is of size <span class="arithmatex">\(r \times k\)</span>. The rank <span class="arithmatex">\(r\)</span> is a hyperparameter chosen by the engineer (typically 4, 8, or 16).</li>
+<li><strong>VRAM Impact:</strong> If <span class="arithmatex">\(d=4096\)</span> and <span class="arithmatex">\(k=4096\)</span>, the original layer has 16.7 million parameters. If you choose a LoRA rank of <span class="arithmatex">\(r=8\)</span>, matrices <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> combined contain only 65,536 parameters. Backpropagation math only applies to these 65k variables, slashing GPU memory consumption drastically.</li>
+</ul>
 <hr />
-<h2 id="1-what-is-a-kalman-filter">1. What Is a Kalman Filter?</h2>
-<p>A mathematical algorithm that estimates the <strong>state of a dynamic system</strong> from noisy measurements over time.</p>
-<h3 id="core-cycle-repeats-continuously">Core cycle (repeats continuously)</h3>
-<table>
-<thead>
-<tr>
-<th>Step</th>
-<th>What happens</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Predict</strong></td>
-<td>Estimate current state from previous state + motion model</td>
-</tr>
-<tr>
-<td><strong>Update</strong></td>
-<td>Correct prediction using new sensor measurement</td>
-</tr>
-</tbody>
-</table>
-<p>The filter optimally weights predictions vs. measurements based on their respective <strong>uncertainties</strong>.</p>
+<h2 id="section-2-strategic-alignment-with-earth-sciences">Section 2: Strategic Alignment with Earth Sciences</h2>
+<p>Geospatial science, remote sensing, and hydrology encounter unique bottlenecks that make PEFT a required engineering choice rather than an optional optimization:</p>
+<h3 id="1-overcoming-the-small-data-problem">1. Overcoming "The Small Data Problem"</h3>
+<p>Earth science workflows are frequently data-sparse. While raw satellite imagery is abundant, highly accurate, ground-truthed annotations (e.g., precise soil moisture boundaries, localized runoff measurements, specialized crop labels) are scarce. 
+* <em>Risk:</em> Full fine-tuning on small datasets triggers <strong>catastrophic forgetting</strong> (where the model destroys its general spatial understanding) or extreme <strong>overfitting</strong> (where it memorizes the small training set).
+* <em>PEFT Solution:</em> Freezing the foundation model locks its general knowledge of edges, terrains, and atmospheric profiles in place. Training only the low-rank adapter forces the model to learn localized mapping relationships without altering its core spatial intelligence.</p>
+<h3 id="2-radical-hardware-efficiency">2. Radical Hardware Efficiency</h3>
+<p>Geospatial foundation models are massive vision or multimodal transformers. 
+* Running full fine-tuning on these models often requires multi-node GPU arrays (multiple NVIDIA H100s) to hold the gradients in memory. 
+* By wrapping the model in LoRA (or QLoRA, which quantizes the base model to 4-bit precision), a multi-billion parameter earth science transformer can easily be fine-tuned on a single, affordable <strong>NVIDIA A100 GPU</strong> (like those on the OSC Ascend cluster).</p>
+<h3 id="3-modular-adapter-deployment">3. Modular Adapter Deployment</h3>
+<p>Instead of creating a separate multi-gigabyte model file for every unique task, your base geospatial foundation model remains a single, frozen file on disk. You can train tiny (few-megabyte) adapter files for separate micro-domains:
+* Base Model + <strong>Adapter A</strong> <span class="arithmatex">\(\rightarrow\)</span> Flood Detection / Hydrology Runoff
+* Base Model + <strong>Adapter B</strong> <span class="arithmatex">\(\rightarrow\)</span> Multispectral Canopy Classification
+* Base Model + <strong>Adapter C</strong> <span class="arithmatex">\(\rightarrow\)</span> Urban Heat Island Mapping</p>
 <hr />
-<h2 id="2-lidar-fusion-applications">2. LiDAR Fusion Applications</h2>
-<h3 id="2a-vehicle-localization">2a. Vehicle Localization</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>State vector: [x, y, z, velocity_x, velocity_y, heading, angular_velocity]
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Prediction  → motion model (constant velocity / acceleration)
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Update      → fuse LiDAR point cloud matching with GPS + IMU + wheel encoders
+<h2 id="section-3-prototyping-code-template-pytorch-hugging-face-peft">Section 3: Prototyping Code Template (PyTorch + Hugging Face PEFT)</h2>
+<p>This Python script provides a working template for an AI agent or a developer to initialize a Vision-based Geospatial Foundation Model, wrap it with a LoRA adapter, and prepare it for low-VRAM training.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoModelForImageClassification</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">peft</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoraConfig</span><span class="p">,</span> <span class="n">get_peft_model</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Result      → smooth, accurate position even with noisy/missing GPS
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">initialize_geospatial_peft_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initializing Base Foundation Model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="c1"># 1. Load a pretrained vision/satellite foundation model from Hugging Face</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="c1"># Examples in production include: &#39;ibm-nasa-geospatial/Prithvi-100M&#39; or custom ViTs</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">base_model</span> <span class="o">=</span> <span class="n">AutoModelForImageClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="n">model_name</span><span class="p">,</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="n">num_labels</span><span class="o">=</span><span class="n">num_classes</span><span class="p">,</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="n">ignore_mismatched_sizes</span><span class="o">=</span><span class="kc">True</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="c1"># 2. Define the LoRA Configuration tailored for the model&#39;s Attention layers</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="c1"># &#39;target_modules&#39; must match the linear layer naming conventions of the specific model (e.g., &#39;query&#39;, &#39;value&#39;)</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="n">peft_config</span> <span class="o">=</span> <span class="n">LoraConfig</span><span class="p">(</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="n">r</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>                             <span class="c1"># Intrinsic rank of the update matrices</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="n">lora_alpha</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>                   <span class="c1"># Scaling factor for the adapter weights</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        <span class="n">target_modules</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;query&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">],</span> <span class="c1"># Inject adapters into target attention projections</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        <span class="n">lora_dropout</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>                <span class="c1"># Regularization to prevent overfitting</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        <span class="n">bias</span><span class="o">=</span><span class="s2">&quot;none&quot;</span>                      <span class="c1"># Keep biases frozen</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="p">)</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="c1"># 3. Wrap the base model with the PEFT framework</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="n">peft_model</span> <span class="o">=</span> <span class="n">get_peft_model</span><span class="p">(</span><span class="n">base_model</span><span class="p">,</span> <span class="n">peft_config</span><span class="p">)</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    <span class="c1"># 4. Print parameter efficiency metrics to verify frozen status</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    <span class="n">peft_model</span><span class="o">.</span><span class="n">print_trainable_parameters</span><span class="p">()</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    <span class="k">return</span> <span class="n">peft_model</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>    <span class="c1"># Example placeholder: Using a standard Vision Transformer as a proxy model</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>    <span class="n">MODEL_ID</span> <span class="o">=</span> <span class="s2">&quot;google/vit-base-patch16-224&quot;</span> 
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>    <span class="n">NUM_TARGET_CLASSES</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># e.g., Water, Forest, Urban, Agriculture, Bare Soil</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>    <span class="c1"># Execute Initialization</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">initialize_geospatial_peft_model</span><span class="p">(</span><span class="n">MODEL_ID</span><span class="p">,</span> <span class="n">NUM_TARGET_CLASSES</span><span class="p">)</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>    <span class="c1"># Verify the model is ready for GPU processing</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PEFT Model successfully loaded onto device: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<h3 id="2b-object-tracking">2b. Object Tracking</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>State vector: [object_x, object_y, velocity_x, velocity_y, acceleration]
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Prediction  → extrapolate object motion between LiDAR scans
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Update      → match LiDAR detections to predicted positions
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Result      → consistent object tracks despite detection gaps or noise
-</span></code></pre></div>
-<h3 id="2c-multi-sensor-fusion-pipeline">2c. Multi-Sensor Fusion Pipeline</h3>
-<table>
-<thead>
-<tr>
-<th>Sensor</th>
-<th>Strength</th>
-<th>Weakness</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LiDAR</td>
-<td>Accurate 3D positions</td>
-<td>Low frequency (10–20 Hz)</td>
-</tr>
-<tr>
-<td>IMU</td>
-<td>High-frequency motion (100+ Hz)</td>
-<td>Drifts over time</td>
-</tr>
-<tr>
-<td>GPS</td>
-<td>Absolute position</td>
-<td>Noisy; can drop out</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Kalman filter strategy:</strong>
-- Use IMU for high-rate <strong>predictions</strong>
-- Correct with LiDAR / GPS <strong>measurements</strong>
-- Result: smooth, high-frequency, accurate state estimates</p>
 <hr />
-<h2 id="3-the-covariance-matrix-in-plain-english">3. The Covariance Matrix — In Plain English</h2>
-<h3 id="what-it-is">What it is</h3>
-<p>The covariance matrix is the filter's <strong>"confidence report card"</strong> — it tracks how certain the system is about each estimate and how uncertainties relate to each other.</p>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Small number</td>
-<td>High confidence in this estimate</td>
-</tr>
-<tr>
-<td>Large number</td>
-<td>Low confidence — take with a grain of salt</td>
-</tr>
-</tbody>
-</table>
-<p>It also captures <strong>relationships</strong> between variables:<br />
-e.g. uncertainty in X position often correlates with uncertainty in X velocity.</p>
-<h3 id="real-world-analogy-finding-a-friend-in-a-mall">Real-world analogy — finding a friend in a mall</h3>
-<ul>
-<li><strong>GPS</strong>: "You're somewhere in this 10-metre circle" → high uncertainty</li>
-<li><strong>Landmark spotted</strong>: "Definitely near the food court" → low uncertainty</li>
-<li><strong>Text directions</strong>: "Walk 50 steps north" → medium uncertainty</li>
-</ul>
-<p>The covariance matrix is your brain tracking how much to trust each source.</p>
-<h3 id="how-the-filter-uses-it">How the filter uses it</h3>
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>What happens</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Prediction</strong></td>
-<td>Confidence decreases: "I was sure 1s ago, but I've been moving"</td>
-</tr>
-<tr>
-<td><strong>Update</strong></td>
-<td>Filter weights sensors by reliability: LiDAR (precise) &gt; GPS (noisy)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="key-takeaway">Key takeaway</h3>
-<blockquote>
-<p>The covariance matrix lets the filter automatically ask:<br />
-<em>"Here's my best guess — and here's exactly how sure I am about it."</em></p>
-</blockquote>
-<hr />
-<h2 id="4-key-advantage-for-autonomous-vehicles">4. Key Advantage for Autonomous Vehicles</h2>
-<p>Kalman filters handle <strong>uncertainty quantification</strong> via covariance matrices — knowing when to trust predictions vs. measurements. This is essential in noisy sensor environments like AV stacks combining LiDAR, IMU, and GPS.</p>
-<hr />
-<h2 id="5-production-considerations-and-implementation-trade-offs">5. Production Considerations and Implementation Trade-offs</h2>
-<p>When deploying state estimation algorithms in real-time robotics, autonomous vehicle, or geospatial tracking pipelines, developers must address several engineering challenges:</p>
-<ul>
-<li><strong>Non-Linear State Transitions</strong>: Standard Kalman Filters (KF) assume linear relationships. Real-world systems require Extended Kalman Filters (EKF), which linearize non-linear state transitions using Jacobian matrices, or Unscented Kalman Filters (UKF), which use deterministic sigma points to capture the probability distribution. Selecting between EKF and UKF involves an engineering trade-off between computational cost and estimation accuracy.</li>
-<li><strong>Sensor Latency and Out-of-Sequence Measurements (OOSM)</strong>: Sensors report data at vastly different frequencies and with varying propagation delays. Real-time fusion engines must maintain a chronological buffer of states and covariances to rewind, insert a delayed measurement, and re-propagate predictions.</li>
-<li><strong>Covariance Optimization (Tuning)</strong>: Process noise <span class="arithmatex">\(Q\)</span> and measurement noise <span class="arithmatex">\(R\)</span> represent the mathematical representations of state physics uncertainty and sensor fidelity. Overestimating sensor reliability causes the filter to track noise, while underestimating it leads to lag. Tuning is usually achieved using system identification, statistical test runs, or optimization algorithms from flight/drive logs.</li>
-</ul>
+<h2 id="section-4-context-guidelines-for-future-ai-agents">Section 4: Context Guidelines for Future AI Agents</h2>
+<p>When feeding this file into an advanced AI agent to expand your codebase, instruct the agent with the following rules:</p>
+<ol>
+<li><strong>Keep the Base Frozen:</strong> Ensure that any training loop code generated enforces that only the adapter parameters are passed to the optimizer (e.g., <code>optimizer = torch.optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=1e-4)</code>).</li>
+<li><strong>Handle Multispectral Inputs:</strong> Remote sensing data often contains more than the standard 3 RGB channels (e.g., Sentinel-2 or Landsat have Near-Infrared and Short-Wave Infrared bands). Instruct agents to adjust the model's patch embedding layers if ingesting multi-band arrays (NetCDF/GeoTIFF).</li>
+<li><strong>Optimize for OSC Slurm Execution:</strong> Any generated execution scripts must target the specific resource requirements of the OSC Ascend or Cardinal partitions, keeping execution tightly restricted to single-node requests to maintain budget safety.</li>
+</ol>
 
 
 
