@@ -12,13 +12,13 @@
         <meta name="author" content="Bidhyananda Yadav">
       
       
-        <link rel="canonical" href="https://bidhya.github.io/notes/geospatial/kalman-filter/">
+        <link rel="canonical" href="https://bidhya.github.io/notes/ai-ml/fine-tuning/">
       
       
-        <link rel="prev" href="../pyproj-crs/">
+        <link rel="prev" href="../gpu-ddp/">
       
       
-        <link rel="next" href="../hyperspectral-concepts/">
+        <link rel="next" href="../geospatial-peft/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>State Estimation & Kalman Filtering - Bidhyananda Yadav | Portfolio</title>
+        <title>Model Adaptation & Fine-Tuning - Bidhyananda Yadav | Portfolio</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#implementing-kalman-filters-a-geosensing-guide-to-state-estimation-and-lidar-fusion" class="md-skip">
+        <a href="#foundations-of-model-adaptation-full-fine-tuning-and-linear-probing-architectures" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              State Estimation & Kalman Filtering
+              Model Adaptation & Fine-Tuning
             
           </span>
         </div>
@@ -267,7 +267,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../ai-ml/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -449,293 +449,6 @@
                 
   
   
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI & Machine Learning
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    AI & Machine Learning
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/stats-to-deep-learning/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    From Statistics to Deep Learning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/pytorch-foundations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    PyTorch Training Fundamentals
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/transformers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Transformer Architecture & Attention
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/tokenization-embeddings/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tokenization & Embeddings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/gpu-ddp/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GPU Memory & Distributed Training
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/fine-tuning/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Model Adaptation & Fine-Tuning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/geospatial-peft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    PEFT for Geospatial Models
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -757,17 +470,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   
 
     
@@ -778,12 +491,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   
 
           </label>
@@ -824,14 +537,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../gis-cheatsheet/" class="md-nav__link">
+      <a href="../stats-to-deep-learning/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Geospatial Python Stack
+    From Statistics to Deep Learning
   
 
     
@@ -852,14 +565,98 @@
   
   
     <li class="md-nav__item">
-      <a href="../pyproj-crs/" class="md-nav__link">
+      <a href="../pytorch-foundations/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Coordinate Reference Systems
+    PyTorch Training Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformer Architecture & Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tokenization-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tokenization & Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu-ddp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Memory & Distributed Training
   
 
     
@@ -889,14 +686,14 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
   
   
   <span class="md-ellipsis">
     
   
-    State Estimation & Kalman Filtering
+    Model Adaptation & Fine-Tuning
   
 
     
@@ -904,10 +701,196 @@
   
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+      </a>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geospatial-peft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PEFT for Geospatial Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial & Remote Sensing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geospatial & Remote Sensing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/gis-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial Python Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/pyproj-crs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinate Reference Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/kalman-filter/" class="md-nav__link">
         
   
   
@@ -923,187 +906,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-what-is-a-kalman-filter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. What Is a Kalman Filter?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. What Is a Kalman Filter?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-cycle-repeats-continuously" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core cycle (repeats continuously)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-lidar-fusion-applications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. LiDAR Fusion Applications
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. LiDAR Fusion Applications">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2a-vehicle-localization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2a. Vehicle Localization
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2b-object-tracking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2b. Object Tracking
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2c-multi-sensor-fusion-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2c. Multi-Sensor Fusion Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-the-covariance-matrix-in-plain-english" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. The Covariance Matrix — In Plain English
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. The Covariance Matrix — In Plain English">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-it-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What it is
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#real-world-analogy-finding-a-friend-in-a-mall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Real-world analogy — finding a friend in a mall
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-the-filter-uses-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How the filter uses it
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-takeaway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key takeaway
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-key-advantage-for-autonomous-vehicles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Key Advantage for Autonomous Vehicles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-production-considerations-and-implementation-trade-offs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Production Considerations and Implementation Trade-offs
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1116,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hyperspectral-concepts/" class="md-nav__link">
+      <a href="../../geospatial/hyperspectral-concepts/" class="md-nav__link">
         
   
   
@@ -1519,175 +1321,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-what-is-a-kalman-filter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. What Is a Kalman Filter?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. What Is a Kalman Filter?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-cycle-repeats-continuously" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core cycle (repeats continuously)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-lidar-fusion-applications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. LiDAR Fusion Applications
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. LiDAR Fusion Applications">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2a-vehicle-localization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2a. Vehicle Localization
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2b-object-tracking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2b. Object Tracking
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2c-multi-sensor-fusion-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2c. Multi-Sensor Fusion Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-the-covariance-matrix-in-plain-english" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. The Covariance Matrix — In Plain English
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. The Covariance Matrix — In Plain English">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-it-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What it is
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#real-world-analogy-finding-a-friend-in-a-mall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Real-world analogy — finding a friend in a mall
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-the-filter-uses-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How the filter uses it
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-takeaway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key takeaway
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-key-advantage-for-autonomous-vehicles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Key Advantage for Autonomous Vehicles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-production-considerations-and-implementation-trade-offs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Production Considerations and Implementation Trade-offs
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1734,7 +1367,7 @@
     
     
       <li class="md-path__item">
-        <a href="../../ai-ml/" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
     Engineering Notes
@@ -1758,7 +1391,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   </span>
 
         </a>
@@ -1777,146 +1410,410 @@
 
 
 
-<h1 id="implementing-kalman-filters-a-geosensing-guide-to-state-estimation-and-lidar-fusion">Implementing Kalman Filters: A Geosensing Guide to State Estimation and LiDAR Fusion</h1>
-<p>An engineering reference guide on the mathematical framework, covariance analysis, and multi-sensor fusion applications of Kalman filters in dynamic systems.</p>
+<h1 id="foundations-of-model-adaptation-full-fine-tuning-and-linear-probing-architectures">Foundations of Model Adaptation: Full Fine-Tuning and Linear Probing Architectures</h1>
+<p>Author: Bidhya Yadav<br />
+Topic Focus: Full Fine-Tuning (A) and Feature Extraction / Linear Probing (B)</p>
 <hr />
-<h2 id="1-what-is-a-kalman-filter">1. What Is a Kalman Filter?</h2>
-<p>A mathematical algorithm that estimates the <strong>state of a dynamic system</strong> from noisy measurements over time.</p>
-<h3 id="core-cycle-repeats-continuously">Core cycle (repeats continuously)</h3>
-<table>
-<thead>
-<tr>
-<th>Step</th>
-<th>What happens</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Predict</strong></td>
-<td>Estimate current state from previous state + motion model</td>
-</tr>
-<tr>
-<td><strong>Update</strong></td>
-<td>Correct prediction using new sensor measurement</td>
-</tr>
-</tbody>
-</table>
-<p>The filter optimally weights predictions vs. measurements based on their respective <strong>uncertainties</strong>.</p>
-<hr />
-<h2 id="2-lidar-fusion-applications">2. LiDAR Fusion Applications</h2>
-<h3 id="2a-vehicle-localization">2a. Vehicle Localization</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>State vector: [x, y, z, velocity_x, velocity_y, heading, angular_velocity]
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Prediction  → motion model (constant velocity / acceleration)
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Update      → fuse LiDAR point cloud matching with GPS + IMU + wheel encoders
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Result      → smooth, accurate position even with noisy/missing GPS
+<h1 id="1-big-picture">1. Big Picture</h1>
+<p>Modern deep learning workflows rarely train large models from scratch.</p>
+<p>Instead:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Pretraining → Adaptation/Fine-Tuning → Deployment
 </span></code></pre></div>
-<h3 id="2b-object-tracking">2b. Object Tracking</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>State vector: [object_x, object_y, velocity_x, velocity_y, acceleration]
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Prediction  → extrapolate object motion between LiDAR scans
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Update      → match LiDAR detections to predicted positions
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Result      → consistent object tracks despite detection gaps or noise
+<p>A model is first trained on a very large generic dataset.
+Later, the pretrained model is adapted for a more specific task.</p>
+<p>Examples:</p>
+<table>
+<thead>
+<tr>
+<th>Pretrained Model</th>
+<th>Adapted Task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ResNet</td>
+<td>Satellite image classification</td>
+</tr>
+<tr>
+<td>ViT</td>
+<td>Medical imaging</td>
+</tr>
+<tr>
+<td>BERT</td>
+<td>Sentiment classification</td>
+</tr>
+<tr>
+<td>Whisper</td>
+<td>Domain-specific speech recognition</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="2-mental-model">2. Mental Model</h1>
+<p>The most important intuition:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Pretraining learns representations.
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Fine-tuning specializes representations.
 </span></code></pre></div>
-<h3 id="2c-multi-sensor-fusion-pipeline">2c. Multi-Sensor Fusion Pipeline</h3>
-<table>
-<thead>
-<tr>
-<th>Sensor</th>
-<th>Strength</th>
-<th>Weakness</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LiDAR</td>
-<td>Accurate 3D positions</td>
-<td>Low frequency (10–20 Hz)</td>
-</tr>
-<tr>
-<td>IMU</td>
-<td>High-frequency motion (100+ Hz)</td>
-<td>Drifts over time</td>
-</tr>
-<tr>
-<td>GPS</td>
-<td>Absolute position</td>
-<td>Noisy; can drop out</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Kalman filter strategy:</strong>
-- Use IMU for high-rate <strong>predictions</strong>
-- Correct with LiDAR / GPS <strong>measurements</strong>
-- Result: smooth, high-frequency, accurate state estimates</p>
-<hr />
-<h2 id="3-the-covariance-matrix-in-plain-english">3. The Covariance Matrix — In Plain English</h2>
-<h3 id="what-it-is">What it is</h3>
-<p>The covariance matrix is the filter's <strong>"confidence report card"</strong> — it tracks how certain the system is about each estimate and how uncertainties relate to each other.</p>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Small number</td>
-<td>High confidence in this estimate</td>
-</tr>
-<tr>
-<td>Large number</td>
-<td>Low confidence — take with a grain of salt</td>
-</tr>
-</tbody>
-</table>
-<p>It also captures <strong>relationships</strong> between variables:<br />
-e.g. uncertainty in X position often correlates with uncertainty in X velocity.</p>
-<h3 id="real-world-analogy-finding-a-friend-in-a-mall">Real-world analogy — finding a friend in a mall</h3>
+<p>A pretrained model already knows many useful patterns.</p>
+<p>Examples:</p>
 <ul>
-<li><strong>GPS</strong>: "You're somewhere in this 10-metre circle" → high uncertainty</li>
-<li><strong>Landmark spotted</strong>: "Definitely near the food court" → low uncertainty</li>
-<li><strong>Text directions</strong>: "Walk 50 steps north" → medium uncertainty</li>
+<li>language structure</li>
+<li>visual textures</li>
+<li>shapes</li>
+<li>semantics</li>
+<li>contextual relationships</li>
 </ul>
-<p>The covariance matrix is your brain tracking how much to trust each source.</p>
-<h3 id="how-the-filter-uses-it">How the filter uses it</h3>
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>What happens</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Prediction</strong></td>
-<td>Confidence decreases: "I was sure 1s ago, but I've been moving"</td>
-</tr>
-<tr>
-<td><strong>Update</strong></td>
-<td>Filter weights sensors by reliability: LiDAR (precise) &gt; GPS (noisy)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="key-takeaway">Key takeaway</h3>
-<blockquote>
-<p>The covariance matrix lets the filter automatically ask:<br />
-<em>"Here's my best guess — and here's exactly how sure I am about it."</em></p>
-</blockquote>
+<p>Fine-tuning adapts these learned representations for a downstream task.</p>
 <hr />
-<h2 id="4-key-advantage-for-autonomous-vehicles">4. Key Advantage for Autonomous Vehicles</h2>
-<p>Kalman filters handle <strong>uncertainty quantification</strong> via covariance matrices — knowing when to trust predictions vs. measurements. This is essential in noisy sensor environments like AV stacks combining LiDAR, IMU, and GPS.</p>
+<h1 id="3-a-full-fine-tuning">3. A — Full Fine-Tuning</h1>
+<h2 id="core-idea">Core Idea</h2>
+<p>Full fine-tuning means:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Load pretrained weights
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>→ Continue gradient-based training
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>→ Update ALL model parameters
+</span></code></pre></div>
+<p>In PyTorch:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span>
+</span></code></pre></div>
+<p>Every layer updates during training.</p>
 <hr />
-<h2 id="5-production-considerations-and-implementation-trade-offs">5. Production Considerations and Implementation Trade-offs</h2>
-<p>When deploying state estimation algorithms in real-time robotics, autonomous vehicle, or geospatial tracking pipelines, developers must address several engineering challenges:</p>
+<h1 id="4-full-fine-tuning-intuition">4. Full Fine-Tuning Intuition</h1>
+<p>A useful analogy:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Training from scratch:
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Teaching a child language from birth
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Fine-tuning:
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Teaching an educated adult a specialization
+</span></code></pre></div>
+<p>The pretrained model already understands general structure.
+Fine-tuning specializes the model.</p>
+<hr />
+<h1 id="5-full-fine-tuning-workflow">5. Full Fine-Tuning Workflow</h1>
+<pre class="mermaid"><code>flowchart TD
+    A[Large-scale Pretraining] --&gt; B[Pretrained Checkpoint]
+    B --&gt; C[Load Custom Dataset]
+    C --&gt; D[Continue Training]
+    D --&gt; E[Update All Weights]
+    E --&gt; F[Task-Specific Model]</code></pre>
+<hr />
+<h1 id="6-checkpoint-intuition">6. Checkpoint Intuition</h1>
+<p>Fine-tuning can be viewed as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>continuing training from someone else&#39;s checkpoint
+</span></code></pre></div>
+<p>Instead of:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span><span class="p">()</span>
+</span></code></pre></div>
+<p>we do:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">AutoModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span></code></pre></div>
+<p>The model weights are not random anymore.
+They already contain learned representations.</p>
+<hr />
+<h1 id="7-two-important-cases">7. Two Important Cases</h1>
+<h2 id="case-1-continued-pretraining">Case 1 — Continued Pretraining</h2>
+<p>The training objective stays the same.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Original task:
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>masked language modeling
+</span></code></pre></div>
+<p>Continue training on:</p>
 <ul>
-<li><strong>Non-Linear State Transitions</strong>: Standard Kalman Filters (KF) assume linear relationships. Real-world systems require Extended Kalman Filters (EKF), which linearize non-linear state transitions using Jacobian matrices, or Unscented Kalman Filters (UKF), which use deterministic sigma points to capture the probability distribution. Selecting between EKF and UKF involves an engineering trade-off between computational cost and estimation accuracy.</li>
-<li><strong>Sensor Latency and Out-of-Sequence Measurements (OOSM)</strong>: Sensors report data at vastly different frequencies and with varying propagation delays. Real-time fusion engines must maintain a chronological buffer of states and covariances to rewind, insert a delayed measurement, and re-propagate predictions.</li>
-<li><strong>Covariance Optimization (Tuning)</strong>: Process noise <span class="arithmatex">\(Q\)</span> and measurement noise <span class="arithmatex">\(R\)</span> represent the mathematical representations of state physics uncertainty and sensor fidelity. Overestimating sensor reliability causes the filter to track noise, while underestimating it leads to lag. Tuning is usually achieved using system identification, statistical test runs, or optimization algorithms from flight/drive logs.</li>
+<li>medical text</li>
+<li>legal text</li>
+<li>climate science papers</li>
 </ul>
+<p>This is often called:</p>
+<ul>
+<li>continued pretraining</li>
+<li>domain adaptation</li>
+<li>DAPT</li>
+</ul>
+<hr />
+<h2 id="case-2-task-fine-tuning">Case 2 — Task Fine-Tuning</h2>
+<p>The objective changes.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Pretrained BERT:
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>learned language representations
+</span></code></pre></div>
+<p>New task:</p>
+<ul>
+<li>sentiment classification</li>
+<li>question answering</li>
+<li>summarization</li>
+<li>NER</li>
+</ul>
+<p>This is the most common meaning of “fine-tuning.”</p>
+<hr />
+<h1 id="8-why-full-fine-tuning-works">8. Why Full Fine-Tuning Works</h1>
+<p>The pretrained model already learned:</p>
+<ul>
+<li>useful representations</li>
+<li>feature hierarchies</li>
+<li>semantic relationships</li>
+<li>latent structure</li>
+</ul>
+<p>Fine-tuning modifies these representations slightly for a specific task.</p>
+<hr />
+<h1 id="9-why-full-fine-tuning-can-be-expensive">9. Why Full Fine-Tuning Can Be Expensive</h1>
+<p>All parameters are updated.</p>
+<p>For large models this means:</p>
+<ul>
+<li>large GPU memory usage</li>
+<li>optimizer states for all parameters</li>
+<li>longer training time</li>
+<li>more compute cost</li>
+</ul>
+<p>This becomes difficult for modern large language models.</p>
+<hr />
+<h1 id="10-why-full-fine-tuning-still-matters">10. Why Full Fine-Tuning Still Matters</h1>
+<p>Full fine-tuning is still extremely useful when:</p>
+<ul>
+<li>the domain differs strongly from pretraining</li>
+<li>enough labeled data exists</li>
+<li>representation changes are necessary</li>
+</ul>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ImageNet model
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>→ satellite imagery classification
+</span></code></pre></div>
+<p>The model may need to adapt low-level representations.</p>
+<p>Examples:</p>
+<ul>
+<li>snow textures</li>
+<li>multispectral imagery</li>
+<li>SAR patterns</li>
+<li>terrain morphology</li>
+</ul>
+<hr />
+<h1 id="11-catastrophic-forgetting">11. Catastrophic Forgetting</h1>
+<p>One important issue:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Fine-tuning can overwrite pretrained knowledge.
+</span></code></pre></div>
+<p>This is called:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>catastrophic forgetting
+</span></code></pre></div>
+<p>Especially likely when:</p>
+<ul>
+<li>learning rate is too high</li>
+<li>dataset is too small</li>
+<li>training is too aggressive</li>
+</ul>
+<hr />
+<h1 id="12-transition-to-b">12. Transition to B</h1>
+<p>Full fine-tuning updates the entire network.</p>
+<p>But researchers discovered something surprising:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Pretrained representations are often already extremely useful.
+</span></code></pre></div>
+<p>This led to:</p>
+<h1 id="b-feature-extraction-linear-probing">B — Feature Extraction / Linear Probing</h1>
+<hr />
+<h1 id="13-b-core-idea">13. B — Core Idea</h1>
+<p>Instead of updating the entire model:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>freeze the backbone
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>train only a small task-specific head
+</span></code></pre></div>
+<p>The pretrained model becomes a:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>fixed feature extractor
+</span></code></pre></div>
+<hr />
+<h1 id="14-most-common-form-of-b">14. Most Common Form of B</h1>
+<p>This is the canonical workflow.</p>
+<h2 id="step-1">Step 1</h2>
+<p>Load pretrained model.</p>
+<h2 id="step-2">Step 2</h2>
+<p>Remove or replace the task-specific head.</p>
+<h2 id="step-3">Step 3</h2>
+<p>Freeze the backbone.</p>
+<h2 id="step-4">Step 4</h2>
+<p>Train only the new head.</p>
+<hr />
+<h1 id="15-visual-intuition">15. Visual Intuition</h1>
+<pre class="mermaid"><code>flowchart TD
+    A[Input Image] --&gt; B[Pretrained Backbone]
+    B --&gt; C[Feature Representation]
+    C --&gt; D[New Classification Head]
+    D --&gt; E[Task Output]
+
+    style B fill:#dbeafe
+    style D fill:#fde68a</code></pre>
+<p>Blue:
+- frozen pretrained backbone</p>
+<p>Yellow:
+- trainable new head</p>
+<hr />
+<h1 id="16-what-gets-replaced">16. What Gets Replaced?</h1>
+<p>Usually only the final task-specific output layer.</p>
+<p>Example:</p>
+<p>Original ResNet trained on ImageNet:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">Linear</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Your task:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>5 satellite classes
+</span></code></pre></div>
+<p>Replace with:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">Linear</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h1 id="17-important-clarification">17. Important Clarification</h1>
+<p>The “head” usually means:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>task-specific output layer
+</span></code></pre></div>
+<p>NOT the internal Transformer feed-forward blocks.</p>
+<p>Transformers still contain many internal FFN layers.
+Those usually remain frozen during feature extraction.</p>
+<hr />
+<h1 id="18-example-vision-transformer">18. Example: Vision Transformer</h1>
+<pre class="mermaid"><code>flowchart TD
+    A[Image Patches] --&gt; B[Patch Embedding]
+    B --&gt; C[Transformer Blocks]
+    C --&gt; D[CLS Token Representation]
+    D --&gt; E[Classification Head]
+
+    style B fill:#dbeafe
+    style C fill:#dbeafe
+    style E fill:#fde68a</code></pre>
+<p>Frozen:</p>
+<ul>
+<li>patch embeddings</li>
+<li>transformer blocks</li>
+</ul>
+<p>Trainable:</p>
+<ul>
+<li>final classification head</li>
+</ul>
+<hr />
+<h1 id="19-why-feature-extraction-works">19. Why Feature Extraction Works</h1>
+<p>Pretrained models already learn strong representations.</p>
+<p>For vision:</p>
+<ul>
+<li>edges</li>
+<li>textures</li>
+<li>shapes</li>
+<li>semantic structures</li>
+</ul>
+<p>For language:</p>
+<ul>
+<li>syntax</li>
+<li>semantics</li>
+<li>contextual meaning</li>
+</ul>
+<p>The new classifier only learns:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>how to map representations to labels
+</span></code></pre></div>
+<hr />
+<h1 id="20-representation-space-intuition">20. Representation Space Intuition</h1>
+<p>One of the deepest ideas in deep learning:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>The backbone learns a representation space.
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>The classifier learns decision boundaries.
+</span></code></pre></div>
+<p>Visual intuition:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>forest images → clustered together
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>urban images → clustered together
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>water images → clustered together
+</span></code></pre></div>
+<p>The classifier simply separates these clusters.</p>
+<hr />
+<h1 id="21-why-linear-layers-often-work">21. Why Linear Layers Often Work</h1>
+<p>Pretrained representations are often already separable.</p>
+<p>Meaning:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>important information is already encoded
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>inside embedding space
+</span></code></pre></div>
+<p>A simple linear layer can therefore perform surprisingly well.</p>
+<hr />
+<h1 id="22-pytorch-example">22. PyTorch Example</h1>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">resnet50</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="n">model</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Only:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>model.fc
+</span></code></pre></div>
+<p>updates during training.</p>
+<hr />
+<h1 id="23-why-b-became-popular">23. Why B Became Popular</h1>
+<p>Feature extraction offers:</p>
+<ul>
+<li>faster training</li>
+<li>lower GPU usage</li>
+<li>fewer trainable parameters</li>
+<li>reduced overfitting</li>
+<li>strong performance on small datasets</li>
+</ul>
+<hr />
+<h1 id="24-especially-useful-for-small-datasets">24. Especially Useful for Small Datasets</h1>
+<p>Suppose you only have:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>2,000 satellite images
+</span></code></pre></div>
+<p>Full fine-tuning may overfit.</p>
+<p>Feature extraction often generalizes better because:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>most pretrained knowledge remains preserved
+</span></code></pre></div>
+<hr />
+<h1 id="25-a-vs-b">25. A vs B</h1>
+<h2 id="a-full-fine-tuning">A — Full Fine-Tuning</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Modify the representation space.
+</span></code></pre></div>
+<p>All weights update.</p>
+<hr />
+<h2 id="b-feature-extraction">B — Feature Extraction</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Reuse the representation space.
+</span></code></pre></div>
+<p>Only the classifier head updates.</p>
+<hr />
+<h1 id="26-practical-tradeoff">26. Practical Tradeoff</h1>
+<h2 id="use-feature-extraction-when">Use Feature Extraction When</h2>
+<ul>
+<li>dataset is small</li>
+<li>compute is limited</li>
+<li>task resembles pretraining domain</li>
+<li>quick baseline is needed</li>
+</ul>
+<hr />
+<h2 id="use-full-fine-tuning-when">Use Full Fine-Tuning When</h2>
+<ul>
+<li>domain differs strongly</li>
+<li>enough data exists</li>
+<li>higher accuracy is needed</li>
+<li>representations themselves must adapt</li>
+</ul>
+<hr />
+<h1 id="27-intermediate-strategy-common-in-practice">27. Intermediate Strategy (Common in Practice)</h1>
+<p>There is also a middle ground.</p>
+<h2 id="partial-fine-tuning">Partial Fine-Tuning</h2>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>freeze early layers
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>train later layers
+</span></code></pre></div>
+<p>Why?</p>
+<p>Early layers often learn generic patterns.
+Later layers become more task-specific.</p>
+<hr />
+<h1 id="28-gradual-unfreezing">28. Gradual Unfreezing</h1>
+<p>A common workflow:</p>
+<h2 id="phase-1">Phase 1</h2>
+<p>Train only the new classifier head.</p>
+<h2 id="phase-2">Phase 2</h2>
+<p>Unfreeze upper layers.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>last 1–3 transformer blocks become trainable
+</span></code></pre></div>
+<p>This often improves performance while keeping compute manageable.</p>
+<hr />
+<h1 id="29-final-mental-model">29. Final Mental Model</h1>
+<h2 id="full-fine-tuning">Full Fine-Tuning</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Change the model&#39;s internal representations.
+</span></code></pre></div>
+<hr />
+<h2 id="feature-extraction">Feature Extraction</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>Reuse pretrained representations
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>and only learn a new mapping layer.
+</span></code></pre></div>
+<p>This distinction is the core intuition behind A vs B.</p>
 
 
 

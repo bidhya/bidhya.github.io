@@ -1,0 +1,2897 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Portfolio site showcasing expertise in Spatial Data Science, Remote Sensing, and Machine Learning.">
+      
+      
+        <meta name="author" content="Bidhyananda Yadav">
+      
+      
+        <link rel="canonical" href="https://bidhya.github.io/notes/ai-ml/tokenization-embeddings/">
+      
+      
+        <link rel="prev" href="../transformers/">
+      
+      
+        <link rel="next" href="../gpu-ddp/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Tokenization & Embeddings - Bidhyananda Yadav | Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tokenization-and-vector-embeddings-pre-transformer-text-representation-pipelines" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Bidhyananda Yadav | Portfolio" class="md-header__button md-logo" aria-label="Bidhyananda Yadav | Portfolio" data-md-component="logo">
+      
+  <img src="../../../assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bidhyananda Yadav | Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tokenization & Embeddings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../profile/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Engineering Notes
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tutorials/" class="md-tabs__link">
+          
+  
+  
+  Technical Workflows
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Bidhyananda Yadav | Portfolio" class="md-nav__button md-logo" aria-label="Bidhyananda Yadav | Portfolio" data-md-component="logo">
+      
+  <img src="../../../assets/favicon.svg" alt="logo">
+
+    </a>
+    Bidhyananda Yadav | Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../profile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engineering Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Engineering Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI & Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI & Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stats-to-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Statistics to Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytorch-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch Training Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformer Architecture & Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tokenization & Embeddings
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tokenization & Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pipeline-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Pipeline Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-text-representation-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Why Text Representation Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-bag-of-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Bag of Words
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Bag of Words">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strengths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strengths
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tf-idf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. TF-IDF
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. TF-IDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strengths_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strengths
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-word2vec-and-dense-word-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Word2Vec and Dense Word Embeddings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Word2Vec and Dense Word Embeddings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Idea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-semantic-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Semantic Relationship
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strengths_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strengths
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-from-static-embeddings-to-contextual-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. From Static Embeddings to Contextual Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tokenization-in-modern-transformers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Tokenization in Modern Transformers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-why-subword-tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Why Subword Tokenization?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-common-tokenization-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Common Tokenization Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-tokenization-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Tokenization Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-vocabulary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Vocabulary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-token-ids-are-not-meaningful-by-themselves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Token IDs Are Not Meaningful by Themselves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-embedding-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Embedding Matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-embedding-dimension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Embedding Dimension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-embedding-output-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Embedding Output Shape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-special-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Special Tokens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-padding-and-attention-masks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Padding and Attention Masks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-positional-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Positional Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-learned-positional-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Learned Positional Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-sinusoidal-positional-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Sinusoidal Positional Encoding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-rotary-positional-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. Rotary Positional Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-final-input-to-transformer-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. Final Input to Transformer Block
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-why-this-replaced-older-representations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. Why This Replaced Older Representations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-static-vs-contextual-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24. Static vs Contextual Representation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-practical-memory-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25. Practical Memory Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-summary-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26. Summary Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-simple-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27. Simple Mental Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-key-terms-glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28. Key Terms Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-one-line-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29. One-Line Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu-ddp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Memory & Distributed Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Adaptation & Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geospatial-peft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PEFT for Geospatial Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial & Remote Sensing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geospatial & Remote Sensing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/gis-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial Python Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/pyproj-crs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinate Reference Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/kalman-filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Estimation & Kalman Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/hyperspectral-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hyperspectral Sensor Physics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spatio-Temporal & Vision
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spatio-Temporal & Vision
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/ocean-color/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NASA PACE Ocean Color
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/change-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sentinel-2 Change Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Natural Language Processing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Natural Language Processing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/nlp-ner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Named Entity Recognition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/nlp-topic-modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/nlp-sentiment-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sentiment & Zero-Shot classification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pipeline-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Pipeline Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-text-representation-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Why Text Representation Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-bag-of-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Bag of Words
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Bag of Words">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strengths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strengths
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tf-idf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. TF-IDF
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. TF-IDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strengths_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strengths
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-word2vec-and-dense-word-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Word2Vec and Dense Word Embeddings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Word2Vec and Dense Word Embeddings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Idea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-semantic-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Semantic Relationship
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strengths_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strengths
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-from-static-embeddings-to-contextual-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. From Static Embeddings to Contextual Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tokenization-in-modern-transformers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Tokenization in Modern Transformers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-why-subword-tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Why Subword Tokenization?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-common-tokenization-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Common Tokenization Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-tokenization-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Tokenization Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-vocabulary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Vocabulary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-token-ids-are-not-meaningful-by-themselves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Token IDs Are Not Meaningful by Themselves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-embedding-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Embedding Matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-embedding-dimension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Embedding Dimension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-embedding-output-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Embedding Output Shape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-special-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Special Tokens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-padding-and-attention-masks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Padding and Attention Masks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-positional-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Positional Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-learned-positional-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Learned Positional Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-sinusoidal-positional-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Sinusoidal Positional Encoding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-rotary-positional-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. Rotary Positional Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-final-input-to-transformer-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. Final Input to Transformer Block
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-why-this-replaced-older-representations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. Why This Replaced Older Representations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-static-vs-contextual-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24. Static vs Contextual Representation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-practical-memory-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25. Practical Memory Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-summary-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26. Summary Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-simple-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27. Simple Mental Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-key-terms-glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28. Key Terms Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-one-line-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29. One-Line Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Engineering Notes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    AI & Machine Learning
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tokenization-and-vector-embeddings-pre-transformer-text-representation-pipelines">Tokenization and Vector Embeddings: Pre-Transformer Text Representation Pipelines</h1>
+<h2 id="1-pipeline-architecture">1. Pipeline Architecture</h2>
+<p>Before text can be passed into a Transformer encoder or decoder block, it must be converted into numerical representations.</p>
+<p>A Transformer does not directly process raw text such as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>The cat sat on the mat.
+</span></code></pre></div>
+<p>Instead, the text is converted into:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>text → tokens → token IDs → embedding vectors → position-aware vectors
+</span></code></pre></div>
+<p>Only after these steps does the sequence enter the Transformer block.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Raw Text] --&gt; B[Tokenization]
+    B --&gt; C[Token IDs]
+    C --&gt; D[Token Embeddings]
+    D --&gt; E[Add Positional Information]
+    E --&gt; F[Transformer Encoder/Decoder Blocks]</code></pre>
+<p>This document focuses on everything that happens <strong>before</strong> the Transformer block.</p>
+<hr />
+<h2 id="2-why-text-representation-matters">2. Why Text Representation Matters</h2>
+<p>Machine learning models operate on numbers, not raw text. The central question is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>How do we represent words, subwords, or tokens as numbers in a useful way?
+</span></code></pre></div>
+<p>Different generations of NLP methods answered this question differently:</p>
+<ol>
+<li>Bag of Words</li>
+<li>TF-IDF</li>
+<li>Word embeddings such as Word2Vec</li>
+<li>Contextual embeddings from Transformers</li>
+</ol>
+<p>Understanding this history helps explain why Transformers became so important.</p>
+<hr />
+<h2 id="3-bag-of-words">3. Bag of Words</h2>
+<p>Bag of Words represents a document by counting how often each word appears.</p>
+<p>Example vocabulary:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[cat, dog, mat, sat]
+</span></code></pre></div>
+<p>Sentence:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cat sat on mat
+</span></code></pre></div>
+<p>could be represented as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat: 1
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>dog: 0
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>mat: 1
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>sat: 1
+</span></code></pre></div>
+<p>Vector form:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[1, 0, 1, 1]
+</span></code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+    A[Text] --&gt; B[Count Words]
+    B --&gt; C[Sparse Vector]</code></pre>
+<h3 id="strengths">Strengths</h3>
+<ul>
+<li>Simple</li>
+<li>Useful for classical machine learning</li>
+<li>Works reasonably well for some classification problems</li>
+</ul>
+<h3 id="limitations">Limitations</h3>
+<ul>
+<li>Ignores word order</li>
+<li>Produces sparse high-dimensional vectors</li>
+<li>Does not capture meaning well</li>
+<li>Treats related words as unrelated</li>
+</ul>
+<p>For example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cat and kitten are semantically related
+</span></code></pre></div>
+<p>but Bag of Words does not naturally know that.</p>
+<hr />
+<h2 id="4-tf-idf">4. TF-IDF</h2>
+<p>TF-IDF improves Bag of Words by weighting words based on how important they are in a document relative to a corpus.</p>
+<p>The intuition:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Words that appear often in one document but not everywhere are more informative.
+</span></code></pre></div>
+<p>Examples:</p>
+<ul>
+<li>Common words like <code>the</code>, <code>is</code>, <code>and</code> get lower weight.</li>
+<li>More specific words like <code>glacier</code>, <code>transformer</code>, or <code>genomics</code> may get higher weight.</li>
+</ul>
+<h3 id="strengths_1">Strengths</h3>
+<ul>
+<li>Better than raw counts</li>
+<li>Useful for search, retrieval, and classical ML pipelines</li>
+</ul>
+<h3 id="limitations_1">Limitations</h3>
+<ul>
+<li>Still sparse</li>
+<li>Still mostly ignores word order</li>
+<li>Still lacks deep semantic understanding</li>
+<li>Same word has same representation regardless of context</li>
+</ul>
+<hr />
+<h2 id="5-word2vec-and-dense-word-embeddings">5. Word2Vec and Dense Word Embeddings</h2>
+<p>Word2Vec introduced a major shift: instead of sparse count vectors, words are represented as dense learned vectors.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cat → [0.21, -0.42, 0.77, ..., 0.13]
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>dog → [0.19, -0.38, 0.75, ..., 0.09]
+</span></code></pre></div>
+<p>Words with similar meanings tend to have similar vectors.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Word] --&gt; B[Lookup Table]
+    B --&gt; C[Dense Vector]</code></pre>
+<h3 id="key-idea">Key Idea</h3>
+<p>A word's meaning can be learned from the contexts in which it appears.</p>
+<p>This is often summarized as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>You shall know a word by the company it keeps.
+</span></code></pre></div>
+<h3 id="example-semantic-relationship">Example Semantic Relationship</h3>
+<p>Dense embeddings can capture relationships such as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>king - man + woman ≈ queen
+</span></code></pre></div>
+<h3 id="strengths_2">Strengths</h3>
+<ul>
+<li>Dense vectors</li>
+<li>Captures semantic similarity</li>
+<li>Much better representation than one-hot or count vectors</li>
+</ul>
+<h3 id="limitations_2">Limitations</h3>
+<p>A major limitation is that each word usually has one fixed vector.</p>
+<p>For example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>bank = financial institution
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>bank = side of a river
+</span></code></pre></div>
+<p>Traditional Word2Vec-style embeddings may assign the same vector to <code>bank</code> in both contexts.</p>
+<p>This motivates contextual embeddings.</p>
+<hr />
+<h2 id="6-from-static-embeddings-to-contextual-embeddings">6. From Static Embeddings to Contextual Embeddings</h2>
+<p>Static embeddings assign one vector per word or token.</p>
+<p>Contextual embeddings produce different representations depending on surrounding words.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>I deposited money at the bank.
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>I sat by the river bank.
+</span></code></pre></div>
+<p>The token <code>bank</code> should have different meanings in these two sentences.</p>
+<p>Transformers solve this by using self-attention to update token representations based on context.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Static Embedding] --&gt; B[Same vector for bank]
+    C[Contextual Embedding] --&gt; D[Different vector depending on sentence]</code></pre>
+<p>This is one reason Transformers are so powerful.</p>
+<hr />
+<h2 id="7-tokenization-in-modern-transformers">7. Tokenization in Modern Transformers</h2>
+<p>Modern Transformers usually do not tokenize text strictly by words. Instead, they often use <strong>subword tokenization</strong>.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>unbelievable → un + believ + able
+</span></code></pre></div>
+<p>or:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>transformers → transform + ers
+</span></code></pre></div>
+<p>Subword tokenization balances two competing goals:</p>
+<ol>
+<li>Keep vocabulary size manageable.</li>
+<li>Still represent rare or unseen words.</li>
+</ol>
+<hr />
+<h2 id="8-why-subword-tokenization">8. Why Subword Tokenization?</h2>
+<p>If we tokenize only by whole words, the vocabulary becomes huge.</p>
+<p>Problems:</p>
+<ul>
+<li>Many rare words</li>
+<li>Misspellings</li>
+<li>New scientific terms</li>
+<li>Domain-specific vocabulary</li>
+<li>Names and identifiers</li>
+</ul>
+<p>If we tokenize only by characters, sequences become very long.</p>
+<p>Subword tokenization is a compromise.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Tokenization Choice] --&gt; B[Word-level]
+    A --&gt; C[Character-level]
+    A --&gt; D[Subword-level]
+
+    B --&gt; B1[Large vocabulary]
+    C --&gt; C1[Long sequences]
+    D --&gt; D1[Balanced vocabulary and sequence length]</code></pre>
+<hr />
+<h2 id="9-common-tokenization-methods">9. Common Tokenization Methods</h2>
+<p>Common approaches include:</p>
+<ul>
+<li>Byte Pair Encoding (BPE)</li>
+<li>WordPiece</li>
+<li>SentencePiece</li>
+<li>Byte-level BPE</li>
+</ul>
+<p>The high-level goal is similar:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Learn a vocabulary of useful text chunks.
+</span></code></pre></div>
+<p>These chunks may be full words, word pieces, punctuation, whitespace patterns, or byte-level units.</p>
+<hr />
+<h2 id="10-tokenization-example">10. Tokenization Example</h2>
+<p>Raw text:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>The researcher fine-tuned a transformer model.
+</span></code></pre></div>
+<p>Possible tokenization:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>[&quot;The&quot;, &quot;research&quot;, &quot;er&quot;, &quot;fine&quot;, &quot;-&quot;, &quot;tuned&quot;, &quot;a&quot;, &quot;transform&quot;, &quot;er&quot;, &quot;model&quot;, &quot;.&quot;]
+</span></code></pre></div>
+<p>Token IDs:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>[464, 5210, 261, 11849, 12, 39201, 257, 18045, 261, 2746, 13]
+</span></code></pre></div>
+<p>The exact tokens depend on the tokenizer and vocabulary.</p>
+<hr />
+<h2 id="11-vocabulary">11. Vocabulary</h2>
+<p>The tokenizer has a fixed vocabulary.</p>
+<p>Example vocabulary size:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>vocab_size = 50,000
+</span></code></pre></div>
+<p>Each token maps to one integer ID:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>&quot;cat&quot; → 9246
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>&quot;dog&quot; → 1897
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>&quot;transform&quot; → 18045
+</span></code></pre></div>
+<p>The model does not see the original token string directly. It sees the token ID.</p>
+<hr />
+<h2 id="12-token-ids-are-not-meaningful-by-themselves">12. Token IDs Are Not Meaningful by Themselves</h2>
+<p>Token IDs are just indices.</p>
+<p>For example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>cat → 9246
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>dog → 1897
+</span></code></pre></div>
+<p>The fact that 9246 is larger than 1897 has no semantic meaning.</p>
+<p>The meaning comes from the embedding vectors learned for each token.</p>
+<hr />
+<h2 id="13-embedding-matrix">13. Embedding Matrix</h2>
+<p>The embedding layer is usually implemented as a lookup table.</p>
+<p>If:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>vocab_size = 50,000
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>embedding_dim = 4096
+</span></code></pre></div>
+<p>then the embedding matrix has shape:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>50,000 × 4096
+</span></code></pre></div>
+<p>Each row corresponds to one token.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>embedding_matrix[token_id] → embedding vector
+</span></code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+    A[Token ID] --&gt; B[Embedding Matrix]
+    B --&gt; C[Embedding Vector]</code></pre>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>token_id = 9246
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>embedding = embedding_matrix[9246]
+</span></code></pre></div>
+<p>Output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>[0.12, -0.08, 0.44, ..., 0.31]
+</span></code></pre></div>
+<hr />
+<h2 id="14-embedding-dimension">14. Embedding Dimension</h2>
+<p>The embedding dimension is the size of each token vector.</p>
+<p>Common examples:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>small model:  d_model = 768
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>medium model: d_model = 1024 or 2048
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>large model:  d_model = 4096, 8192, or higher
+</span></code></pre></div>
+<p>If a sequence has 128 tokens and embedding dimension is 4096, the embedding output shape is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>128 × 4096
+</span></code></pre></div>
+<p>For a batch of 32 sequences:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>batch_size × sequence_length × embedding_dim
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>= 32 × 128 × 4096
+</span></code></pre></div>
+<p>This tensor is what gets passed forward into the Transformer layers.</p>
+<hr />
+<h2 id="15-embedding-output-shape">15. Embedding Output Shape</h2>
+<p>Given:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>batch_size = B
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>sequence_length = T
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>embedding_dim = D
+</span></code></pre></div>
+<p>The embedding output shape is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>B × T × D
+</span></code></pre></div>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>B = 16
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>T = 512
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>D = 4096
+</span></code></pre></div>
+<p>Output shape:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>16 × 512 × 4096
+</span></code></pre></div>
+<p>This is a dense tensor representation of the tokenized batch.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Batch of Token IDs&lt;br/&gt;B × T] --&gt; B[Embedding Lookup]
+    B --&gt; C[Dense Tensor&lt;br/&gt;B × T × D]</code></pre>
+<hr />
+<h2 id="16-special-tokens">16. Special Tokens</h2>
+<p>Tokenizers often include special tokens.</p>
+<p>Examples:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>&lt;BOS&gt;  beginning of sequence
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>&lt;EOS&gt;  end of sequence
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>&lt;PAD&gt;  padding token
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>&lt;UNK&gt;  unknown token
+</span></code></pre></div>
+<p>Decoder-only models often use beginning/end tokens depending on model design and training setup.</p>
+<p>Padding tokens are useful when batching sequences of different lengths.</p>
+<hr />
+<h2 id="17-padding-and-attention-masks">17. Padding and Attention Masks</h2>
+<p>Sequences in a batch often have different lengths.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Sentence A: 5 tokens
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>Sentence B: 9 tokens
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>Sentence C: 3 tokens
+</span></code></pre></div>
+<p>To batch them together, shorter sequences are padded:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Sentence A: [t1, t2, t3, t4, t5, PAD, PAD, PAD, PAD]
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>Sentence B: [t1, t2, t3, t4, t5, t6,  t7,  t8,  t9]
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>Sentence C: [t1, t2, t3, PAD, PAD, PAD, PAD, PAD, PAD]
+</span></code></pre></div>
+<p>The model uses an attention mask so it does not treat padding tokens as meaningful content.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Variable Length Texts] --&gt; B[Pad to Same Length]
+    B --&gt; C[Attention Mask]
+    C --&gt; D[Transformer]</code></pre>
+<p>Important distinction:</p>
+<ul>
+<li><strong>Padding mask</strong> prevents attention to padding tokens.</li>
+<li><strong>Causal mask</strong> prevents attention to future tokens in decoder-only models.</li>
+</ul>
+<p>Both masks may be used together.</p>
+<hr />
+<h2 id="18-positional-embeddings">18. Positional Embeddings</h2>
+<p>Token embeddings alone do not encode order.</p>
+<p>For example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>cat chased dog
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>dog chased cat
+</span></code></pre></div>
+<p>These have the same tokens but different meanings.</p>
+<p>To represent order, positional embeddings are added:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>input_vector = token_embedding + positional_embedding
+</span></code></pre></div>
+<p>If token embedding has dimension <code>D</code>, positional embedding also has dimension <code>D</code>.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>token_embedding shape:     T × D
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>positional_embedding shape: T × D
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>result shape:              T × D
+</span></code></pre></div>
+<hr />
+<h2 id="19-learned-positional-embeddings">19. Learned Positional Embeddings</h2>
+<p>A learned positional embedding is a table similar to token embeddings.</p>
+<p>If the maximum context length is 4096 and embedding dimension is 4096:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>position_embedding_matrix shape = 4096 × 4096
+</span></code></pre></div>
+<p>Each position has a learned vector:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>position 0 → vector
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>position 1 → vector
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>position 2 → vector
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>...
+</span></code></pre></div>
+<p>Then:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>input_at_position_i = token_embedding_i + position_embedding_i
+</span></code></pre></div>
+<hr />
+<h2 id="20-sinusoidal-positional-encoding">20. Sinusoidal Positional Encoding</h2>
+<p>The original Transformer used fixed sinusoidal positional encodings.</p>
+<p>The idea is to encode positions using sine and cosine waves of different frequencies.</p>
+<p>This gives each position a unique pattern and may allow models to generalize to longer sequences.</p>
+<p>The high-level takeaway:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>Sinusoidal encoding = fixed mathematical position signal
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>Learned positional embedding = learned position signal
+</span></code></pre></div>
+<hr />
+<h2 id="21-rotary-positional-embeddings">21. Rotary Positional Embeddings</h2>
+<p>Many modern decoder-only models use variants such as rotary positional embeddings.</p>
+<p>The key idea is to inject relative position information into attention by rotating query and key vectors based on token position.</p>
+<p>High-level intuition:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>Instead of simply adding position vectors, position affects how tokens attend to each other.
+</span></code></pre></div>
+<p>This can improve long-context behavior and relative position modeling.</p>
+<hr />
+<h2 id="22-final-input-to-transformer-block">22. Final Input to Transformer Block</h2>
+<p>After tokenization, embedding, and positional information, the model has a tensor:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>B × T × D
+</span></code></pre></div>
+<p>Where:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>B = batch size
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>T = sequence length
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>D = hidden/embedding dimension
+</span></code></pre></div>
+<p>This tensor is passed into the first Transformer encoder or decoder block.</p>
+<p>For decoder-only models, the next step is usually masked self-attention.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Raw Text] --&gt; B[Tokenizer]
+    B --&gt; C[Token IDs&lt;br/&gt;B × T]
+    C --&gt; D[Token Embeddings&lt;br/&gt;B × T × D]
+    D --&gt; E[Add Positional Information&lt;br/&gt;B × T × D]
+    E --&gt; F[Attention Mask / Causal Mask]
+    F --&gt; G[Decoder Transformer Block]</code></pre>
+<hr />
+<h2 id="23-why-this-replaced-older-representations">23. Why This Replaced Older Representations</h2>
+<p>Bag of Words and TF-IDF were useful but limited because they mostly ignored word order and context.</p>
+<p>Word2Vec introduced dense semantic vectors, but each word often had a fixed representation.</p>
+<p>Transformers moved beyond this by combining:</p>
+<ol>
+<li>token embeddings</li>
+<li>positional information</li>
+<li>self-attention</li>
+</ol>
+<p>This lets the model produce contextual representations.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>bank in &quot;river bank&quot; ≠ bank in &quot;bank account&quot;
+</span></code></pre></div>
+<p>The initial embedding for <code>bank</code> may start the same, but after attention layers, the representation becomes context-specific.</p>
+<hr />
+<h2 id="24-static-vs-contextual-representation">24. Static vs Contextual Representation</h2>
+<p>Before the Transformer block:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>bank → initial embedding
+</span></code></pre></div>
+<p>After the Transformer block:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>bank in financial context → contextual representation A
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>bank in river context     → contextual representation B
+</span></code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+    A[Same Token: bank] --&gt; B[Initial Embedding]
+    B --&gt; C[Transformer Context]
+    C --&gt; D[Financial Meaning]
+    C --&gt; E[River Meaning]</code></pre>
+<p>This is one of the most important shifts from older NLP to modern Transformer-based NLP.</p>
+<hr />
+<h2 id="25-practical-memory-considerations">25. Practical Memory Considerations</h2>
+<p>Embeddings can contain many parameters.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>vocab_size = 50,000
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>embedding_dim = 4096
+</span></code></pre></div>
+<p>Number of token embedding parameters:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>50,000 × 4096 = 204,800,000 parameters
+</span></code></pre></div>
+<p>So the embedding table alone can be hundreds of millions of parameters in large models.</p>
+<p>The output projection layer may also be large because it maps from hidden dimension back to vocabulary size.</p>
+<p>In some models, token embedding weights and output projection weights are tied to reduce parameters.</p>
+<hr />
+<h2 id="26-summary-pipeline">26. Summary Pipeline</h2>
+<p>The full pre-Transformer pipeline is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>Raw text
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>→ normalize/process text as needed
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>→ tokenize into subwords/tokens
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>→ map tokens to integer IDs
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>→ look up token embeddings
+</span><span id="__span-53-6"><a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>→ add or apply positional information
+</span><span id="__span-53-7"><a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>→ create attention masks
+</span><span id="__span-53-8"><a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>→ pass tensor into Transformer block
+</span></code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+    A[Raw Text] --&gt; B[Tokenizer]
+    B --&gt; C[Token IDs]
+    C --&gt; D[Embedding Matrix Lookup]
+    D --&gt; E[Token Embeddings]
+    E --&gt; F[Position Information]
+    F --&gt; G[Attention Masks]
+    G --&gt; H[Transformer Block]</code></pre>
+<hr />
+<h2 id="27-simple-mental-model">27. Simple Mental Model</h2>
+<p>A good mental model is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>Tokenization decides what the model&#39;s basic text units are.
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>Embeddings turn those units into vectors.
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>Positional information tells the model where each unit occurs.
+</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>The Transformer block then uses attention to make those vectors context-aware.
+</span></code></pre></div>
+<p>Even shorter:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>Tokenization creates the symbols; embeddings create the vectors; attention creates the context.
+</span></code></pre></div>
+<hr />
+<h2 id="28-key-terms-glossary">28. Key Terms Glossary</h2>
+<p><strong>Bag of Words</strong>: Represents text by word counts, ignoring order.</p>
+<p><strong>TF-IDF</strong>: Weights words by document importance relative to a corpus.</p>
+<p><strong>Word2Vec</strong>: Learns dense static word embeddings from context.</p>
+<p><strong>Static embedding</strong>: Same vector for a word/token regardless of context.</p>
+<p><strong>Contextual embedding</strong>: Representation changes depending on surrounding tokens.</p>
+<p><strong>Tokenization</strong>: Splitting text into model-readable units.</p>
+<p><strong>Subword tokenization</strong>: Tokenization using word pieces rather than full words or characters only.</p>
+<p><strong>Vocabulary</strong>: Fixed set of tokens known by the tokenizer.</p>
+<p><strong>Token ID</strong>: Integer index assigned to a token.</p>
+<p><strong>Embedding matrix</strong>: Lookup table mapping token IDs to vectors.</p>
+<p><strong>Embedding dimension</strong>: Length of each token vector.</p>
+<p><strong>Sequence length</strong>: Number of tokens in a sequence.</p>
+<p><strong>Batch size</strong>: Number of sequences processed together.</p>
+<p><strong>Padding</strong>: Adding special tokens so sequences in a batch have equal length.</p>
+<p><strong>Attention mask</strong>: Tells the model which tokens should or should not be attended to.</p>
+<p><strong>Positional embedding</strong>: Vector representing token position.</p>
+<p><strong>Causal mask</strong>: Mask used in decoder-only models to prevent looking ahead.</p>
+<hr />
+<h2 id="29-one-line-summary">29. One-Line Summary</h2>
+<p>Before text reaches a Transformer block, it is converted into token IDs, mapped into dense embedding vectors, combined with positional information, and masked appropriately so the model can process the sequence as a structured numerical tensor.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2026 Bidhyananda Yadav
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/bidhya" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/in/bidhya-n-yadav-48908322" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:yadav.111@osu.edu" target="_blank" rel="noopener" title="Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://scholar.google.com/citations?user=ZMb8ADQAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M500 261.8C500 403.3 403.1 504 260 504 122.8 504 12 393.2 12 256S122.8 8 260 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C270.5 52.6 106.3 116.6 106.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H260v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

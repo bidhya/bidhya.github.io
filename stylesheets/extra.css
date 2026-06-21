@@ -1,0 +1,54 @@
+/* ============================================================
+   Portfolio — Custom Styles
+   ============================================================ */
+
+/* --- Hero Banner (index.md landing page) ------------------- */
+.hero-banner {
+  text-align: center;
+  padding: 5rem 1rem 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-banner h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+/* Tagline (bold paragraph immediately after h1) */
+.hero-banner > p:first-of-type {
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.65;
+  margin-bottom: 1.2rem;
+}
+
+/* Body text paragraph */
+.hero-banner > p {
+  max-width: 660px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  opacity: 0.88;
+}
+
+/* CTA buttons */
+.hero-banner .md-button {
+  margin: 0.25rem;
+  font-size: 0.9rem;
+  padding: 0.55rem 1.5rem;
+}
+
+/* --- Section headings spacing -------------------------------*/
+.md-content h2 {
+  margin-top: 2.5rem;
+}
+
+/* --- Grid card icon size ------------------------------------*/
+.md-typeset .grid.cards > ul > li > p:first-child .twemoji,
+.md-typeset .grid.cards > ul > li > p:first-child svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  vertical-align: -0.2rem;
+}
