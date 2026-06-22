@@ -1,0 +1,136 @@
+site_name: Bidhyananda Yadav | Portfolio
+site_url: https://bidhya.github.io/
+site_author: Bidhyananda Yadav
+site_description: Portfolio site showcasing expertise in Spatial Data Science, Remote Sensing, and Machine Learning.
+
+theme:
+  name: material
+  font:
+    text: Inter
+    code: JetBrains Mono
+  favicon: assets/favicon.svg
+  logo: assets/favicon.svg
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep-purple
+      accent: light-blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode (slate)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep-purple
+      accent: light-blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.path
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.select
+
+plugins:
+  - search
+  - tags:
+      tags_file: tags.md
+  - mkdocs-jupyter:
+      include_source: true
+      ignore_h1_titles: true
+
+markdown_extensions:
+  - admonition
+  - def_list
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+copyright: "&copy; 2026 Bidhyananda Yadav"
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bidhya
+      name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/bidhya-n-yadav-48908322
+      name: LinkedIn
+    - icon: fontawesome/solid/envelope
+      link: mailto:yadav.111@osu.edu
+      name: Email
+    - icon: fontawesome/brands/google
+      link: https://scholar.google.com/citations?user=ZMb8ADQAAAAJ&hl=en
+      name: Google Scholar
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - About: profile.md
+  - Engineering Notes:
+      - AI & Machine Learning:
+          - Overview: notes/ai-ml/index.md
+          - From Statistics to Deep Learning: notes/ai-ml/stats-to-deep-learning.md
+          - Bias–Variance Tradeoff & Regularization: notes/ai-ml/bias-variance.md
+          - PyTorch Training Fundamentals: notes/ai-ml/pytorch-foundations.md
+          - Transformer Architecture & Attention: notes/ai-ml/transformers.md
+          - Tokenization & Embeddings: notes/ai-ml/tokenization-embeddings.md
+          - GPU Memory & Distributed Training: notes/ai-ml/gpu-ddp.md
+          - Model Adaptation & Fine-Tuning: notes/ai-ml/fine-tuning.md
+          - PEFT for Geospatial Models: notes/ai-ml/geospatial-peft.md
+          - LLM Inference & KV-Cache Engineering: notes/ai-ml/qkv-kvcache.md
+          - Temperature, Sampling & Reasoning Models: notes/ai-ml/llm-temperature.md
+          - Vision Transformer Architecture: notes/ai-ml/vision-transformer.md
+          - ViT Data Requirements & Inductive Bias: notes/ai-ml/vit-data-requirements.md
+      - Geospatial & Remote Sensing:
+          - Overview: notes/geospatial/index.md
+          - Geospatial Python Stack: notes/geospatial/gis-cheatsheet.md
+          - Coordinate Reference Systems: notes/geospatial/pyproj-crs.md
+          - State Estimation & Kalman Filtering: notes/geospatial/kalman-filter.md
+          - Hyperspectral Sensor Physics: notes/geospatial/hyperspectral-concepts.md
+          - Production Geospatial Patterns: notes/geospatial/real-world-patterns.md
+          - Interactive Visualization with hvPlot: notes/geospatial/hvplot-visualization.md
+  - Technical Workflows:
+      - Overview: tutorials/index.md
+      - Spatio-Temporal & Vision:
+          - NASA PACE Ocean Color: tutorials/ocean-color.ipynb
+          - Sentinel-2 Change Detection: tutorials/change-detection.ipynb
+      - Natural Language Processing:
+          - Named Entity Recognition: tutorials/nlp-ner.ipynb
+          - Topic Modeling: tutorials/nlp-topic-modeling.ipynb
+          - Sentiment & Zero-Shot classification: tutorials/nlp-sentiment-analysis.ipynb
+  - Tags: tags.md

@@ -1,0 +1,30 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# Build output
+site/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter Notebook local state
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# System / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# AI Agent instruction references containing private/raw details
+AGENTS.md
+README.md
+JUPYTER_RENDER_AGENT.md
+GIT_BRANCHING_PLAN.md
+
+# Local-only scratchpads & notes workspace
+_notes/
