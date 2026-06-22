@@ -12,13 +12,13 @@
         <meta name="author" content="Bidhyananda Yadav">
       
       
-        <link rel="canonical" href="https://bidhya.github.io/notes/ai-ml/fine-tuning/">
+        <link rel="canonical" href="https://bidhya.github.io/notes/ai-ml/vit-data-requirements/">
       
       
-        <link rel="prev" href="../gpu-ddp/">
+        <link rel="prev" href="../vision-transformer/">
       
       
-        <link rel="next" href="../geospatial-peft/">
+        <link rel="next" href="../../geospatial/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Model Adaptation & Fine-Tuning - Bidhyananda Yadav | Portfolio</title>
+        <title>ViT Data Requirements & Inductive Bias - Bidhyananda Yadav | Portfolio</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#foundations-of-model-adaptation-full-fine-tuning-and-linear-probing-architectures" class="md-skip">
+        <a href="#why-vision-transformers-often-need-more-data-than-cnns" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Model Adaptation & Fine-Tuning
+              ViT Data Requirements & Inductive Bias
             
           </span>
         </div>
@@ -693,19 +693,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../fine-tuning/" class="md-nav__link">
         
   
   
@@ -721,7 +712,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -843,10 +833,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../vit-data-requirements/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT Data Requirements & Inductive Bias
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -862,6 +879,136 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-core-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Core Idea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cnns-encode-image-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. CNNs Encode Image Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-vits-learn-image-structure-more-from-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ViTs Learn Image Structure More From Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-attention-is-flexible-but-data-hungry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Attention Is Flexible but Data-Hungry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-patch-size-affects-data-and-compute-needs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Patch Size Affects Data and Compute Needs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-why-small-data-can-be-hard-for-vits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Why Small Data Can Be Hard for ViTs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-how-data-augmentation-helps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. How Data Augmentation Helps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-pretraining-also-helps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Pretraining Also Helps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cnn-vs-vit-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. CNN vs ViT Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-one-line-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. One-Line Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1535,6 +1682,124 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-core-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Core Idea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cnns-encode-image-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. CNNs Encode Image Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-vits-learn-image-structure-more-from-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ViTs Learn Image Structure More From Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-attention-is-flexible-but-data-hungry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Attention Is Flexible but Data-Hungry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-patch-size-affects-data-and-compute-needs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Patch Size Affects Data and Compute Needs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-why-small-data-can-be-hard-for-vits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Why Small Data Can Be Hard for ViTs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-how-data-augmentation-helps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. How Data Augmentation Helps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-pretraining-also-helps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Pretraining Also Helps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cnn-vs-vit-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. CNN vs ViT Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-one-line-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. One-Line Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1628,6 +1893,13 @@
       
       
       
+        <a href="../../../tags/#tag:computer-vision" class="md-tag">Computer Vision</a>
+      
+    
+      
+      
+      
+      
         <a href="../../../tags/#tag:deep-learning" class="md-tag">Deep Learning</a>
       
     
@@ -1635,14 +1907,7 @@
       
       
       
-        <a href="../../../tags/#tag:fine-tuning" class="md-tag">Fine-Tuning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../../tags/#tag:pytorch" class="md-tag">PyTorch</a>
+        <a href="../../../tags/#tag:inductive-bias" class="md-tag">Inductive Bias</a>
       
     
       
@@ -1652,414 +1917,196 @@
         <a href="../../../tags/#tag:transfer-learning" class="md-tag">Transfer Learning</a>
       
     
+      
+      
+      
+      
+        <a href="../../../tags/#tag:vision-transformers" class="md-tag">Vision Transformers</a>
+      
+    
   </nav>
 
 
 
-<h1 id="foundations-of-model-adaptation-full-fine-tuning-and-linear-probing-architectures">Foundations of Model Adaptation: Full Fine-Tuning and Linear Probing Architectures</h1>
-<p>Author: Bidhya Yadav<br />
-Topic Focus: Full Fine-Tuning (A) and Feature Extraction / Linear Probing (B)</p>
-<hr />
-<h1 id="1-big-picture">1. Big Picture</h1>
-<p>Modern deep learning workflows rarely train large models from scratch.</p>
-<p>Instead:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Pretraining → Adaptation/Fine-Tuning → Deployment
+<h1 id="why-vision-transformers-often-need-more-data-than-cnns">Why Vision Transformers Often Need More Data Than CNNs</h1>
+<h2 id="1-core-idea">1. Core Idea</h2>
+<p>Vision Transformers (ViTs) often need more data than Convolutional Neural Networks (CNNs) because ViTs have <strong>weaker image-specific inductive bias</strong>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CNNs bake in useful assumptions about images.
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ViTs learn more of those assumptions from data.
 </span></code></pre></div>
-<p>A model is first trained on a very large generic dataset.
-Later, the pretrained model is adapted for a more specific task.</p>
-<p>Examples:</p>
-<table>
-<thead>
-<tr>
-<th>Pretrained Model</th>
-<th>Adapted Task</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ResNet</td>
-<td>Satellite image classification</td>
-</tr>
-<tr>
-<td>ViT</td>
-<td>Medical imaging</td>
-</tr>
-<tr>
-<td>BERT</td>
-<td>Sentiment classification</td>
-</tr>
-<tr>
-<td>Whisper</td>
-<td>Domain-specific speech recognition</td>
-</tr>
-</tbody>
-</table>
+<p>This makes ViTs flexible and powerful, but often more data-hungry when trained from scratch.</p>
 <hr />
-<h1 id="2-mental-model">2. Mental Model</h1>
-<p>The most important intuition:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Pretraining learns representations.
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Fine-tuning specializes representations.
-</span></code></pre></div>
-<p>A pretrained model already knows many useful patterns.</p>
-<p>Examples:</p>
+<h2 id="2-cnns-encode-image-structure">2. CNNs Encode Image Structure</h2>
+<p>CNNs are designed around properties of natural images:</p>
 <ul>
-<li>language structure</li>
-<li>visual textures</li>
-<li>shapes</li>
-<li>semantics</li>
-<li>contextual relationships</li>
+<li>nearby pixels are related</li>
+<li>local patterns matter</li>
+<li>features build hierarchically</li>
+<li>the same visual pattern can appear anywhere</li>
 </ul>
-<p>Fine-tuning adapts these learned representations for a downstream task.</p>
-<hr />
-<h1 id="3-a-full-fine-tuning">3. A — Full Fine-Tuning</h1>
-<h2 id="core-idea">Core Idea</h2>
-<p>Full fine-tuning means:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Load pretrained weights
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>→ Continue gradient-based training
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>→ Update ALL model parameters
-</span></code></pre></div>
-<p>In PyTorch:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span>
-</span></code></pre></div>
-<p>Every layer updates during training.</p>
-<hr />
-<h1 id="4-full-fine-tuning-intuition">4. Full Fine-Tuning Intuition</h1>
-<p>A useful analogy:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Training from scratch:
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Teaching a child language from birth
-</span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Fine-tuning:
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Teaching an educated adult a specialization
-</span></code></pre></div>
-<p>The pretrained model already understands general structure.
-Fine-tuning specializes the model.</p>
-<hr />
-<h1 id="5-full-fine-tuning-workflow">5. Full Fine-Tuning Workflow</h1>
+<pre class="mermaid"><code>flowchart LR
+    A[Pixels] --&gt; B[Edges]
+    B --&gt; C[Textures]
+    C --&gt; D[Shapes]
+    D --&gt; E[Object Parts]
+    E --&gt; F[Objects]</code></pre>
+<p>CNNs use convolution filters that slide across the image.</p>
 <pre class="mermaid"><code>flowchart TD
-    A[Large-scale Pretraining] --&gt; B[Pretrained Checkpoint]
-    B --&gt; C[Load Custom Dataset]
-    C --&gt; D[Continue Training]
-    D --&gt; E[Update All Weights]
-    E --&gt; F[Task-Specific Model]</code></pre>
+    A[Small Local Image Region] --&gt; B[Convolution Filter]
+    B --&gt; C[Local Feature]
+    C --&gt; D[Same Filter Reused Across Image]</code></pre>
+<p>Key CNN inductive biases:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>locality + weight sharing + translation equivariance + hierarchy
+</span></code></pre></div>
+<p>Because these assumptions match images well, CNNs can learn effectively with less data.</p>
 <hr />
-<h1 id="6-checkpoint-intuition">6. Checkpoint Intuition</h1>
-<p>Fine-tuning can be viewed as:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>continuing training from someone else&#39;s checkpoint
-</span></code></pre></div>
-<p>Instead of:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span><span class="p">()</span>
-</span></code></pre></div>
-<p>we do:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">AutoModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-</span></code></pre></div>
-<p>The model weights are not random anymore.
-They already contain learned representations.</p>
-<hr />
-<h1 id="7-two-important-cases">7. Two Important Cases</h1>
-<h2 id="case-1-continued-pretraining">Case 1 — Continued Pretraining</h2>
-<p>The training objective stays the same.</p>
+<h2 id="3-vits-learn-image-structure-more-from-data">3. ViTs Learn Image Structure More From Data</h2>
+<p>A ViT splits an image into patches and treats each patch like a token.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Image] --&gt; B[Split into Patches]
+    B --&gt; C[Patch Tokens]
+    C --&gt; D[Patch Embeddings]
+    D --&gt; E[Self-Attention]</code></pre>
 <p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Original task:
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>masked language modeling
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>224 × 224 image
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>patch size = 16 × 16
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>patch grid = 14 × 14
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>number of patches = 196
 </span></code></pre></div>
-<p>Continue training on:</p>
-<ul>
-<li>medical text</li>
-<li>legal text</li>
-<li>climate science papers</li>
-</ul>
-<p>This is often called:</p>
-<ul>
-<li>continued pretraining</li>
-<li>domain adaptation</li>
-<li>DAPT</li>
-</ul>
-<hr />
-<h2 id="case-2-task-fine-tuning">Case 2 — Task Fine-Tuning</h2>
-<p>The objective changes.</p>
-<p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Pretrained BERT:
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>learned language representations
-</span></code></pre></div>
-<p>New task:</p>
-<ul>
-<li>sentiment classification</li>
-<li>question answering</li>
-<li>summarization</li>
-<li>NER</li>
-</ul>
-<p>This is the most common meaning of “fine-tuning.”</p>
-<hr />
-<h1 id="8-why-full-fine-tuning-works">8. Why Full Fine-Tuning Works</h1>
-<p>The pretrained model already learned:</p>
-<ul>
-<li>useful representations</li>
-<li>feature hierarchies</li>
-<li>semantic relationships</li>
-<li>latent structure</li>
-</ul>
-<p>Fine-tuning modifies these representations slightly for a specific task.</p>
-<hr />
-<h1 id="9-why-full-fine-tuning-can-be-expensive">9. Why Full Fine-Tuning Can Be Expensive</h1>
-<p>All parameters are updated.</p>
-<p>For large models this means:</p>
-<ul>
-<li>large GPU memory usage</li>
-<li>optimizer states for all parameters</li>
-<li>longer training time</li>
-<li>more compute cost</li>
-</ul>
-<p>This becomes difficult for modern large language models.</p>
-<hr />
-<h1 id="10-why-full-fine-tuning-still-matters">10. Why Full Fine-Tuning Still Matters</h1>
-<p>Full fine-tuning is still extremely useful when:</p>
-<ul>
-<li>the domain differs strongly from pretraining</li>
-<li>enough labeled data exists</li>
-<li>representation changes are necessary</li>
-</ul>
-<p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ImageNet model
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>→ satellite imagery classification
-</span></code></pre></div>
-<p>The model may need to adapt low-level representations.</p>
-<p>Examples:</p>
-<ul>
-<li>snow textures</li>
-<li>multispectral imagery</li>
-<li>SAR patterns</li>
-<li>terrain morphology</li>
-</ul>
-<hr />
-<h1 id="11-catastrophic-forgetting">11. Catastrophic Forgetting</h1>
-<p>One important issue:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Fine-tuning can overwrite pretrained knowledge.
-</span></code></pre></div>
-<p>This is called:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>catastrophic forgetting
-</span></code></pre></div>
-<p>Especially likely when:</p>
-<ul>
-<li>learning rate is too high</li>
-<li>dataset is too small</li>
-<li>training is too aggressive</li>
-</ul>
-<hr />
-<h1 id="12-transition-to-b">12. Transition to B</h1>
-<p>Full fine-tuning updates the entire network.</p>
-<p>But researchers discovered something surprising:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Pretrained representations are often already extremely useful.
-</span></code></pre></div>
-<p>This led to:</p>
-<h1 id="b-feature-extraction-linear-probing">B — Feature Extraction / Linear Probing</h1>
-<hr />
-<h1 id="13-b-core-idea">13. B — Core Idea</h1>
-<p>Instead of updating the entire model:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>freeze the backbone
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>train only a small task-specific head
-</span></code></pre></div>
-<p>The pretrained model becomes a:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>fixed feature extractor
+<p>Unlike CNNs, a vanilla ViT does not strongly force the model to first learn local edges or textures. It can learn those patterns, but often needs more examples.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>CNN: starts with local pixel structure
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ViT: starts with patch tokens and learns relationships through attention
 </span></code></pre></div>
 <hr />
-<h1 id="14-most-common-form-of-b">14. Most Common Form of B</h1>
-<p>This is the canonical workflow.</p>
-<h2 id="step-1">Step 1</h2>
-<p>Load pretrained model.</p>
-<h2 id="step-2">Step 2</h2>
-<p>Remove or replace the task-specific head.</p>
-<h2 id="step-3">Step 3</h2>
-<p>Freeze the backbone.</p>
-<h2 id="step-4">Step 4</h2>
-<p>Train only the new head.</p>
-<hr />
-<h1 id="15-visual-intuition">15. Visual Intuition</h1>
+<h2 id="4-attention-is-flexible-but-data-hungry">4. Attention Is Flexible but Data-Hungry</h2>
+<p>Self-attention allows every patch to attend to every other patch.</p>
 <pre class="mermaid"><code>flowchart TD
-    A[Input Image] --&gt; B[Pretrained Backbone]
-    B --&gt; C[Feature Representation]
-    C --&gt; D[New Classification Head]
-    D --&gt; E[Task Output]
-
-    style B fill:#dbeafe
-    style D fill:#fde68a</code></pre>
-<p>Blue:
-- frozen pretrained backbone</p>
-<p>Yellow:
-- trainable new head</p>
+    A[Patch 1] --&gt; D[Self-Attention]
+    B[Patch 2] --&gt; D
+    C[Patch 3] --&gt; D
+    E[Patch N] --&gt; D
+    D --&gt; F[Context-Aware Patch Representations]</code></pre>
+<p>This lets ViTs model global relationships early:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>patch containing head ↔ patch containing body
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>object patch ↔ background patch
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>nearby patch ↔ distant patch
+</span></code></pre></div>
+<p>But the model must learn which relationships matter.</p>
+<p>Attention cost grows quadratically with the number of patches:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>attention cost ≈ O(N²)
+</span></code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+    A[More Patches] --&gt; B[Larger Attention Matrix]
+    B --&gt; C[More Compute]
+    B --&gt; D[More Memory]
+    C --&gt; E[More Data Needed to Learn Robust Patterns]</code></pre>
 <hr />
-<h1 id="16-what-gets-replaced">16. What Gets Replaced?</h1>
-<p>Usually only the final task-specific output layer.</p>
-<p>Example:</p>
-<p>Original ResNet trained on ImageNet:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">Linear</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<h2 id="5-patch-size-affects-data-and-compute-needs">5. Patch Size Affects Data and Compute Needs</h2>
+<p>Smaller patches give more detailed visual information but increase sequence length.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>224 × 224 image, patch 16 × 16 → 196 patches
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>224 × 224 image, patch 8 × 8   → 784 patches
 </span></code></pre></div>
-<p>Your task:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>5 satellite classes
+<p>Attention interactions:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>196² = 38,416
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>784² = 614,656
 </span></code></pre></div>
-<p>Replace with:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">Linear</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</span></code></pre></div>
+<p>So reducing patch size from 16 to 8 increases patch count by 4× but attention interactions by about 16×.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Smaller Patch Size] --&gt; B[More Tokens]
+    B --&gt; C[Higher Attention Cost]
+    B --&gt; D[More Parameters/Patterns to Learn]
+    D --&gt; E[Greater Need for Data or Pretraining]</code></pre>
 <hr />
-<h1 id="17-important-clarification">17. Important Clarification</h1>
-<p>The “head” usually means:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>task-specific output layer
-</span></code></pre></div>
-<p>NOT the internal Transformer feed-forward blocks.</p>
-<p>Transformers still contain many internal FFN layers.
-Those usually remain frozen during feature extraction.</p>
-<hr />
-<h1 id="18-example-vision-transformer">18. Example: Vision Transformer</h1>
+<h2 id="6-why-small-data-can-be-hard-for-vits">6. Why Small Data Can Be Hard for ViTs</h2>
+<p>ViTs are flexible models with relatively weak image priors.</p>
+<p>With small datasets, they may:</p>
+<ul>
+<li>overfit training images</li>
+<li>learn unstable patch relationships</li>
+<li>fail to learn robust local visual features</li>
+<li>underperform CNNs trained under similar conditions</li>
+</ul>
 <pre class="mermaid"><code>flowchart TD
-    A[Image Patches] --&gt; B[Patch Embedding]
-    B --&gt; C[Transformer Blocks]
-    C --&gt; D[CLS Token Representation]
-    D --&gt; E[Classification Head]
-
-    style B fill:#dbeafe
-    style C fill:#dbeafe
-    style E fill:#fde68a</code></pre>
-<p>Frozen:</p>
+    A[Small Dataset] --&gt; B[ViT Has Few Image-Specific Priors]
+    B --&gt; C[More Freedom to Fit Noise]
+    C --&gt; D[Overfitting Risk]</code></pre>
+<p>CNNs are more constrained by architecture, which often helps them generalize better from limited image data.</p>
+<hr />
+<h2 id="7-how-data-augmentation-helps">7. How Data Augmentation Helps</h2>
+<p>Data augmentation artificially increases the diversity of training examples by applying label-preserving transformations.</p>
+<p>Common augmentations include:</p>
 <ul>
-<li>patch embeddings</li>
-<li>transformer blocks</li>
+<li>random crop</li>
+<li>resize</li>
+<li>horizontal flip</li>
+<li>color jitter</li>
+<li>rotation</li>
+<li>random erasing</li>
+<li>mixup</li>
+<li>cutmix</li>
 </ul>
-<p>Trainable:</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Original Image] --&gt; B[Crop]
+    A --&gt; C[Flip]
+    A --&gt; D[Color Jitter]
+    A --&gt; E[Random Erase]
+    B --&gt; F[More Diverse Training Views]
+    C --&gt; F
+    D --&gt; F
+    E --&gt; F</code></pre>
+<p>Augmentation helps ViTs by encouraging the model to learn stable visual patterns rather than memorizing exact images.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>augmentation → more variation → less memorization → better generalization
+</span></code></pre></div>
+<p>For ViTs, augmentation is especially useful because it provides extra visual diversity that compensates partly for weaker built-in image bias.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Weak Image Bias in ViT] --&gt; B[Needs More Visual Variation]
+    B --&gt; C[Data Augmentation]
+    C --&gt; D[Improved Generalization]</code></pre>
+<hr />
+<h2 id="8-pretraining-also-helps">8. Pretraining Also Helps</h2>
+<p>Pretraining on large datasets helps ViTs learn general visual structure before fine-tuning on a smaller task.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Large Pretraining Dataset] --&gt; B[Learn General Visual Features]
+    B --&gt; C[Fine-Tune on Smaller Dataset]
+    C --&gt; D[Better Task Performance]</code></pre>
+<p>Common helpful strategies:</p>
 <ul>
-<li>final classification head</li>
+<li>supervised pretraining</li>
+<li>self-supervised learning</li>
+<li>masked image modeling</li>
+<li>contrastive image-text learning</li>
+<li>distillation</li>
 </ul>
-<hr />
-<h1 id="19-why-feature-extraction-works">19. Why Feature Extraction Works</h1>
-<p>Pretrained models already learn strong representations.</p>
-<p>For vision:</p>
-<ul>
-<li>edges</li>
-<li>textures</li>
-<li>shapes</li>
-<li>semantic structures</li>
-</ul>
-<p>For language:</p>
-<ul>
-<li>syntax</li>
-<li>semantics</li>
-<li>contextual meaning</li>
-</ul>
-<p>The new classifier only learns:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>how to map representations to labels
+<p>Practical rule:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ViT from scratch on small data → may struggle
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>pretrained ViT + augmentation → often strong performance
 </span></code></pre></div>
 <hr />
-<h1 id="20-representation-space-intuition">20. Representation Space Intuition</h1>
-<p>One of the deepest ideas in deep learning:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>The backbone learns a representation space.
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>The classifier learns decision boundaries.
+<h2 id="9-cnn-vs-vit-summary">9. CNN vs ViT Summary</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>CNN:
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>- strong image-specific inductive bias
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>- local filters
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>- weight sharing
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>- hierarchical feature learning
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>- often data-efficient
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>ViT:
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>- weaker image-specific bias
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>- patch-based tokenization
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>- global self-attention
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>- flexible but data-hungry
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>- benefits strongly from augmentation and pretraining
 </span></code></pre></div>
-<p>Visual intuition:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>forest images → clustered together
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>urban images → clustered together
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>water images → clustered together
-</span></code></pre></div>
-<p>The classifier simply separates these clusters.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Image Model] --&gt; B[CNN]
+    A --&gt; C[ViT]
+    B --&gt; D[Built-in locality and hierarchy]
+    D --&gt; E[Works well with less data]
+    C --&gt; F[Learns patch relationships]
+    F --&gt; G[Needs more data / augmentation / pretraining]</code></pre>
 <hr />
-<h1 id="21-why-linear-layers-often-work">21. Why Linear Layers Often Work</h1>
-<p>Pretrained representations are often already separable.</p>
-<p>Meaning:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>important information is already encoded
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>inside embedding space
-</span></code></pre></div>
-<p>A simple linear layer can therefore perform surprisingly well.</p>
-<hr />
-<h1 id="22-pytorch-example">22. PyTorch Example</h1>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">resnet50</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
-</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
-</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>
-</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="n">model</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
-</span></code></pre></div>
-<p>Only:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>model.fc
-</span></code></pre></div>
-<p>updates during training.</p>
-<hr />
-<h1 id="23-why-b-became-popular">23. Why B Became Popular</h1>
-<p>Feature extraction offers:</p>
-<ul>
-<li>faster training</li>
-<li>lower GPU usage</li>
-<li>fewer trainable parameters</li>
-<li>reduced overfitting</li>
-<li>strong performance on small datasets</li>
-</ul>
-<hr />
-<h1 id="24-especially-useful-for-small-datasets">24. Especially Useful for Small Datasets</h1>
-<p>Suppose you only have:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>2,000 satellite images
-</span></code></pre></div>
-<p>Full fine-tuning may overfit.</p>
-<p>Feature extraction often generalizes better because:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>most pretrained knowledge remains preserved
-</span></code></pre></div>
-<hr />
-<h1 id="25-a-vs-b">25. A vs B</h1>
-<h2 id="a-full-fine-tuning">A — Full Fine-Tuning</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Modify the representation space.
-</span></code></pre></div>
-<p>All weights update.</p>
-<hr />
-<h2 id="b-feature-extraction">B — Feature Extraction</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Reuse the representation space.
-</span></code></pre></div>
-<p>Only the classifier head updates.</p>
-<hr />
-<h1 id="26-practical-tradeoff">26. Practical Tradeoff</h1>
-<h2 id="use-feature-extraction-when">Use Feature Extraction When</h2>
-<ul>
-<li>dataset is small</li>
-<li>compute is limited</li>
-<li>task resembles pretraining domain</li>
-<li>quick baseline is needed</li>
-</ul>
-<hr />
-<h2 id="use-full-fine-tuning-when">Use Full Fine-Tuning When</h2>
-<ul>
-<li>domain differs strongly</li>
-<li>enough data exists</li>
-<li>higher accuracy is needed</li>
-<li>representations themselves must adapt</li>
-</ul>
-<hr />
-<h1 id="27-intermediate-strategy-common-in-practice">27. Intermediate Strategy (Common in Practice)</h1>
-<p>There is also a middle ground.</p>
-<h2 id="partial-fine-tuning">Partial Fine-Tuning</h2>
-<p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>freeze early layers
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>train later layers
-</span></code></pre></div>
-<p>Why?</p>
-<p>Early layers often learn generic patterns.
-Later layers become more task-specific.</p>
-<hr />
-<h1 id="28-gradual-unfreezing">28. Gradual Unfreezing</h1>
-<p>A common workflow:</p>
-<h2 id="phase-1">Phase 1</h2>
-<p>Train only the new classifier head.</p>
-<h2 id="phase-2">Phase 2</h2>
-<p>Unfreeze upper layers.</p>
-<p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>last 1–3 transformer blocks become trainable
-</span></code></pre></div>
-<p>This often improves performance while keeping compute manageable.</p>
-<hr />
-<h1 id="29-final-mental-model">29. Final Mental Model</h1>
-<h2 id="full-fine-tuning">Full Fine-Tuning</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Change the model&#39;s internal representations.
-</span></code></pre></div>
-<hr />
-<h2 id="feature-extraction">Feature Extraction</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>Reuse pretrained representations
-</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>and only learn a new mapping layer.
-</span></code></pre></div>
-<p>This distinction is the core intuition behind A vs B.</p>
+<h2 id="10-one-line-summary">10. One-Line Summary</h2>
+<p>Vision Transformers often need more data because they have weaker built-in image assumptions than CNNs; data augmentation and pretraining help by exposing the model to more visual variation and teaching robust patch relationships.</p>
 
 
 
