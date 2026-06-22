@@ -61,7 +61,7 @@ Seven years designing TB-scale Earth observation pipelines, ML/AI workflows, and
 
     ---
 
-    Architected a 20-year daily SWE data product for North America at 0.01° resolution (~30 TB). Fused MODIS satellite observations with LISF land surface model outputs. Implemented on NASA Discover HPC clusters using [Julia](https://julialang.org/){target="_blank"} and [JuMP](https://jump.dev/JuMP.jl/stable/){target="_blank"}.
+    Architected a 20-year daily SWE data product for North America at 0.01° resolution (~30 TB). Fused MODIS satellite observations with LISF land surface model outputs. Implemented on NASA Discover HPC clusters using [Julia](https://julialang.org/){target="_blank"} and [JuMP](https://jump.dev/JuMP.jl/stable/){target="_blank"}. [Open-source pipeline](https://github.com/bidhya/verse/){target="_blank"}.
 
     *NASA Grant · 2022–2025*
 
@@ -75,7 +75,7 @@ Seven years designing TB-scale Earth observation pipelines, ML/AI workflows, and
 
     ---
 
-    Satellite pipeline to map ice velocity across Greenland outlet glaciers using Sentinel-2 (A/B/C) and Landsat imagery. [Open-source pipeline](https://github.com/bidhya/greenland-glacier-flow){target="_blank"} with data delivered to NSIDC DAAC. Published in *The Cryosphere*.
+    Satellite pipeline to map ice velocity across Greenland outlet glaciers using Sentinel-2 (A/B/C) and Landsat imagery. [Open-source pipeline](https://github.com/bidhya/greenland-glacier-flow){target="_blank"} with data delivered to [NSIDC DAAC](https://nsidc.org/data/nsidc-0777/versions/1/){target="_blank"}. Published in *The Cryosphere*.
 
 -   **:material-monitor-dashboard: Fluid Earth Viewer**
 
