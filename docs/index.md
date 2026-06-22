@@ -81,7 +81,7 @@ Seven years designing TB-scale Earth observation pipelines, ML/AI workflows, and
 
     ---
 
-    Contributed to FEVer, an interactive web application visualizing global atmospheric and ocean conditions for public science communication. Implemented climate metric aggregations (monthly, seasonal, annual) and derived data products. Later adopted by the [Permafrost Discovery Gateway](https://pdg.open.uaf.edu/){target="_blank"}. [fever.byrd.osu.edu](https://fever.byrd.osu.edu/){target="_blank"}
+    An interactive web application visualizing global atmospheric and ocean conditions for public science communication. Implemented climate metric aggregations (monthly, seasonal, annual) and derived data products. Later adopted by the [Permafrost Discovery Gateway](https://pdg.open.uaf.edu/){target="_blank"}. [fever.byrd.osu.edu](https://fever.byrd.osu.edu/){target="_blank"}
 
     *NSF Grant*
 
