@@ -107,20 +107,20 @@ nav:
   - Engineering Notes:
       - AI & Machine Learning:
           - Overview: notes/ai-ml/index.md
-          - From Statistics to Deep Learning: notes/ai-ml/stats-to-deep-learning.md
-          - Bias–Variance Tradeoff & Regularization: notes/ai-ml/bias-variance.md
-          - Precision, Recall & Classification Intuition: notes/ai-ml/precision-recall.md
-          - PyTorch Training Fundamentals: notes/ai-ml/pytorch-foundations.md
-          - Transformer Architecture & Attention: notes/ai-ml/transformers.md
+          - Statistics to Deep Learning: notes/ai-ml/stats-to-deep-learning.md
+          - Bias–Variance: notes/ai-ml/bias-variance.md
+          - Precision-Recall: notes/ai-ml/precision-recall.md
+          - PyTorch Fundamentals: notes/ai-ml/pytorch-foundations.md
+          - Transformers & Attention: notes/ai-ml/transformers.md
           - Tokenization & Embeddings: notes/ai-ml/tokenization-embeddings.md
-          - GPU Memory & Distributed Training: notes/ai-ml/gpu-ddp.md
-          - Multi-Node Parallelization with Joblib and Dask: notes/ai-ml/multi-node-parallelization.md
-          - Model Adaptation & Fine-Tuning: notes/ai-ml/fine-tuning.md
-          - PEFT for Geospatial Models: notes/ai-ml/geospatial-peft.md
-          - LLM Inference & KV-Cache Engineering: notes/ai-ml/qkv-kvcache.md
-          - Temperature, Sampling & Reasoning Models: notes/ai-ml/llm-temperature.md
-          - Vision Transformer Architecture: notes/ai-ml/vision-transformer.md
-          - ViT Data Requirements & Inductive Bias: notes/ai-ml/vit-data-requirements.md
+          - GPU & Distributed Training: notes/ai-ml/gpu-ddp.md
+          - Multi-Node Parallelization: notes/ai-ml/multi-node-parallelization.md
+          - Fine-Tuning: notes/ai-ml/fine-tuning.md
+          - Geospatial PEFT: notes/ai-ml/geospatial-peft.md
+          - LLM Inference & KV-Cache: notes/ai-ml/qkv-kvcache.md
+          - Temperature & Sampling: notes/ai-ml/llm-temperature.md
+          - Vision Transformers: notes/ai-ml/vision-transformer.md
+          - ViT Data Requirements: notes/ai-ml/vit-data-requirements.md
       - Geospatial & Remote Sensing:
           - Overview: notes/geospatial/index.md
           - Geospatial Python Stack: notes/geospatial/gis-cheatsheet.md
