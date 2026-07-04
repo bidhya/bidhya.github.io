@@ -734,6 +734,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../multi-node-parallelization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Node Parallelization with Joblib and Dask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../fine-tuning/" class="md-nav__link">
         
   
@@ -1860,6 +1888,27 @@
 <li><strong>Inline Coding:</strong> Forces low entropy for deterministic, bug-free syntax completion.</li>
 <li><strong>Workspace Agent Mode:</strong> Automatically elevates reasoning depth to allow the model to brainstorm multi-file architectural changes.</li>
 </ul>
+<!-- Source: Tutorials/llm-workshop26/tutorials/day1/note1_gemini.ipynb
+4.1 Generation Parameters
+You can customize the model's behavior using generation parameters.
+
+Language Modeling: Controlling Generation with Parameters
+The way an LLM generates text can be dramatically influenced by generation parameters. Understanding these parameters is crucial for controlling the model's creativity, coherence, and reliability.
+
+Temperature: Think of temperature as a "creativity knob"
+
+Low temperature (0.0-0.3): Deterministic, focused on most likely tokens → Good for factual tasks
+Medium temperature (0.4-0.7): Balanced creativity → Good for general conversation
+High temperature (0.8-1.0+): More random, exploratory → Good for creative writing
+Top-k Sampling: Restricts the model to choosing from only the k most likely next tokens. This prevents the model from selecting improbable words while maintaining diversity.
+
+Top-p (Nucleus) Sampling: Dynamically adjusts the number of tokens considered by selecting from the smallest set whose cumulative probability exceeds p. This is often more effective than top-k.
+
+Max Output Tokens: Limits the length of the response, helping to control costs and response time.
+
+Thinking Config: Controls the model's extended reasoning behavior. Setting thinking_budget=0 disables the model's internal thinking process, which speeds up responses and reduces token usage for tasks that don't require complex reasoning.
+
+-->
 
 
 
