@@ -54,6 +54,10 @@ The articles follow a deliberate learning arc — building from mathematical fun
 
     Single-GPU optimization, multi-GPU systems, Distributed Data Parallel (DDP) configuration, and SLURM HPC integration for deep learning workloads.
 
+-   :material-lan-connect: **[Multi-Node Parallelization with Joblib and Dask](multi-node-parallelization.md)**
+
+    Scaling Python workloads from a laptop to a single HPC node to a true multi-node cluster: shared vs. distributed memory, task decomposition, and the network/serialization bottlenecks that separate the two.
+
 </div>
 
 ## Adaptation & Fine-Tuning

@@ -63,6 +63,12 @@ FILE_MAP = {
         "notes/ai-ml/vit-data-requirements.md",
 
     # ------------------
+    # HPC & Distributed Computing
+    # ------------------
+    "KBase/04-HPC/multi_node_dask_joblib.md":
+        "notes/ai-ml/multi-node-parallelization.md",
+
+    # ------------------
     # Geospatial Notes (Phase 3)
     # ------------------
     "KBase/03-Geospatial/GIS-Tutorials/pyproj_cheatsheet.md":

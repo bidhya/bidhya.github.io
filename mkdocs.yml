@@ -113,6 +113,7 @@ nav:
           - Transformer Architecture & Attention: notes/ai-ml/transformers.md
           - Tokenization & Embeddings: notes/ai-ml/tokenization-embeddings.md
           - GPU Memory & Distributed Training: notes/ai-ml/gpu-ddp.md
+          - Multi-Node Parallelization with Joblib and Dask: notes/ai-ml/multi-node-parallelization.md
           - Model Adaptation & Fine-Tuning: notes/ai-ml/fine-tuning.md
           - PEFT for Geospatial Models: notes/ai-ml/geospatial-peft.md
           - LLM Inference & KV-Cache Engineering: notes/ai-ml/qkv-kvcache.md
