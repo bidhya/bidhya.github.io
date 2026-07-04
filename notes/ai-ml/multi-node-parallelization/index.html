@@ -12,13 +12,13 @@
         <meta name="author" content="Bidhyananda Yadav">
       
       
-        <link rel="canonical" href="https://bidhya.github.io/notes/geospatial/kalman-filter/">
+        <link rel="canonical" href="https://bidhya.github.io/notes/ai-ml/multi-node-parallelization/">
       
       
-        <link rel="prev" href="../pyproj-crs/">
+        <link rel="prev" href="../gpu-ddp/">
       
       
-        <link rel="next" href="../hyperspectral-concepts/">
+        <link rel="next" href="../fine-tuning/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>State Estimation & Kalman Filtering - Bidhyananda Yadav | Portfolio</title>
+        <title>Multi-Node Parallelization - Bidhyananda Yadav | Portfolio</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#implementing-kalman-filters-a-geosensing-guide-to-state-estimation-and-lidar-fusion" class="md-skip">
+        <a href="#multi-node-parallelization-joblib-and-dask-on-slurm" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              State Estimation & Kalman Filtering
+              Multi-Node Parallelization
             
           </span>
         </div>
@@ -277,7 +277,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../ai-ml/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -478,489 +478,6 @@
                 
   
   
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI & Machine Learning
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    AI & Machine Learning
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/stats-to-deep-learning/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Statistics to Deep Learning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/bias-variance/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Bias–Variance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/precision-recall/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Precision-Recall
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/pytorch-foundations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    PyTorch Fundamentals
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/transformers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Transformers & Attention
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/tokenization-embeddings/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tokenization & Embeddings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/gpu-ddp/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GPU & Distributed Training
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/multi-node-parallelization/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi-Node Parallelization
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/fine-tuning/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Fine-Tuning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/geospatial-peft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Geospatial PEFT
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/qkv-kvcache/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LLM Inference & KV-Cache
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/llm-temperature/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Temperature & Sampling
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/vision-transformer/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Vision Transformers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/vit-data-requirements/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ViT Data Requirements
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -982,17 +499,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   
 
     
@@ -1003,12 +520,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   
 
           </label>
@@ -1049,14 +566,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../gis-cheatsheet/" class="md-nav__link">
+      <a href="../stats-to-deep-learning/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Geospatial Python Stack
+    Statistics to Deep Learning
   
 
     
@@ -1077,14 +594,154 @@
   
   
     <li class="md-nav__item">
-      <a href="../pyproj-crs/" class="md-nav__link">
+      <a href="../bias-variance/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Coordinate Reference Systems
+    Bias–Variance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../precision-recall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Precision-Recall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytorch-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformers & Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tokenization-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tokenization & Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu-ddp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU & Distributed Training
   
 
     
@@ -1121,7 +778,7 @@
   <span class="md-ellipsis">
     
   
-    State Estimation & Kalman Filtering
+    Multi-Node Parallelization
   
 
     
@@ -1139,7 +796,7 @@
   <span class="md-ellipsis">
     
   
-    State Estimation & Kalman Filtering
+    Multi-Node Parallelization
   
 
     
@@ -1165,22 +822,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-what-is-a-kalman-filter" class="md-nav__link">
+  <a href="#1-cores-memory-and-where-parallelism-lives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. What Is a Kalman Filter?
+        1. Cores, Memory, and Where Parallelism Lives
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. What Is a Kalman Filter?">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-task-decomposition-happens-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Task Decomposition Happens First
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-single-node-parallelism-joblib-shared-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Single-Node Parallelism: Joblib, Shared Memory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-multi-node-parallelism-dask-as-the-distributed-memory-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Multi-Node Parallelism: Dask as the Distributed-Memory Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Multi-Node Parallelism: Dask as the Distributed-Memory Backend">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#core-cycle-repeats-continuously" class="md-nav__link">
+  <a href="#the-manager-slurm-script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core cycle (repeats continuously)
+        The "Manager" Slurm Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-python-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Python Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-movement-the-real-multi-node-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Movement: The Real Multi-Node Bottleneck
       
     </span>
   </a>
@@ -1193,121 +905,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-lidar-fusion-applications" class="md-nav__link">
+  <a href="#5-decision-guide-which-pattern-do-i-need" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. LiDAR Fusion Applications
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. LiDAR Fusion Applications">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2a-vehicle-localization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2a. Vehicle Localization
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2b-object-tracking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2b. Object Tracking
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2c-multi-sensor-fusion-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2c. Multi-Sensor Fusion Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-the-covariance-matrix-in-plain-english" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. The Covariance Matrix — In Plain English
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. The Covariance Matrix — In Plain English">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-it-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What it is
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#real-world-analogy-finding-a-friend-in-a-mall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Real-world analogy — finding a friend in a mall
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-the-filter-uses-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How the filter uses it
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-takeaway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key takeaway
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-key-advantage-for-autonomous-vehicles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Key Advantage for Autonomous Vehicles
+        5. Decision Guide: Which Pattern Do I Need?
       
     </span>
   </a>
@@ -1315,10 +916,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-production-considerations-and-implementation-trade-offs" class="md-nav__link">
+  <a href="#6-where-mpi-still-fits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Production Considerations and Implementation Trade-offs
+        6. Where MPI Still Fits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-production-grade-design-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Production-Grade Design Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-portability-beyond-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Portability Beyond HPC
       
     </span>
   </a>
@@ -1341,7 +964,350 @@
   
   
     <li class="md-nav__item">
-      <a href="../hyperspectral-concepts/" class="md-nav__link">
+      <a href="../fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geospatial-peft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial PEFT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qkv-kvcache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Inference & KV-Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llm-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temperature & Sampling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision-transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vit-data-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT Data Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial & Remote Sensing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geospatial & Remote Sensing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/gis-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial Python Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/pyproj-crs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinate Reference Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/kalman-filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Estimation & Kalman Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/hyperspectral-concepts/" class="md-nav__link">
         
   
   
@@ -1369,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../real-world-patterns/" class="md-nav__link">
+      <a href="../../geospatial/real-world-patterns/" class="md-nav__link">
         
   
   
@@ -1397,7 +1363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hvplot-visualization/" class="md-nav__link">
+      <a href="../../geospatial/hvplot-visualization/" class="md-nav__link">
         
   
   
@@ -1834,22 +1800,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-what-is-a-kalman-filter" class="md-nav__link">
+  <a href="#1-cores-memory-and-where-parallelism-lives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. What Is a Kalman Filter?
+        1. Cores, Memory, and Where Parallelism Lives
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. What Is a Kalman Filter?">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-task-decomposition-happens-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Task Decomposition Happens First
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-single-node-parallelism-joblib-shared-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Single-Node Parallelism: Joblib, Shared Memory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-multi-node-parallelism-dask-as-the-distributed-memory-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Multi-Node Parallelism: Dask as the Distributed-Memory Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Multi-Node Parallelism: Dask as the Distributed-Memory Backend">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#core-cycle-repeats-continuously" class="md-nav__link">
+  <a href="#the-manager-slurm-script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core cycle (repeats continuously)
+        The "Manager" Slurm Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-python-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Python Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-movement-the-real-multi-node-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Movement: The Real Multi-Node Bottleneck
       
     </span>
   </a>
@@ -1862,121 +1883,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-lidar-fusion-applications" class="md-nav__link">
+  <a href="#5-decision-guide-which-pattern-do-i-need" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. LiDAR Fusion Applications
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. LiDAR Fusion Applications">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2a-vehicle-localization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2a. Vehicle Localization
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2b-object-tracking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2b. Object Tracking
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2c-multi-sensor-fusion-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2c. Multi-Sensor Fusion Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-the-covariance-matrix-in-plain-english" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. The Covariance Matrix — In Plain English
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. The Covariance Matrix — In Plain English">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-it-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What it is
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#real-world-analogy-finding-a-friend-in-a-mall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Real-world analogy — finding a friend in a mall
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-the-filter-uses-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How the filter uses it
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-takeaway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key takeaway
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-key-advantage-for-autonomous-vehicles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Key Advantage for Autonomous Vehicles
+        5. Decision Guide: Which Pattern Do I Need?
       
     </span>
   </a>
@@ -1984,10 +1894,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-production-considerations-and-implementation-trade-offs" class="md-nav__link">
+  <a href="#6-where-mpi-still-fits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Production Considerations and Implementation Trade-offs
+        6. Where MPI Still Fits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-production-grade-design-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Production-Grade Design Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-portability-beyond-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Portability Beyond HPC
       
     </span>
   </a>
@@ -2042,7 +1974,7 @@
     
     
       <li class="md-path__item">
-        <a href="../../ai-ml/" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
     Engineering Notes
@@ -2066,7 +1998,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   </span>
 
         </a>
@@ -2089,181 +2021,193 @@
       
       
       
-        <a href="../../../tags/#tag:geospatial" class="md-tag">Geospatial</a>
+        <a href="../../../tags/#tag:dask" class="md-tag">Dask</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:mathematics" class="md-tag">Mathematics</a>
+        <a href="../../../tags/#tag:distributed-computing" class="md-tag">Distributed Computing</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:sensor-fusion" class="md-tag">Sensor Fusion</a>
+        <a href="../../../tags/#tag:hpc" class="md-tag">HPC</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:signal-processing" class="md-tag">Signal Processing</a>
+        <a href="../../../tags/#tag:joblib" class="md-tag">Joblib</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:state-estimation" class="md-tag">State Estimation</a>
+        <a href="../../../tags/#tag:parallel-computing" class="md-tag">Parallel Computing</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:slurm" class="md-tag">SLURM</a>
       
     
   </nav>
 
 
 
-<h1 id="implementing-kalman-filters-a-geosensing-guide-to-state-estimation-and-lidar-fusion">Implementing Kalman Filters: A Geosensing Guide to State Estimation and LiDAR Fusion</h1>
-<p>An engineering reference guide on the mathematical framework, covariance analysis, and multi-sensor fusion applications of Kalman filters in dynamic systems.</p>
-<hr />
-<h2 id="1-what-is-a-kalman-filter">1. What Is a Kalman Filter?</h2>
-<p>A mathematical algorithm that estimates the <strong>state of a dynamic system</strong> from noisy measurements over time.</p>
-<h3 id="core-cycle-repeats-continuously">Core cycle (repeats continuously)</h3>
-<table>
-<thead>
-<tr>
-<th>Step</th>
-<th>What happens</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Predict</strong></td>
-<td>Estimate current state from previous state + motion model</td>
-</tr>
-<tr>
-<td><strong>Update</strong></td>
-<td>Correct prediction using new sensor measurement</td>
-</tr>
-</tbody>
-</table>
-<p>The filter optimally weights predictions vs. measurements based on their respective <strong>uncertainties</strong>.</p>
-<hr />
-<h2 id="2-lidar-fusion-applications">2. LiDAR Fusion Applications</h2>
-<h3 id="2a-vehicle-localization">2a. Vehicle Localization</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>State vector: [x, y, z, velocity_x, velocity_y, heading, angular_velocity]
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Prediction  → motion model (constant velocity / acceleration)
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Update      → fuse LiDAR point cloud matching with GPS + IMU + wheel encoders
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Result      → smooth, accurate position even with noisy/missing GPS
-</span></code></pre></div>
-<h3 id="2b-object-tracking">2b. Object Tracking</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>State vector: [object_x, object_y, velocity_x, velocity_y, acceleration]
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Prediction  → extrapolate object motion between LiDAR scans
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Update      → match LiDAR detections to predicted positions
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Result      → consistent object tracks despite detection gaps or noise
-</span></code></pre></div>
-<h3 id="2c-multi-sensor-fusion-pipeline">2c. Multi-Sensor Fusion Pipeline</h3>
-<table>
-<thead>
-<tr>
-<th>Sensor</th>
-<th>Strength</th>
-<th>Weakness</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LiDAR</td>
-<td>Accurate 3D positions</td>
-<td>Low frequency (10–20 Hz)</td>
-</tr>
-<tr>
-<td>IMU</td>
-<td>High-frequency motion (100+ Hz)</td>
-<td>Drifts over time</td>
-</tr>
-<tr>
-<td>GPS</td>
-<td>Absolute position</td>
-<td>Noisy; can drop out</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Kalman filter strategy:</strong>
-- Use IMU for high-rate <strong>predictions</strong>
-- Correct with LiDAR / GPS <strong>measurements</strong>
-- Result: smooth, high-frequency, accurate state estimates</p>
-<hr />
-<h2 id="3-the-covariance-matrix-in-plain-english">3. The Covariance Matrix — In Plain English</h2>
-<h3 id="what-it-is">What it is</h3>
-<p>The covariance matrix is the filter's <strong>"confidence report card"</strong> — it tracks how certain the system is about each estimate and how uncertainties relate to each other.</p>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Small number</td>
-<td>High confidence in this estimate</td>
-</tr>
-<tr>
-<td>Large number</td>
-<td>Low confidence — take with a grain of salt</td>
-</tr>
-</tbody>
-</table>
-<p>It also captures <strong>relationships</strong> between variables:<br />
-e.g. uncertainty in X position often correlates with uncertainty in X velocity.</p>
-<h3 id="real-world-analogy-finding-a-friend-in-a-mall">Real-world analogy — finding a friend in a mall</h3>
+<h1 id="multi-node-parallelization-joblib-and-dask-on-slurm">Multi-Node Parallelization: Joblib and Dask on SLURM</h1>
+<p>A recurring decision point in scaling Python workloads on HPC systems: a parallel job needs more cores than one node provides, and the code should scale from a laptop prototype to a single-node run to a true multi-node cluster without rewriting the parallel logic at each stage. The most common source of confusion is treating "more cores" and "more nodes" as the same request. They are not, and the distinction comes down to memory.</p>
+<h2 id="1-cores-memory-and-where-parallelism-lives">1. Cores, Memory, and Where Parallelism Lives</h2>
 <ul>
-<li><strong>GPS</strong>: "You're somewhere in this 10-metre circle" → high uncertainty</li>
-<li><strong>Landmark spotted</strong>: "Definitely near the food court" → low uncertainty</li>
-<li><strong>Text directions</strong>: "Walk 50 steps north" → medium uncertainty</li>
+<li><strong>A core</strong> is a physical execution unit inside one node.</li>
+<li><strong>Shared memory</strong> (within a node): every core on that node reads and writes the same physical RAM directly over the local memory bus. No serialization, no network — this is why single-node parallelism is fast and simple.</li>
+<li><strong>Distributed memory</strong> (across nodes): each node has its own separate RAM. Nothing is shared. Moving data from one node to another means serializing it and sending it over the network (Ethernet or InfiniBand), which is orders of magnitude slower than a memory access.</li>
 </ul>
-<p>The covariance matrix is your brain tracking how much to trust each source.</p>
-<h3 id="how-the-filter-uses-it">How the filter uses it</h3>
+<p>This single fact explains most of the confusion around scaling: requesting more cores (<code>--cpus-per-task</code>) only works up to the number of cores physically present on <strong>one</strong> node. Ask for more than that on a single task, and Slurm either rejects the submission outright or leaves the job <code>Pending</code> indefinitely with reason <code>ReqNodeNotAvail</code> — a single Slurm task cannot span physical node boundaries. Scaling past one node requires a different mechanism entirely (Section 4), not a bigger <code>--cpus-per-task</code> value.</p>
+<h2 id="2-task-decomposition-happens-first">2. Task Decomposition Happens First</h2>
+<p>Before writing any Slurm script, the workload has to be broken into independent units — per-tile raster reprojection, per-basin hydrology run, per-fold cross-validation, per-hyperparameter-combination fit. This decomposition, done early in the workflow, determines everything downstream:</p>
+<ul>
+<li>If (number of units × per-unit cost) fits inside one node's core count and memory, <strong>stay single-node</strong>. Simpler, no network overhead, easiest to debug.</li>
+<li>If it doesn't — too many units, or each unit needs more memory/cores than one node provides — the workload needs to span multiple nodes, and now a distributed scheduler has to manage the network communication between processes.</li>
+</ul>
+<p>In practice, most workloads decompose cleanly enough to stay single-node. Multi-node is the exception, reserved for genuinely large batch runs.</p>
+<h2 id="3-single-node-parallelism-joblib-shared-memory">3. Single-Node Parallelism: Joblib, Shared Memory</h2>
+<p>This is the default case, and where every job should start. Joblib's default backends (<code>loky</code>, <code>multiprocessing</code>) are shared-memory parallelism — they fork worker processes on the same physical machine and require no distributed framework, no network, no cluster setup.</p>
+<p><strong>Slurm allocation for single-node Joblib:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">#SBATCH --nodes=1</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">#SBATCH --ntasks=1</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">#SBATCH --cpus-per-task=8</span>
+</span></code></pre></div></p>
+<p><strong>Common pitfall</strong>: <code>joblib</code>'s <code>n_jobs=-1</code> uses all CPU cores visible to the <em>current task allocation</em>, not the full node. If <code>--cpus-per-task</code> is not set explicitly, <code>n_jobs=-1</code> sees only the default (often 1) core, silently under-utilizing the allocation. The fix is to read the Slurm environment variable directly rather than assuming <code>-1</code> detects the right core count:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">joblib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">n_cores</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;SLURM_CPUS_PER_TASK&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">n_cores</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">heavy_computation</span><span class="p">)(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="4-multi-node-parallelism-dask-as-the-distributed-memory-backend">4. Multi-Node Parallelism: Dask as the Distributed-Memory Backend</h2>
+<p>Once the task count or per-task memory genuinely exceeds one node, Dask becomes the distributed backend for Joblib, sending tasks across the network to workers running on other physical nodes — without changing the <code>Parallel(delayed(...))</code> call sites in the code.</p>
+<h3 id="the-manager-slurm-script">The "Manager" Slurm Script</h3>
+<p>The main script (the "Manager") runs on a small, lightweight allocation, and it then requests separate "Worker" jobs from the scheduler — each worker job lands on its own physical node.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">#SBATCH --job-name=dask_manager</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">#SBATCH --nodes=1</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">#SBATCH --ntasks=1</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">#SBATCH --cpus-per-task=2</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1">#SBATCH --time=02:00:00</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">#SBATCH --output=manager_%j.log</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># Load your environment (Conda or Apptainer)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>module<span class="w"> </span>load<span class="w"> </span>python/3.13
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>your_env
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>python<span class="w"> </span>distributed_script.py
+</span></code></pre></div>
+<h3 id="the-python-implementation">The Python Implementation</h3>
+<p>This script uses <code>SLURMCluster</code> from the <code>dask_jobqueue</code> library to request and manage genuinely separate physical nodes as workers.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">joblib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dask_jobqueue</span><span class="w"> </span><span class="kn">import</span> <span class="n">SLURMCluster</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dask.distributed</span><span class="w"> </span><span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">progress</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">joblib</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">heavy_computation</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Standard embarrassingly parallel function — no inter-task communication required.&quot;&quot;&quot;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">data</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="c1"># 1. Define the Slurm Worker configuration.</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="c1"># Each &#39;job&#39; Dask requests below is a separate Slurm allocation —</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="c1"># i.e. a distinct physical node with its own memory space.</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="n">cluster</span> <span class="o">=</span> <span class="n">SLURMCluster</span><span class="p">(</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        <span class="n">cores</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span>                     <span class="c1"># CPUs per node</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;180GB&quot;</span><span class="p">,</span>               <span class="c1"># RAM per node</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        <span class="n">walltime</span><span class="o">=</span><span class="s2">&quot;01:00:00&quot;</span><span class="p">,</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="n">interface</span><span class="o">=</span><span class="s2">&quot;ib0&quot;</span><span class="p">,</span>              <span class="c1"># Use InfiniBand for fast multi-node comms</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        <span class="n">queue</span><span class="o">=</span><span class="s2">&quot;pitzer-gpu&quot;</span><span class="p">,</span>           <span class="c1"># Or &#39;serial&#39; / &#39;parallel&#39;</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>        <span class="n">project</span><span class="o">=</span><span class="s2">&quot;PASXXXX&quot;</span>             <span class="c1"># Your OSC Project ID</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="p">)</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="c1"># 2. Scale to 3 separate physical nodes (not 3 processes on one node).</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="n">cluster</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">jobs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    <span class="c1"># 3. Connect the Dask Client to the cluster</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dask Dashboard available at: </span><span class="si">{</span><span class="n">client</span><span class="o">.</span><span class="n">dashboard_link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    <span class="c1"># 4. Generate some dummy data</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    <span class="n">inputs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    <span class="c1"># 5. Use Joblib with the Dask Backend</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>    <span class="c1"># Joblib now sends these 1000 tasks across the 3-node cluster.</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>    <span class="k">with</span> <span class="n">joblib</span><span class="o">.</span><span class="n">parallel_backend</span><span class="p">(</span><span class="s1">&#39;dask&#39;</span><span class="p">):</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">)(</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>            <span class="n">delayed</span><span class="p">(</span><span class="n">heavy_computation</span><span class="p">)(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">inputs</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>        <span class="p">)</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finished processing. Result count: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    <span class="n">cluster</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="data-movement-the-real-multi-node-bottleneck">Data Movement: The Real Multi-Node Bottleneck</h3>
+<p>Once workers live on separate nodes, every argument passed into <code>delayed()</code> has to be serialized (pickled) and sent over the network to the worker that runs it. This is where multi-node jobs commonly stall even though CPU usage looks low:</p>
+<ul>
+<li><strong>Large, repeated inputs</strong> (a big NumPy array or DataFrame passed to every task) get serialized and re-sent for <em>each</em> task unless handled explicitly. Use <code>client.scatter(data, broadcast=True)</code> once, and pass the resulting future into <code>delayed()</code> calls instead of the raw object — this ships the data to every worker exactly once.</li>
+<li><strong>InfiniBand (<code>interface="ib0"</code>)</strong>: explicitly selecting the high-speed network interface avoids falling back to a slower Ethernet path for inter-node traffic.</li>
+<li><strong>Chunk size matters</strong>: too many tiny tasks means the network/scheduling overhead per task dominates; too few large tasks means poor load balancing across nodes. Aim for task granularity where computation time clearly exceeds serialization + network transfer time.</li>
+</ul>
+<h2 id="5-decision-guide-which-pattern-do-i-need">5. Decision Guide: Which Pattern Do I Need?</h2>
 <table>
 <thead>
 <tr>
-<th>Phase</th>
-<th>What happens</th>
+<th>Situation</th>
+<th>Pattern</th>
+<th>Why</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Prediction</strong></td>
-<td>Confidence decreases: "I was sure 1s ago, but I've been moving"</td>
+<td>Total parallel units fit within one node's cores/memory</td>
+<td>Single-node Joblib (<code>loky</code>/<code>multiprocessing</code>)</td>
+<td>No network involved, shared memory, simplest to debug</td>
 </tr>
 <tr>
-<td><strong>Update</strong></td>
-<td>Filter weights sensors by reliability: LiDAR (precise) &gt; GPS (noisy)</td>
+<td>Total units exceed one node's cores/memory, but each unit runs independently (no communication mid-task)</td>
+<td>Multi-node Dask (<code>SLURMCluster</code> + <code>joblib.parallel_backend('dask')</code>)</td>
+<td>Distributed-memory scheduling, same <code>Parallel(delayed(...))</code> code as single-node</td>
+</tr>
+<tr>
+<td>Workers must exchange data synchronously <em>during</em> the computation (e.g. an iterative PDE solve where each step depends on neighboring nodes' results)</td>
+<td>MPI (<code>mpi4py</code>)</td>
+<td>Task-graph schedulers assume independent tasks; genuine synchronous coupling needs a message-passing model instead</td>
 </tr>
 </tbody>
 </table>
-<h3 id="key-takeaway">Key takeaway</h3>
-<blockquote>
-<p>The covariance matrix lets the filter automatically ask:<br />
-<em>"Here's my best guess — and here's exactly how sure I am about it."</em></p>
-</blockquote>
-<hr />
-<h2 id="4-key-advantage-for-autonomous-vehicles">4. Key Advantage for Autonomous Vehicles</h2>
-<p>Kalman filters handle <strong>uncertainty quantification</strong> via covariance matrices — knowing when to trust predictions vs. measurements. This is essential in noisy sensor environments like AV stacks combining LiDAR, IMU, and GPS.</p>
-<hr />
-<h2 id="5-production-considerations-and-implementation-trade-offs">5. Production Considerations and Implementation Trade-offs</h2>
-<p>When deploying state estimation algorithms in real-time robotics, autonomous vehicle, or geospatial tracking pipelines, developers must address several engineering challenges:</p>
+<h2 id="6-where-mpi-still-fits">6. Where MPI Still Fits</h2>
+<p>Joblib/Dask and MPI solve different communication patterns, and the choice follows from the algorithm, not from familiarity with either ecosystem. MPI's message-passing model is the right tool when processes must exchange data synchronously at every iteration — tightly-coupled simulations like CFD, N-body, or PDE solvers. Joblib/Dask's task-graph model fits the far more common case in data and ML pipelines: independent units of work — ensemble fits, per-tile processing, hyperparameter search — with no communication required between tasks during execution. Since nearly all of the workloads in this reference decompose into independent units (Section 2), the task-graph model is the correct default here.</p>
+<h2 id="7-production-grade-design-considerations">7. Production-Grade Design Considerations</h2>
+<ol>
+<li><strong>Separation of concerns</strong>: The Manager job is lightweight. If a worker node crashes, the Manager stays alive and can request a replacement from Slurm.</li>
+<li><strong>Dashboard link</strong>: Printing <code>client.dashboard_link</code> allows real-time monitoring of CPU/RAM usage across all nodes via a web browser (tunnelled through OSC OnDemand).</li>
+<li><strong>Dynamic scaling</strong>: <code>cluster.adapt(minimum=1, maximum=10)</code> lets Dask grow or shrink the worker pool based on the <code>joblib</code> queue size.</li>
+</ol>
+<h2 id="8-portability-beyond-hpc">8. Portability Beyond HPC</h2>
+<p>The <code>SLURMCluster</code> backend above is one of several <code>dask_jobqueue</code>/Dask-native cluster backends. The identical <code>joblib.parallel_backend('dask')</code> call and task graph run against:</p>
 <ul>
-<li><strong>Non-Linear State Transitions</strong>: Standard Kalman Filters (KF) assume linear relationships. Real-world systems require Extended Kalman Filters (EKF), which linearize non-linear state transitions using Jacobian matrices, or Unscented Kalman Filters (UKF), which use deterministic sigma points to capture the probability distribution. Selecting between EKF and UKF involves an engineering trade-off between computational cost and estimation accuracy.</li>
-<li><strong>Sensor Latency and Out-of-Sequence Measurements (OOSM)</strong>: Sensors report data at vastly different frequencies and with varying propagation delays. Real-time fusion engines must maintain a chronological buffer of states and covariances to rewind, insert a delayed measurement, and re-propagate predictions.</li>
-<li><strong>Covariance Optimization (Tuning)</strong>: Process noise <span class="arithmatex">\(Q\)</span> and measurement noise <span class="arithmatex">\(R\)</span> represent the mathematical representations of state physics uncertainty and sensor fidelity. Overestimating sensor reliability causes the filter to track noise, while underestimating it leads to lag. Tuning is usually achieved using system identification, statistical test runs, or optimization algorithms from flight/drive logs.</li>
+<li><strong>Local machine</strong>: <code>from dask.distributed import LocalCluster</code> — same API, no scheduler involved.</li>
+<li><strong>Other HPC schedulers</strong>: <code>PBSCluster</code>, <code>SGECluster</code>, <code>LSFCluster</code> from <code>dask_jobqueue</code> — swap the cluster class, keep the algorithm.</li>
+<li><strong>Cloud infrastructure</strong>: Dask on Kubernetes, AWS Fargate, or managed services like Coiled — the compute backend changes, the parallel logic does not.</li>
 </ul>
+<p>The same processing code moves from a laptop prototype to a single-node HPC run to a multi-node production run to a cloud deployment by swapping a cluster configuration object, not by rewriting the task decomposition or the communication logic.</p>
 
 
 
