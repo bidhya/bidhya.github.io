@@ -41,6 +41,8 @@ FILE_MAP = {
         "notes/ai-ml/stats-to-deep-learning.md",
     "KBase/02-AI-and-ML/Machine-Learning/bias_variance.md":
         "notes/ai-ml/bias-variance.md",
+    "KBase/02-AI-and-ML/Machine-Learning/precision_recall.md":
+        "notes/ai-ml/precision-recall.md",
     "KBase/02-AI-and-ML/Deep-Learning/deep_learning_pytorch_foundations.md":
         "notes/ai-ml/pytorch-foundations.md",
     "KBase/02-AI-and-ML/Architecture-Models/tokenization_embeddings_primer.md":

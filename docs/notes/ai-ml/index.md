@@ -18,6 +18,10 @@ The articles follow a deliberate learning arc — building from mathematical fun
 
     The central tension between model simplicity and flexibility: overfitting, underfitting, and the strategies (regularization, cross-validation, ensembles) that keep models generalizable.
 
+-   :material-target: **[Precision, Recall & Classification Intuition](precision-recall.md)**
+
+    Building intuition for the confusion matrix from first principles, bridging ML vocabulary (false positive/negative) with remote-sensing accuracy assessment (omission/commission error, producer's/user's accuracy).
+
 -   :material-fire: **[PyTorch Training Fundamentals](pytorch-foundations.md)**
 
     Deep learning mechanics from first principles: tensors, gradient descent, training loops, and production model architectures in PyTorch.

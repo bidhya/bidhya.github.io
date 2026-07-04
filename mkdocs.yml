@@ -109,6 +109,7 @@ nav:
           - Overview: notes/ai-ml/index.md
           - From Statistics to Deep Learning: notes/ai-ml/stats-to-deep-learning.md
           - Bias–Variance Tradeoff & Regularization: notes/ai-ml/bias-variance.md
+          - Precision, Recall & Classification Intuition: notes/ai-ml/precision-recall.md
           - PyTorch Training Fundamentals: notes/ai-ml/pytorch-foundations.md
           - Transformer Architecture & Attention: notes/ai-ml/transformers.md
           - Tokenization & Embeddings: notes/ai-ml/tokenization-embeddings.md
