@@ -62,6 +62,10 @@ The articles follow a deliberate learning arc — building from mathematical fun
 
     Scaling Python workloads with Joblib and Dask from a laptop to a single HPC node to a true multi-node cluster: shared vs. distributed memory, task decomposition, and the network/serialization bottlenecks that separate the two.
 
+-   :material-shield-lock: **[Secure On-Prem AI Assistant](on-prem-ai-assistant.md)**
+
+    Hosting Ollama on HPC (H200 GPUs) and tunneling it into VS Code Copilot Chat via BYOK — keeping prompts and institutional data off third-party cloud infrastructure entirely, for research collaborations bound by data governance agreements.
+
 </div>
 
 ## Adaptation & Fine-Tuning
