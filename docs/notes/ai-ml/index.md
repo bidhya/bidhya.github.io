@@ -62,13 +62,17 @@ The articles follow a deliberate learning arc — building from mathematical fun
 
     Scaling Python workloads with Joblib and Dask from a laptop to a single HPC node to a true multi-node cluster: shared vs. distributed memory, task decomposition, and the network/serialization bottlenecks that separate the two.
 
--   :material-shield-lock: **[Secure On-Prem AI Assistant](on-prem-ai-assistant.md)**
+-   :material-shield-lock: **[Ollama on HPC](on-prem-ai-assistant.md)**
 
     Hosting Ollama on HPC (H200 GPUs) and tunneling it into VS Code Copilot Chat via BYOK — keeping prompts and institutional data off third-party cloud infrastructure entirely, for research collaborations bound by data governance agreements.
 
 -   :material-server-network: **[vLLM on HPC](vllm-hpc-setup.md)**
 
     Why vLLM is a compiled CUDA inference engine, not a Python package — matching driver, toolkit, PyTorch, and wheel versions exactly, diagnosing manylinux/glibc and JIT-compilation failures, and a working `uv`-managed `pyproject.toml` for CUDA 12.9 / H200.
+
+-   :material-console: **[Linux Shell Setup](linux-shell-setup.md)**
+
+    Separating environment configuration from interactive shell behavior (`.bash_profile` vs. `.bashrc`), keeping caches and secrets out of the home directory, and a reproducible pattern for HPC accounts, workstations, WSL, and cloud VMs.
 
 </div>
 

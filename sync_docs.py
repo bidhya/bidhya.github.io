@@ -73,6 +73,8 @@ FILE_MAP = {
         "notes/ai-ml/on-prem-ai-assistant.md",
     "KBase/04-HPC/vllm_hpc_uv_setup.md":
         "notes/ai-ml/vllm-hpc-setup.md",
+    "KBase/01-Core-Programming/linux_shell_setup.md":
+        "notes/ai-ml/linux-shell-setup.md",
 
     # ------------------
     # Geospatial Notes (Phase 3)
