@@ -12,13 +12,13 @@
         <meta name="author" content="Bidhyananda Yadav">
       
       
-        <link rel="canonical" href="https://bidhya.github.io/notes/ai-ml/precision-recall/">
+        <link rel="canonical" href="https://bidhya.github.io/notes/ai-ml/linux-shell-setup/">
       
       
-        <link rel="prev" href="../bias-variance/">
+        <link rel="prev" href="../vllm-hpc-setup/">
       
       
-        <link rel="next" href="../pytorch-foundations/">
+        <link rel="next" href="../fine-tuning/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Precision-Recall - Bidhyananda Yadav | Portfolio</title>
+        <title>Linux Shell Setup - Bidhyananda Yadav | Portfolio</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#precision-recall-and-classification-intuition" class="md-skip">
+        <a href="#linux-shell-setup-for-hpc-python-and-ai-workflows" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Precision-Recall
+              Linux Shell Setup
             
           </span>
         </div>
@@ -619,37 +619,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Precision-Recall
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../precision-recall/" class="md-nav__link">
         
   
   
@@ -665,286 +638,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#why-these-terms-feel-confusing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why These Terms Feel Confusing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#start-with-the-main-idea" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Start with the Main Idea
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-classification-outcomes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Classification Outcomes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Classification Outcomes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mental-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mental Model
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-four-possible-outcomes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Four Possible Outcomes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#false-negative-fn-the-most-important-intuition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        False Negative (FN): The Most Important Intuition
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="False Negative (FN): The Most Important Intuition">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cancer-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cancer Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#false-positive-fp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        False Positive (FP)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recall-and-precision" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recall and Precision
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-not-just-use-accuracy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why Not Just Use Accuracy?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#flood-mapping-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flood Mapping Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extreme-recall-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extreme Recall Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#medical-screening-intuition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Medical Screening Intuition
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#spam-email-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spam Email Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extreme-precision-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extreme Precision Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-we-need-both-precision-and-recall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why We Need Both Precision and Recall
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#f1-score" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        F1 Score
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vocabulary-bridge" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vocabulary Bridge
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mental-model-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mental Model Summary
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Mental Model Summary">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#recall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recall
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#precision" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Precision
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#final-conceptual-takeaway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Final Conceptual Takeaway
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1150,10 +843,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../linux-shell-setup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Shell Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1169,6 +889,220 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-main-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The main idea
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The main idea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#am-i-configuring-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Am I configuring software?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#am-i-changing-how-bash-behaves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Am I changing how Bash behaves?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .bash_profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bashrc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .bashrc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startup-pattern-on-many-hpc-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Startup pattern on many HPC systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-distinctions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important distinctions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Important distinctions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#executable-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executable location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credentials
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-rule-of-thumb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical rule of thumb
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#going-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Going forward
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2017,10 +1951,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-these-terms-feel-confusing" class="md-nav__link">
+  <a href="#why-this-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why These Terms Feel Confusing
+        Why this matters
       
     </span>
   </a>
@@ -2028,33 +1962,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-with-the-main-idea" class="md-nav__link">
+  <a href="#the-main-idea" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Start with the Main Idea
+        The main idea
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-classification-outcomes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Classification Outcomes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Classification Outcomes">
+    <nav class="md-nav" aria-label="The main idea">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mental-model" class="md-nav__link">
+  <a href="#am-i-configuring-software" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mental Model
+        Am I configuring software?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#am-i-changing-how-bash-behaves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Am I changing how Bash behaves?
       
     </span>
   </a>
@@ -2067,33 +2001,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-four-possible-outcomes" class="md-nav__link">
+  <a href="#the-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Four Possible Outcomes
+        The files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .bash_profile
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#false-negative-fn-the-most-important-intuition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        False Negative (FN): The Most Important Intuition
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="False Negative (FN): The Most Important Intuition">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cancer-example" class="md-nav__link">
+  <a href="#bashrc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cancer Example
+        .bashrc
       
     </span>
   </a>
@@ -2106,10 +2040,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#false-positive-fp" class="md-nav__link">
+  <a href="#startup-pattern-on-many-hpc-systems" class="md-nav__link">
     <span class="md-ellipsis">
       
-        False Positive (FP)
+        Startup pattern on many HPC systems
       
     </span>
   </a>
@@ -2117,10 +2051,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recall-and-precision" class="md-nav__link">
+  <a href="#cache-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recall and Precision
+        Cache management
       
     </span>
   </a>
@@ -2128,10 +2062,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-not-just-use-accuracy" class="md-nav__link">
+  <a href="#secrets-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why Not Just Use Accuracy?
+        Secrets management
       
     </span>
   </a>
@@ -2139,110 +2073,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flood-mapping-example" class="md-nav__link">
+  <a href="#important-distinctions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flood Mapping Example
+        Important distinctions
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extreme-recall-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extreme Recall Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#medical-screening-intuition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Medical Screening Intuition
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#spam-email-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spam Email Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extreme-precision-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extreme Precision Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-we-need-both-precision-and-recall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why We Need Both Precision and Recall
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#f1-score" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        F1 Score
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vocabulary-bridge" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vocabulary Bridge
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mental-model-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mental Model Summary
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Mental Model Summary">
+    <nav class="md-nav" aria-label="Important distinctions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#recall" class="md-nav__link">
+  <a href="#executable-location" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recall
+        Executable location
       
     </span>
   </a>
@@ -2250,10 +2096,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#precision" class="md-nav__link">
+  <a href="#cache-location" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Precision
+        Cache location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credentials
       
     </span>
   </a>
@@ -2266,10 +2123,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#final-conceptual-takeaway" class="md-nav__link">
+  <a href="#practical-rule-of-thumb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Final Conceptual Takeaway
+        Practical rule of thumb
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#going-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Going forward
       
     </span>
   </a>
@@ -2371,398 +2239,218 @@
       
       
       
-        <a href="../../../tags/#tag:accuracy-assessment" class="md-tag">Accuracy Assessment</a>
+        <a href="../../../tags/#tag:developer-tooling" class="md-tag">Developer Tooling</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:classification-metrics" class="md-tag">Classification Metrics</a>
+        <a href="../../../tags/#tag:hpc" class="md-tag">HPC</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:machine-learning" class="md-tag">Machine Learning</a>
+        <a href="../../../tags/#tag:linux" class="md-tag">Linux</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:remote-sensing" class="md-tag">Remote Sensing</a>
+        <a href="../../../tags/#tag:shell" class="md-tag">Shell</a>
       
     
   </nav>
 
 
 
-<h1 id="precision-recall-and-classification-intuition">Precision, Recall, and Classification Intuition</h1>
-<h2 id="why-these-terms-feel-confusing">Why These Terms Feel Confusing</h2>
-<p>Different communities often use different vocabulary for the same underlying ideas.</p>
+<h1 id="linux-shell-setup-for-hpc-python-and-ai-workflows">Linux Shell Setup for HPC, Python, and AI Workflows</h1>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Many users coming from Windows develop the habit of putting every Linux setting into <code>.bashrc</code> because it works. On many HPC systems this appears to work because <code>.bash_profile</code> often loads <code>.bashrc</code> automatically.</p>
+<p>Over time, however, this can mix together different kinds of settings:</p>
 <ul>
-<li>Machine learning talks about:</li>
-<li>false positives</li>
-<li>false negatives</li>
-<li>precision</li>
-<li>
-<p>recall</p>
-</li>
-<li>
-<p>Remote sensing often talks about:</p>
-</li>
-<li>omission error</li>
-<li>commission error</li>
-<li>producer's accuracy</li>
-<li>user's accuracy</li>
+<li>software paths</li>
+<li>cache locations</li>
+<li>API tokens</li>
+<li>aliases</li>
+<li>shell functions</li>
+<li>Conda/Mamba hooks</li>
 </ul>
-<p>The goal of this note is to build a simple conceptual understanding that remains intuitive even months later.</p>
+<p>A cleaner approach is to separate <strong>environment configuration</strong> from <strong>shell behavior</strong>. This makes a system easier to understand, maintain, reproduce, and migrate to a new HPC account, workstation, WSL installation, or cloud VM.</p>
 <hr />
-<h2 id="start-with-the-main-idea">Start with the Main Idea</h2>
-<p>Suppose we are interested in detecting something:</p>
+<h2 id="the-main-idea">The main idea</h2>
+<p>Before adding a new line to a shell configuration file, ask:</p>
+<h3 id="am-i-configuring-software">Am I configuring software?</h3>
+<p>Examples include:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>PATH
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>PYTHONPATH
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>HF_HOME
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>HF_TOKEN
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>UV_CACHE_DIR
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>PIXI_CACHE_DIR
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>OLLAMA_MODELS
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>PL_API_KEY
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>CUDA_HOME
+</span></code></pre></div>
+<p>Put these in:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>~/.bash_profile
+</span></code></pre></div>
+<p>Note: Some systems, such as many WSL installations, use <code>~/.profile</code> instead of <code>~/.bash_profile</code>; use it the same way for environment configuration.</p>
+<p>These settings define where software lives, where data is stored, and how programs authenticate.</p>
+<hr />
+<h3 id="am-i-changing-how-bash-behaves">Am I changing how Bash behaves?</h3>
+<p>Examples include:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">alias</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">function</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>prompt
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>tab<span class="w"> </span>completion
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">history</span><span class="w"> </span>settings
+</span></code></pre></div>
+<p>Put these in:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>~/.bashrc
+</span></code></pre></div>
+<p>These settings affect how you interact with the terminal.</p>
+<hr />
+<h2 id="the-files">The files</h2>
+<h3 id="bash_profile"><code>.bash_profile</code></h3>
+<p>Use this for environment setup.</p>
+<p>Typical responsibilities:</p>
 <ul>
-<li>water</li>
-<li>cancer</li>
-<li>flood extent</li>
-<li>glacier pixels</li>
-<li>spam email</li>
-<li>defects in manufacturing</li>
+<li>PATH additions</li>
+<li>Python paths</li>
+<li>cache locations</li>
+<li>model locations</li>
+<li>software-specific variables</li>
+<li>API keys or tokens, preferably loaded from a separate secrets file</li>
 </ul>
-<p>The thing we are interested in detecting is called the <strong>positive class</strong>.</p>
-<p>Everything else is the <strong>negative class</strong>.</p>
-<p>For example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Positive  = water
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Negative  = non-water
-</span></code></pre></div>
-<p>or</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Positive  = cancer
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Negative  = healthy
-</span></code></pre></div>
-<p>This simple framing makes the rest of the terminology much easier.</p>
+<p>Think:</p>
+<blockquote>
+<p><code>.bash_profile</code> defines the environment that programs inherit.</p>
+</blockquote>
+<p>On many HPC systems, this is the most important file for day-to-day software configuration.</p>
 <hr />
-<h2 id="core-classification-outcomes">Core Classification Outcomes</h2>
-<h3 id="mental-model">Mental Model</h3>
-<p>A classifier compares:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>REALITY  ---&gt;  MODEL PREDICTION
-</span></code></pre></div>
-<p>The prediction can either agree or disagree with reality.</p>
-<hr />
-<h2 id="the-four-possible-outcomes">The Four Possible Outcomes</h2>
-<table>
-<thead>
-<tr>
-<th>Reality</th>
-<th>Prediction</th>
-<th>ML Term</th>
-<th>Remote Sensing Term</th>
-<th>Intuition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Positive</td>
-<td>Positive</td>
-<td>True Positive (TP)</td>
-<td>Correct detection</td>
-<td>Correctly found the phenomenon</td>
-</tr>
-<tr>
-<td>Positive</td>
-<td>Negative</td>
-<td>False Negative (FN)</td>
-<td>Omission error</td>
-<td>Missed phenomenon / falsely predicted as negative</td>
-</tr>
-<tr>
-<td>Negative</td>
-<td>Positive</td>
-<td>False Positive (FP)</td>
-<td>Commission error</td>
-<td>False alarm / false inclusion</td>
-</tr>
-<tr>
-<td>Negative</td>
-<td>Negative</td>
-<td>True Negative (TN)</td>
-<td>Correct rejection</td>
-<td>Correctly ignored non-target</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="false-negative-fn-the-most-important-intuition">False Negative (FN): The Most Important Intuition</h2>
-<p>A false negative occurs when:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Something truly positive
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>is falsely predicted as negative.
-</span></code></pre></div>
+<h3 id="bashrc"><code>.bashrc</code></h3>
+<p>Use this for interactive shell behavior.</p>
+<p>Typical responsibilities:</p>
+<ul>
+<li>aliases</li>
+<li>functions</li>
+<li>prompt customization</li>
+<li>shell completion</li>
+<li>Conda/Mamba/Pixi shell hooks</li>
+</ul>
 <p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Reality:     Water
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Prediction:  Non-water
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">sq</span><span class="o">=</span><span class="s1">&#39;squeue -u $USER&#39;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>myjobs<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span>squeue<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="o">}</span>
 </span></code></pre></div>
-<p>The water existed.
-The classifier missed it.</p>
-<p>This is:</p>
-<ul>
-<li>a False Negative (FN)</li>
-<li>an omission error</li>
-<li>a missed detection</li>
-</ul>
-<h3 id="cancer-example">Cancer Example</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Reality:     Cancer exists
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Prediction:  Healthy
-</span></code></pre></div>
-<p>The disease existed, but the detector failed to identify it.</p>
+<p>Think:</p>
+<blockquote>
+<p><code>.bashrc</code> changes how the shell behaves while I am typing commands.</p>
+</blockquote>
 <hr />
-<h2 id="false-positive-fp">False Positive (FP)</h2>
-<p>A false positive occurs when:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Something truly negative
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>is falsely predicted as positive.
+<h2 id="startup-pattern-on-many-hpc-systems">Startup pattern on many HPC systems</h2>
+<p>Many HPC systems use this pattern:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>.bash_profile
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    ↓
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>.bashrc
 </span></code></pre></div>
+<p>The login shell reads <code>.bash_profile</code>, and <code>.bash_profile</code> often sources <code>.bashrc</code>.</p>
+<p>This means settings placed in <code>.bashrc</code> may still work, but for good organization, environment variables should usually live in <code>.bash_profile</code>.</p>
+<hr />
+<h2 id="cache-management">Cache management</h2>
+<p>Large caches should usually not live in the home directory.</p>
+<p>Home directories are better for:</p>
+<ul>
+<li>scripts</li>
+<li>source code</li>
+<li>configuration files</li>
+<li>small working files</li>
+</ul>
+<p>Project or scratch storage is better for:</p>
+<ul>
+<li>model weights</li>
+<li>package caches</li>
+<li>downloaded datasets</li>
+<li>temporary installation files</li>
+</ul>
+<p>Useful examples:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HF_HOME</span><span class="o">=</span>/fs/project/.../cache/huggingface
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">UV_CACHE_DIR</span><span class="o">=</span>/fs/project/.../cache/uv
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PIXI_CACHE_DIR</span><span class="o">=</span>/fs/project/.../cache/rattler
+</span></code></pre></div>
+<p>A clean cache layout might look like:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cache/
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>├── huggingface/
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>├── rattler/
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>└── uv/
+</span></code></pre></div>
+<p>This keeps large, regenerable data out of the home directory.</p>
+<hr />
+<h2 id="secrets-management">Secrets management</h2>
+<p>Credentials should be separated from general software configuration.</p>
+<p>Create a file such as:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>~/.secrets
+</span></code></pre></div>
+<p>Example contents:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HF_TOKEN</span><span class="o">=</span><span class="s2">&quot;...&quot;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PL_API_KEY</span><span class="o">=</span><span class="s2">&quot;...&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">EARTHDATA_TOKEN</span><span class="o">=</span><span class="s2">&quot;...&quot;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;...&quot;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;...&quot;</span>
+</span></code></pre></div>
+<p>Protect the file:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.secrets
+</span></code></pre></div>
+<p>Then load it from <code>.bash_profile</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>~/.secrets<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span>.<span class="w"> </span>~/.secrets
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">fi</span>
+</span></code></pre></div>
+<p>This keeps tokens easier to rotate and avoids cluttering the main shell configuration file.</p>
+<hr />
+<h2 id="important-distinctions">Important distinctions</h2>
+<p>Most tools have several separate concepts.</p>
+<h3 id="executable-location">Executable location</h3>
+<p>Where the command lives.</p>
 <p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Reality:     Road or shadow
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Prediction:  Water
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>PATH
 </span></code></pre></div>
-<p>This is:</p>
-<ul>
-<li>a False Positive (FP)</li>
-<li>a commission error</li>
-<li>a false alarm</li>
-</ul>
-<hr />
-<h2 id="recall-and-precision">Recall and Precision</h2>
-<table>
-<thead>
-<tr>
-<th>Concept</th>
-<th>Question</th>
-<th>Equation</th>
-<th>Core Intuition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Recall</td>
-<td>Out of all real positive cases, how many did we recover?</td>
-<td>Recall = TP / (TP + FN)</td>
-<td>Completeness / sensitivity</td>
-</tr>
-<tr>
-<td>Precision</td>
-<td>Out of everything predicted as positive, how many were actually positive?</td>
-<td>Precision = TP / (TP + FP)</td>
-<td>Purity / trustworthiness</td>
-</tr>
-</tbody>
-</table>
-<p>Notice that both metrics share the same numerator:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>TP = correctly detected positive cases
+<h3 id="cache-location">Cache location</h3>
+<p>Where downloaded or temporary data is stored.</p>
+<p>Examples:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>HF_HOME
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>UV_CACHE_DIR
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>PIXI_CACHE_DIR
 </span></code></pre></div>
-<p>The denominator changes:</p>
-<ul>
-<li>Recall is anchored to reality.</li>
-<li>Precision is anchored to model predictions.</li>
-</ul>
-<hr />
-<h2 id="why-not-just-use-accuracy">Why Not Just Use Accuracy?</h2>
-<p>Accuracy is the most familiar metric:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Accuracy = (TP + TN) / (TP + TN + FP + FN)
+<h3 id="credentials">Credentials</h3>
+<p>How the software authenticates.</p>
+<p>Examples:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>HF_TOKEN
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>PL_API_KEY
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>EARTHDATA_TOKEN
 </span></code></pre></div>
-<p>It answers a simple question: out of everything, how much did the classifier get right?</p>
-<p>That question becomes misleading the moment the positive class is rare, which is the normal case in remote sensing and many real-world detection problems.</p>
-<p>Suppose flood pixels make up 1% of an image. A classifier that predicts:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Everything is non-flood.
-</span></code></pre></div>
-<p>gets every non-flood pixel right and every flood pixel wrong. Yet:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Accuracy = 99%
-</span></code></pre></div>
-<p>The classifier never once detected the actual phenomenon of interest, and the headline number still looks excellent.</p>
-<p>This is the same failure mode as the earlier "everything is water" example, just measured with the wrong metric:</p>
-<ul>
-<li>Recall = 0% (no flood pixels recovered) — correctly exposes the failure</li>
-<li>Accuracy = 99% — hides the failure entirely</li>
-</ul>
-<p>The rarer the positive class, the more accuracy rewards a model for ignoring it. This is exactly why:</p>
-<ul>
-<li>cancer screening,</li>
-<li>flood mapping,</li>
-<li>glacier/ice detection,</li>
-<li>fraud and defect detection,</li>
-</ul>
-<p>are never evaluated with plain accuracy. In each of these, the positive class is rare relative to the negative class, so accuracy stays high even when the model is essentially non-functional. Precision and recall are anchored to the positive class specifically (TP, FN, FP), which is what makes them resistant to this failure mode.</p>
-<p><strong>Rule of thumb</strong>: whenever the phenomenon of interest is rare compared to everything else in the dataset, accuracy alone is not a trustworthy metric. Reach for recall, precision, and F1 instead.</p>
+<p>Keeping these separate makes troubleshooting much easier.</p>
 <hr />
-<h2 id="flood-mapping-example">Flood Mapping Example</h2>
-<p>Suppose we are mapping flood extent after a hurricane.</p>
-<p>Missing flooded areas can be dangerous:</p>
-<ul>
-<li>rescue teams may miss affected regions</li>
-<li>risk estimates become too low</li>
-<li>emergency response becomes incomplete</li>
-</ul>
-<p>In this situation, high recall is often preferred.</p>
+<h2 id="practical-rule-of-thumb">Practical rule of thumb</h2>
+<p>Use <code>.bash_profile</code> for software and environment configuration.</p>
+<p>Use <code>.bashrc</code> for terminal convenience and interactive behavior.</p>
 <hr />
-<h2 id="extreme-recall-example">Extreme Recall Example</h2>
-<p>Suppose a classifier predicts:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Everything is water.
-</span></code></pre></div>
-<p>Then:</p>
-<ul>
-<li>no water pixels are missed</li>
-<li>recall becomes very high (possibly 100%)</li>
-</ul>
-<p>But many non-water pixels are also incorrectly classified as water.</p>
-<p>So:</p>
-<ul>
-<li>high recall alone is not enough</li>
-</ul>
-<hr />
-<h2 id="medical-screening-intuition">Medical Screening Intuition</h2>
-<p>In medicine, missing a dangerous disease is often considered worse than temporarily flagging healthy individuals for additional testing.</p>
-<p>During the early stages of the COVID-19 pandemic, many public-health strategies emphasized avoiding missed cases, illustrating a high-recall mindset.</p>
-<hr />
-<h2 id="spam-email-example">Spam Email Example</h2>
-<p>Suppose a spam filter incorrectly sends important emails into the spam folder.</p>
-<p>Users quickly lose trust in the system.</p>
-<p>In this case:</p>
-<ul>
-<li>high precision matters strongly</li>
-<li>emails classified as spam should truly be spam</li>
-</ul>
-<hr />
-<h2 id="extreme-precision-example">Extreme Precision Example</h2>
-<p>Suppose a model predicts only one water pixel in an entire image.</p>
-<p>If that single pixel is truly water:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Precision = 100%
-</span></code></pre></div>
-<p>But almost all real water pixels were missed.</p>
-<p>So:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Recall ≈ 0
-</span></code></pre></div>
-<p>This shows:</p>
-<ul>
-<li>precision alone is also not enough</li>
-</ul>
-<hr />
-<h2 id="why-we-need-both-precision-and-recall">Why We Need Both Precision and Recall</h2>
-<table>
-<thead>
-<tr>
-<th>Goal</th>
-<th>Metric</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Capture as much real phenomenon as possible</td>
-<td>Recall</td>
-</tr>
-<tr>
-<td>Ensure detections are trustworthy</td>
-<td>Precision</td>
-</tr>
-</tbody>
-</table>
-<p>A good classifier usually needs balance between both.</p>
-<hr />
-<h2 id="f1-score">F1 Score</h2>
-<p>The F1 score combines precision and recall into a single metric.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>F1 = 2 * (Precision * Recall) / (Precision + Recall)
-</span></code></pre></div>
-<p>The F1 score becomes low when either:</p>
-<ul>
-<li>precision is poor</li>
-<li>recall is poor</li>
-</ul>
-<p>This prevents "cheating" by:</p>
-<ul>
-<li>predicting everything positive</li>
-<li>or predicting almost nothing positive</li>
-</ul>
-<p>Conceptually:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>F1 rewards models that are both:
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>- complete
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>- trustworthy
-</span></code></pre></div>
-<hr />
-<h2 id="vocabulary-bridge">Vocabulary Bridge</h2>
-<table>
-<thead>
-<tr>
-<th>Scientific / Remote Sensing Language</th>
-<th>ML / Statistics Language</th>
-<th>Core Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Omission error</td>
-<td>False Negative (FN)</td>
-<td>Missed positive phenomenon</td>
-</tr>
-<tr>
-<td>Commission error</td>
-<td>False Positive (FP)</td>
-<td>False inclusion / false alarm</td>
-</tr>
-<tr>
-<td>Producer's accuracy</td>
-<td>Recall</td>
-<td>How much real phenomenon was captured</td>
-</tr>
-<tr>
-<td>User's accuracy</td>
-<td>Precision</td>
-<td>How trustworthy detections are</td>
-</tr>
-<tr>
-<td>Completeness</td>
-<td>Recall</td>
-<td>Detection coverage</td>
-</tr>
-<tr>
-<td>Purity</td>
-<td>Precision</td>
-<td>Detection quality</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="mental-model-summary">Mental Model Summary</h2>
-<h3 id="recall">Recall</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Did we capture the real phenomenon?
-</span></code></pre></div>
-<p>Recall penalizes:</p>
-<ul>
-<li>missed detections</li>
-<li>omission errors</li>
-<li>false negatives</li>
-</ul>
-<hr />
-<h3 id="precision">Precision</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Can we trust our predictions?
-</span></code></pre></div>
-<p>Precision penalizes:</p>
-<ul>
-<li>false alarms</li>
-<li>commission errors</li>
-<li>false positives</li>
-</ul>
-<hr />
-<h2 id="final-conceptual-takeaway">Final Conceptual Takeaway</h2>
-<p>A classifier is fundamentally making decisions about:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>what belongs to the phenomenon of interest
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>and what does not.
-</span></code></pre></div>
-<p>Once the positive class is clearly defined:</p>
-<ul>
-<li>false negatives become missed positives</li>
-<li>false positives become false alarms</li>
-<li>recall measures completeness</li>
-<li>precision measures trustworthiness</li>
-</ul>
-<p>Understanding these concepts intuitively is far more valuable than memorizing formulas.</p>
+<h2 id="going-forward">Going forward</h2>
+<p>When setting up a new Linux environment, HPC account, workstation, WSL system, or cloud VM:</p>
+<ol>
+<li>Put environment variables in <code>.bash_profile</code>.</li>
+<li>Put aliases and functions in <code>.bashrc</code>.</li>
+<li>Move large caches away from the home directory.</li>
+<li>Store credentials in <code>.secrets</code>.</li>
+<li>Organize settings by software or project so they are easy to remove later.</li>
+</ol>
+<p>This structure keeps the system cleaner, easier to debug, and easier to reproduce.</p>
 
 
 
