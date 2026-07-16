@@ -12,13 +12,13 @@
         <meta name="author" content="Bidhyananda Yadav">
       
       
-        <link rel="canonical" href="https://bidhya.github.io/notes/geospatial/kalman-filter/">
+        <link rel="canonical" href="https://bidhya.github.io/notes/ai-ml/vllm-hpc-setup/">
       
       
-        <link rel="prev" href="../pyproj-crs/">
+        <link rel="prev" href="../on-prem-ai-assistant/">
       
       
-        <link rel="next" href="../hyperspectral-concepts/">
+        <link rel="next" href="../fine-tuning/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>State Estimation & Kalman Filtering - Bidhyananda Yadav | Portfolio</title>
+        <title>vLLM on HPC - Bidhyananda Yadav | Portfolio</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#implementing-kalman-filters-a-geosensing-guide-to-state-estimation-and-lidar-fusion" class="md-skip">
+        <a href="#installing-vllm-on-hpc-a-cuda-129-h200-case-study" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              State Estimation & Kalman Filtering
+              vLLM on HPC
             
           </span>
         </div>
@@ -277,7 +277,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../ai-ml/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -478,545 +478,6 @@
                 
   
   
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI & Machine Learning
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    AI & Machine Learning
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/stats-to-deep-learning/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Statistics to Deep Learning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/bias-variance/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Bias–Variance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/precision-recall/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Precision-Recall
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/pytorch-foundations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    PyTorch Fundamentals
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/transformers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Transformers & Attention
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/tokenization-embeddings/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tokenization & Embeddings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/gpu-ddp/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GPU & Distributed Training
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/multi-node-parallelization/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi-Node Parallelization
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/on-prem-ai-assistant/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Secure On-Prem AI Assistant
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/vllm-hpc-setup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    vLLM on HPC
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/fine-tuning/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Fine-Tuning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/geospatial-peft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Geospatial PEFT
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/qkv-kvcache/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LLM Inference & KV-Cache
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/llm-temperature/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Temperature & Sampling
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/vision-transformer/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Vision Transformers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai-ml/vit-data-requirements/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ViT Data Requirements
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1038,17 +499,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   
 
     
@@ -1059,12 +520,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   
 
           </label>
@@ -1105,14 +566,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../gis-cheatsheet/" class="md-nav__link">
+      <a href="../stats-to-deep-learning/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Geospatial Python Stack
+    Statistics to Deep Learning
   
 
     
@@ -1133,14 +594,210 @@
   
   
     <li class="md-nav__item">
-      <a href="../pyproj-crs/" class="md-nav__link">
+      <a href="../bias-variance/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Coordinate Reference Systems
+    Bias–Variance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../precision-recall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Precision-Recall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytorch-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformers & Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tokenization-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tokenization & Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu-ddp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU & Distributed Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi-node-parallelization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Node Parallelization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../on-prem-ai-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure On-Prem AI Assistant
   
 
     
@@ -1177,7 +834,7 @@
   <span class="md-ellipsis">
     
   
-    State Estimation & Kalman Filtering
+    vLLM on HPC
   
 
     
@@ -1195,7 +852,7 @@
   <span class="md-ellipsis">
     
   
-    State Estimation & Kalman Filtering
+    vLLM on HPC
   
 
     
@@ -1221,149 +878,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-what-is-a-kalman-filter" class="md-nav__link">
+  <a href="#what-vllm-is-and-why-its-harder-to-install-than-it-looks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. What Is a Kalman Filter?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. What Is a Kalman Filter?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-cycle-repeats-continuously" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core cycle (repeats continuously)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-lidar-fusion-applications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. LiDAR Fusion Applications
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. LiDAR Fusion Applications">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2a-vehicle-localization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2a. Vehicle Localization
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2b-object-tracking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2b. Object Tracking
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2c-multi-sensor-fusion-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2c. Multi-Sensor Fusion Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-the-covariance-matrix-in-plain-english" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. The Covariance Matrix — In Plain English
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. The Covariance Matrix — In Plain English">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-it-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What it is
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#real-world-analogy-finding-a-friend-in-a-mall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Real-world analogy — finding a friend in a mall
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-the-filter-uses-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How the filter uses it
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-takeaway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key takeaway
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-key-advantage-for-autonomous-vehicles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Key Advantage for Autonomous Vehicles
+        What vLLM is, and why it's harder to install than it looks
       
     </span>
   </a>
@@ -1371,10 +889,98 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-production-considerations-and-implementation-trade-offs" class="md-nav__link">
+  <a href="#part-1-the-cuda-version-trap" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Production Considerations and Implementation Trade-offs
+        Part 1: The CUDA-version trap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-the-manylinux-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: The manylinux trap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-the-project-naming-trap-uv-specific" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: The project-naming trap (uv-specific)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-deprecated-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Deprecated environment variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-working-pyprojecttoml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The working pyproject.toml
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-slurm-launch-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Slurm launch script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validating-the-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validating the setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-go-from-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to go from here
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-failure-modes-and-their-root-causes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary of failure modes and their root causes
       
     </span>
   </a>
@@ -1397,7 +1003,350 @@
   
   
     <li class="md-nav__item">
-      <a href="../hyperspectral-concepts/" class="md-nav__link">
+      <a href="../fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geospatial-peft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial PEFT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qkv-kvcache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Inference & KV-Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llm-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temperature & Sampling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision-transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vit-data-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT Data Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial & Remote Sensing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geospatial & Remote Sensing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/gis-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial Python Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/pyproj-crs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinate Reference Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/kalman-filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Estimation & Kalman Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/hyperspectral-concepts/" class="md-nav__link">
         
   
   
@@ -1425,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../real-world-patterns/" class="md-nav__link">
+      <a href="../../geospatial/real-world-patterns/" class="md-nav__link">
         
   
   
@@ -1453,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hvplot-visualization/" class="md-nav__link">
+      <a href="../../geospatial/hvplot-visualization/" class="md-nav__link">
         
   
   
@@ -1890,149 +1839,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-what-is-a-kalman-filter" class="md-nav__link">
+  <a href="#what-vllm-is-and-why-its-harder-to-install-than-it-looks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. What Is a Kalman Filter?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. What Is a Kalman Filter?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-cycle-repeats-continuously" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core cycle (repeats continuously)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-lidar-fusion-applications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. LiDAR Fusion Applications
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. LiDAR Fusion Applications">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2a-vehicle-localization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2a. Vehicle Localization
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2b-object-tracking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2b. Object Tracking
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2c-multi-sensor-fusion-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2c. Multi-Sensor Fusion Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-the-covariance-matrix-in-plain-english" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. The Covariance Matrix — In Plain English
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. The Covariance Matrix — In Plain English">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-it-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What it is
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#real-world-analogy-finding-a-friend-in-a-mall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Real-world analogy — finding a friend in a mall
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-the-filter-uses-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How the filter uses it
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-takeaway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key takeaway
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-key-advantage-for-autonomous-vehicles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Key Advantage for Autonomous Vehicles
+        What vLLM is, and why it's harder to install than it looks
       
     </span>
   </a>
@@ -2040,10 +1850,98 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-production-considerations-and-implementation-trade-offs" class="md-nav__link">
+  <a href="#part-1-the-cuda-version-trap" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Production Considerations and Implementation Trade-offs
+        Part 1: The CUDA-version trap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-the-manylinux-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: The manylinux trap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-the-project-naming-trap-uv-specific" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: The project-naming trap (uv-specific)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-deprecated-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Deprecated environment variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-working-pyprojecttoml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The working pyproject.toml
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-slurm-launch-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Slurm launch script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validating-the-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validating the setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-go-from-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to go from here
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-failure-modes-and-their-root-causes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary of failure modes and their root causes
       
     </span>
   </a>
@@ -2098,7 +1996,7 @@
     
     
       <li class="md-path__item">
-        <a href="../../ai-ml/" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
     Engineering Notes
@@ -2122,7 +2020,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Geospatial & Remote Sensing
+    AI & Machine Learning
   </span>
 
         </a>
@@ -2145,181 +2043,199 @@
       
       
       
-        <a href="../../../tags/#tag:geospatial" class="md-tag">Geospatial</a>
+        <a href="../../../tags/#tag:cuda" class="md-tag">CUDA</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:mathematics" class="md-tag">Mathematics</a>
+        <a href="../../../tags/#tag:gpu" class="md-tag">GPU</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:sensor-fusion" class="md-tag">Sensor Fusion</a>
+        <a href="../../../tags/#tag:hpc" class="md-tag">HPC</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:signal-processing" class="md-tag">Signal Processing</a>
+        <a href="../../../tags/#tag:llm" class="md-tag">LLM</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:state-estimation" class="md-tag">State Estimation</a>
+        <a href="../../../tags/#tag:vllm" class="md-tag">vLLM</a>
       
     
   </nav>
 
 
 
-<h1 id="implementing-kalman-filters-a-geosensing-guide-to-state-estimation-and-lidar-fusion">Implementing Kalman Filters: A Geosensing Guide to State Estimation and LiDAR Fusion</h1>
-<p>An engineering reference guide on the mathematical framework, covariance analysis, and multi-sensor fusion applications of Kalman filters in dynamic systems.</p>
-<hr />
-<h2 id="1-what-is-a-kalman-filter">1. What Is a Kalman Filter?</h2>
-<p>A mathematical algorithm that estimates the <strong>state of a dynamic system</strong> from noisy measurements over time.</p>
-<h3 id="core-cycle-repeats-continuously">Core cycle (repeats continuously)</h3>
+<h1 id="installing-vllm-on-hpc-a-cuda-129-h200-case-study">Installing vLLM on HPC: A CUDA 12.9 / H200 Case Study</h1>
+<h2 id="what-vllm-is-and-why-its-harder-to-install-than-it-looks">What vLLM is, and why it's harder to install than it looks</h2>
+<p>vLLM is a high-throughput inference <em>server</em> for large language models. Its defining feature is <strong>PagedAttention</strong>, a memory-management scheme for the attention KV-cache that lets the engine batch many concurrent requests against one loaded model far more efficiently than naive serving. It also exposes an OpenAI-compatible HTTP API, so any application written against OpenAI's client library can point at a self-hosted vLLM endpoint with nothing more than a URL change.</p>
+<p>For contrast: tools like Ollama optimize for simplicity — a single binary, <code>ollama pull</code>, one interactive session. vLLM optimizes for throughput under concurrent load — many requests, one model, maximum GPU utilization. The tradeoff is installation complexity, and understanding <em>why</em> that complexity exists is the difference between fighting it blindly and reasoning through it.</p>
+<p><strong>The core fact to internalize: vLLM is not a Python package. It is a C++/CUDA inference engine — custom attention kernels, FlashInfer, CUTLASS, Triton-JIT'd ops — wrapped in a thin Python interface.</strong> A <code>pip install vllm</code> doesn't just fetch Python source; it fetches (or in some cases builds) compiled binaries that must match your system's CUDA runtime version, its CUDA compiler toolchain, and its OS glibc baseline, exactly. This is fundamentally different from installing something like <code>requests</code> or <code>pandas</code>, and treating it as an ordinary pip package is where nearly every installation problem originates.</p>
+<p>Three things have to line up for a vLLM install to work at all:</p>
 <table>
 <thead>
 <tr>
-<th>Step</th>
-<th>What happens</th>
+<th>Axis</th>
+<th>What it constrains</th>
+<th>Where it shows up</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Predict</strong></td>
-<td>Estimate current state from previous state + motion model</td>
+<td><strong>CUDA runtime version</strong></td>
+<td>The version PyTorch and vLLM's compiled kernels were built against</td>
+<td><code>libcudart.so.X</code> load errors at import time</td>
 </tr>
 <tr>
-<td><strong>Update</strong></td>
-<td>Correct prediction using new sensor measurement</td>
+<td><strong>CUDA compiler toolchain</strong></td>
+<td>What's available on the system for <em>runtime</em> JIT compilation (FlashInfer, Triton)</td>
+<td>Kernel build failures the first time a specific op is exercised, sometimes minutes after the process starts</td>
+</tr>
+<tr>
+<td><strong>glibc / manylinux baseline</strong></td>
+<td>Whether a given wheel can even be loaded on your OS at all</td>
+<td>Install-time <code>uv</code>/<code>pip</code> platform-compatibility rejections</td>
 </tr>
 </tbody>
 </table>
-<p>The filter optimally weights predictions vs. measurements based on their respective <strong>uncertainties</strong>.</p>
+<p><em>Reference setup: NVIDIA H200 GPU, HPC cluster CUDA toolkit capped at 12.9 (<code>module load cuda/12.9.0-vvrwkrx</code>), OS baseline <code>manylinux_2_28</code> (glibc 2.28), managed with <code>uv</code>. vLLM version: v0.22.1. Verified July 2026.</em></p>
 <hr />
-<h2 id="2-lidar-fusion-applications">2. LiDAR Fusion Applications</h2>
-<h3 id="2a-vehicle-localization">2a. Vehicle Localization</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>State vector: [x, y, z, velocity_x, velocity_y, heading, angular_velocity]
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Prediction  → motion model (constant velocity / acceleration)
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Update      → fuse LiDAR point cloud matching with GPS + IMU + wheel encoders
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Result      → smooth, accurate position even with noisy/missing GPS
+<h2 id="part-1-the-cuda-version-trap">Part 1: The CUDA-version trap</h2>
+<p>Since vLLM v0.20.0, the <strong>default PyPI wheel targets CUDA 13</strong>, not CUDA 12.x. Any HPC cluster running an older CUDA module — common, since institutional toolkits lag consumer releases by a year or more — will fail immediately on a bare <code>pip install vllm</code> or <code>vllm&gt;=X</code> dependency, with an error like <code>libcudart.so.13: cannot open shared object file</code>.</p>
+<p>The instinctive fix — force PyTorch to a CUDA-13 build to match — creates a <em>second</em>, more subtle problem: vLLM's FlashInfer/Triton backend JIT-compiles custom kernels at runtime using whatever <code>nvcc</code> is on the system <code>PATH</code>. If that <code>nvcc</code> is version 12.9 (because that's what the cluster's module system provides) while PyTorch's runtime is 13.0, you get a compiler/runtime mismatch that crashes with errors like <code>tvm_ffi</code> failures — deep in kernel compilation, not in Python.</p>
+<p><strong>The rule this teaches: every layer — driver/toolkit, PyTorch, and vLLM's own compiled wheel — must target the same CUDA major.minor version.</strong> On a CUDA-12.9 cluster, that means CUDA-12.9 builds of PyTorch <em>and</em> vLLM, full stop. Don't split the difference.</p>
+<h2 id="part-2-the-manylinux-trap">Part 2: The manylinux trap</h2>
+<p>Even after solving the CUDA version, a specific vLLM release wheel might still refuse to install — not because of CUDA, but because of the <strong>manylinux tag</strong> in the wheel filename (e.g. <code>manylinux_2_28</code> vs <code>manylinux_2_34</code>). This tag encodes the minimum glibc version the wheel was built against. Installing a <code>manylinux_2_34</code> wheel on a <code>manylinux_2_28</code> system (older glibc) fails at the package-manager level, before any Python code even runs.</p>
+<p><strong>Lesson:</strong> always check a wheel's manylinux tag against your cluster's glibc version (<code>ldd --version</code>) before pinning a specific release URL. Don't assume the newest-looking wheel is compatible — HPC systems frequently run OS baselines several years behind consumer Linux.</p>
+<h2 id="part-3-the-project-naming-trap-uv-specific">Part 3: The project-naming trap (uv-specific)</h2>
+<p>Package resolvers (via PEP 503) normalize names case- and hyphen-insensitively. If your <code>pyproject.toml</code> project itself is named <code>vLLM</code>, <code>uv</code> will treat your <em>own project</em> as already satisfying the <code>vllm</code> dependency and silently skip installing the real package. <strong>Never name a project the same as a dependency you need actually installed</strong> — use something distinct like <code>vLLM-sandbox</code>.</p>
+<h2 id="part-4-deprecated-environment-variables">Part 4: Deprecated environment variables</h2>
+<p><code>VLLM_ATTENTION_BACKEND</code> was removed from recent vLLM releases in favor of a CLI/config argument, <code>--attention-config.backend</code>. Setting the old variable produces a harmless <code>Unknown vLLM environment variable detected</code> warning and does nothing — vLLM will auto-select a working backend (commonly <code>FLASH_ATTN</code>) regardless. If you need to force a specific backend deliberately, use the current flag, not the old env var.</p>
+<hr />
+<h2 id="the-working-pyprojecttoml">The working <code>pyproject.toml</code></h2>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[project]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;vLLM-sandbox&quot;</span><span class="w">   </span><span class="c1"># not &quot;vLLM&quot; — see Part 3</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.12,&lt;3.13&quot;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="s2">&quot;ipykernel&gt;=7.3.0&quot;</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="s2">&quot;torch&quot;</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="s2">&quot;torchaudio&quot;</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="s2">&quot;torchvision&quot;</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="s2">&quot;vllm&quot;</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">]</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">[tool.uv.sources]</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">torch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;pytorch-cu129&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">torchaudio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;pytorch-cu129&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">torchvision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;pytorch-cu129&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># Pin to the official CUDA-12.9 release wheel (manylinux_2_28 baseline).</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># Bump the version tag as newer vLLM releases come out.</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">vllm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/vllm-project/vllm/releases/download/v0.22.1/vllm-0.22.1+cu129-cp38-abi3-manylinux_2_28_x86_64.whl&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="k">[[tool.uv.index]]</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pytorch-cu129&quot;</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://download.pytorch.org/whl/cu129&quot;</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="n">explicit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </span></code></pre></div>
-<h3 id="2b-object-tracking">2b. Object Tracking</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>State vector: [object_x, object_y, velocity_x, velocity_y, acceleration]
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Prediction  → extrapolate object motion between LiDAR scans
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Update      → match LiDAR detections to predicted positions
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Result      → consistent object tracks despite detection gaps or noise
+<p>Install with a clean slate:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>rm<span class="w"> </span>-rf<span class="w"> </span>.venv<span class="w"> </span>uv.lock
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>uv<span class="w"> </span>sync
 </span></code></pre></div>
-<h3 id="2c-multi-sensor-fusion-pipeline">2c. Multi-Sensor Fusion Pipeline</h3>
+Since every dependency here resolves to a precompiled wheel, <code>uv sync</code> only downloads binaries — it never invokes <code>nvcc</code>. This means the CUDA toolkit module does not need to be loaded for installation, only for execution (next section).</p>
+<h2 id="the-slurm-launch-script">The Slurm launch script</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ch">#!/usr/bin/env bash</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">#SBATCH --time=02:00:00</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">#SBATCH --exclusive</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">#SBATCH --gres=gpu:1</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">#SBATCH --partition=batch-gpu-new</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Loading the CUDA toolkit module here is what makes FlashInfer/Triton&#39;s</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># runtime JIT compilation possible. Skip this, and the job will still get</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># through model loading and torch.compile successfully — the failure only</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># surfaces on the *first inference call*, when a kernel needs to be built</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># on the fly and `nvcc` isn&#39;t on PATH. This delayed failure point is what</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># makes people mistakenly believe the toolkit module is unnecessary.</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>module<span class="w"> </span>load<span class="w"> </span>cuda/12.9.0-vvrwkrx
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="nb">cd</span><span class="w"> </span>/path/to/your/project
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>your_inference_script.py
+</span></code></pre></div>
+<p>Two lines that are commonly added out of caution turn out to be unnecessary and can be dropped:
+- <code>export CUDA_HOME=...</code> — on Spack-based module systems, <code>module load</code> already exports <code>CUDA_HOME</code> as part of loading the module. Check with <code>echo $CUDA_HOME</code> right after loading before adding this manually.
+- <code>export VLLM_ATTENTION_BACKEND=...</code> — dead variable, see Part 4.</p>
+<h2 id="validating-the-setup">Validating the setup</h2>
+<p>The fastest way to validate a new environment is to run inference against the smallest model you can, such as <code>facebook/opt-125m</code> (a ~125M parameter model that loads and runs in seconds). This isolates <em>toolchain</em> correctness — CUDA versions, compiler availability, wheel compatibility — from <em>model-specific</em> concerns like memory sizing or quantization, which only matter once the underlying environment is already proven sound.</p>
+<p>A minimal script for this:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vllm</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLM</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;facebook/opt-125m&quot;</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">output</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">generate</span><span class="p">([</span><span class="s2">&quot;The future of AI is&quot;</span><span class="p">])</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p>If this runs cleanly end-to-end — model load, <code>torch.compile</code>, CUDA graph capture, and a generated completion — the environment is sound, and you can move to a production-scale model with confidence that any further issues are model-specific rather than toolchain-related.</p>
+<hr />
+<h2 id="where-to-go-from-here">Where to go from here</h2>
+<p>This baseline covers single-GPU inference on a small model, which is sufficient to prove out the environment. Building toward a real deployment involves:
+- Swapping in the target model family (Llama, Qwen, etc.)
+- Serving via <code>vllm serve</code> for the OpenAI-compatible HTTP endpoint, rather than the one-off Python API
+- Tuning <code>--gpu-memory-utilization</code> and <code>--tensor-parallel-size</code> for realistic concurrency and multi-GPU scaling
+- Production concerns: auth, logging, and restart behavior under the scheduler</p>
+<h2 id="summary-of-failure-modes-and-their-root-causes">Summary of failure modes and their root causes</h2>
 <table>
 <thead>
 <tr>
-<th>Sensor</th>
-<th>Strength</th>
-<th>Weakness</th>
+<th>Symptom</th>
+<th>Root cause</th>
+<th>Fix</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>LiDAR</td>
-<td>Accurate 3D positions</td>
-<td>Low frequency (10–20 Hz)</td>
+<td><code>libcudart.so.13</code> not found</td>
+<td>PyPI's default wheel targets CUDA 13</td>
+<td>Pin torch + vLLM to matching CUDA 12.x builds</td>
 </tr>
 <tr>
-<td>IMU</td>
-<td>High-frequency motion (100+ Hz)</td>
-<td>Drifts over time</td>
+<td><code>tvm_ffi</code> crash / kernel build failure</td>
+<td>CUDA runtime and compiler toolchain versions mismatched</td>
+<td>Keep driver, toolkit, PyTorch, and vLLM on the same CUDA major.minor</td>
 </tr>
 <tr>
-<td>GPS</td>
-<td>Absolute position</td>
-<td>Noisy; can drop out</td>
+<td>Wheel install rejected by platform check</td>
+<td>manylinux tag doesn't match cluster's glibc</td>
+<td>Check <code>ldd --version</code>; match the wheel's manylinux tag accordingly</td>
+</tr>
+<tr>
+<td><code>vllm</code> silently not installed</td>
+<td>Project itself named <code>vLLM</code>, colliding with the dependency name</td>
+<td>Use a distinct project name</td>
+</tr>
+<tr>
+<td><code>Unknown vLLM environment variable</code> warning</td>
+<td><code>VLLM_ATTENTION_BACKEND</code> deprecated</td>
+<td>Use <code>--attention-config.backend</code> if forcing a backend</td>
+</tr>
+<tr>
+<td><code>ninja</code>/<code>nvcc: No such file or directory</code>, but only on first inference call</td>
+<td>CUDA toolkit module not loaded before runtime JIT compilation kicks in</td>
+<td><code>module load</code> the toolkit in the launch script, not just at install time</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Kalman filter strategy:</strong>
-- Use IMU for high-rate <strong>predictions</strong>
-- Correct with LiDAR / GPS <strong>measurements</strong>
-- Result: smooth, high-frequency, accurate state estimates</p>
-<hr />
-<h2 id="3-the-covariance-matrix-in-plain-english">3. The Covariance Matrix — In Plain English</h2>
-<h3 id="what-it-is">What it is</h3>
-<p>The covariance matrix is the filter's <strong>"confidence report card"</strong> — it tracks how certain the system is about each estimate and how uncertainties relate to each other.</p>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Small number</td>
-<td>High confidence in this estimate</td>
-</tr>
-<tr>
-<td>Large number</td>
-<td>Low confidence — take with a grain of salt</td>
-</tr>
-</tbody>
-</table>
-<p>It also captures <strong>relationships</strong> between variables:<br />
-e.g. uncertainty in X position often correlates with uncertainty in X velocity.</p>
-<h3 id="real-world-analogy-finding-a-friend-in-a-mall">Real-world analogy — finding a friend in a mall</h3>
-<ul>
-<li><strong>GPS</strong>: "You're somewhere in this 10-metre circle" → high uncertainty</li>
-<li><strong>Landmark spotted</strong>: "Definitely near the food court" → low uncertainty</li>
-<li><strong>Text directions</strong>: "Walk 50 steps north" → medium uncertainty</li>
-</ul>
-<p>The covariance matrix is your brain tracking how much to trust each source.</p>
-<h3 id="how-the-filter-uses-it">How the filter uses it</h3>
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>What happens</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Prediction</strong></td>
-<td>Confidence decreases: "I was sure 1s ago, but I've been moving"</td>
-</tr>
-<tr>
-<td><strong>Update</strong></td>
-<td>Filter weights sensors by reliability: LiDAR (precise) &gt; GPS (noisy)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="key-takeaway">Key takeaway</h3>
-<blockquote>
-<p>The covariance matrix lets the filter automatically ask:<br />
-<em>"Here's my best guess — and here's exactly how sure I am about it."</em></p>
-</blockquote>
-<hr />
-<h2 id="4-key-advantage-for-autonomous-vehicles">4. Key Advantage for Autonomous Vehicles</h2>
-<p>Kalman filters handle <strong>uncertainty quantification</strong> via covariance matrices — knowing when to trust predictions vs. measurements. This is essential in noisy sensor environments like AV stacks combining LiDAR, IMU, and GPS.</p>
-<hr />
-<h2 id="5-production-considerations-and-implementation-trade-offs">5. Production Considerations and Implementation Trade-offs</h2>
-<p>When deploying state estimation algorithms in real-time robotics, autonomous vehicle, or geospatial tracking pipelines, developers must address several engineering challenges:</p>
-<ul>
-<li><strong>Non-Linear State Transitions</strong>: Standard Kalman Filters (KF) assume linear relationships. Real-world systems require Extended Kalman Filters (EKF), which linearize non-linear state transitions using Jacobian matrices, or Unscented Kalman Filters (UKF), which use deterministic sigma points to capture the probability distribution. Selecting between EKF and UKF involves an engineering trade-off between computational cost and estimation accuracy.</li>
-<li><strong>Sensor Latency and Out-of-Sequence Measurements (OOSM)</strong>: Sensors report data at vastly different frequencies and with varying propagation delays. Real-time fusion engines must maintain a chronological buffer of states and covariances to rewind, insert a delayed measurement, and re-propagate predictions.</li>
-<li><strong>Covariance Optimization (Tuning)</strong>: Process noise <span class="arithmatex">\(Q\)</span> and measurement noise <span class="arithmatex">\(R\)</span> represent the mathematical representations of state physics uncertainty and sensor fidelity. Overestimating sensor reliability causes the filter to track noise, while underestimating it leads to lag. Tuning is usually achieved using system identification, statistical test runs, or optimization algorithms from flight/drive logs.</li>
-</ul>
 
 
 
