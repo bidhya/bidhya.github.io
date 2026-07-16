@@ -116,6 +116,7 @@ nav:
           - GPU & Distributed Training: notes/ai-ml/gpu-ddp.md
           - Multi-Node Parallelization: notes/ai-ml/multi-node-parallelization.md
           - Secure On-Prem AI Assistant: notes/ai-ml/on-prem-ai-assistant.md
+          - vLLM on HPC: notes/ai-ml/vllm-hpc-setup.md
           - Fine-Tuning: notes/ai-ml/fine-tuning.md
           - Geospatial PEFT: notes/ai-ml/geospatial-peft.md
           - LLM Inference & KV-Cache: notes/ai-ml/qkv-kvcache.md

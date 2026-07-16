@@ -71,6 +71,8 @@ FILE_MAP = {
         "notes/ai-ml/multi-node-parallelization.md",
     "KBase/04-HPC/ollama_hpc_vscode_setup.md":
         "notes/ai-ml/on-prem-ai-assistant.md",
+    "KBase/04-HPC/vllm_hpc_uv_setup.md":
+        "notes/ai-ml/vllm-hpc-setup.md",
 
     # ------------------
     # Geospatial Notes (Phase 3)

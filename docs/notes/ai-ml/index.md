@@ -66,6 +66,10 @@ The articles follow a deliberate learning arc — building from mathematical fun
 
     Hosting Ollama on HPC (H200 GPUs) and tunneling it into VS Code Copilot Chat via BYOK — keeping prompts and institutional data off third-party cloud infrastructure entirely, for research collaborations bound by data governance agreements.
 
+-   :material-server-network: **[vLLM on HPC](vllm-hpc-setup.md)**
+
+    Why vLLM is a compiled CUDA inference engine, not a Python package — matching driver, toolkit, PyTorch, and wheel versions exactly, diagnosing manylinux/glibc and JIT-compilation failures, and a working `uv`-managed `pyproject.toml` for CUDA 12.9 / H200.
+
 </div>
 
 ## Adaptation & Fine-Tuning
