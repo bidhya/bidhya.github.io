@@ -14,7 +14,7 @@ tags:
 
 This setup satisfies that requirement directly: it hosts the AI model privately on HPC compute (H200 GPUs), keeping the model, prompts, and data entirely on-premises, while still using the familiar VS Code Copilot Chat interface. It's the configuration used whenever a stakeholder's data-handling policy requires demonstrable control over where prompts and context actually go — not a hypothetical precaution.
 
-*Setup verified working July 2026 on the Unity (OSU/OSC) Slurm cluster, tunneled to a WSL2 laptop running VS Code with GitHub Copilot.*
+*Setup last verified working July 2026 on the Unity (OSU) Slurm cluster, tunneled to a WSL2 laptop running VS Code with GitHub Copilot.*
 
 **Ollama version installed: v0.31.1** (release asset: `ollama-linux-amd64.tar.zst`). Ollama has changed its release asset format before (`.tgz` → `.tar.zst`) — if a future install fails, check the [releases page](https://github.com/ollama/ollama/releases) for the current asset name and adjust the extraction step accordingly.
 
