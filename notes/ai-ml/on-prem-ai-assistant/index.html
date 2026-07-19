@@ -1044,6 +1044,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#5-fix-for-no-utility-model-is-configured-for-copilot-utility-small" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Fix for "No utility model is configured for 'copilot-utility-small'"
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2223,6 +2234,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#5-fix-for-no-utility-model-is-configured-for-copilot-utility-small" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Fix for "No utility model is configured for 'copilot-utility-small'"
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2598,6 +2620,12 @@ Open via Command Palette → <code>Preferences: Open User Data Folder</code>, or
 <h3 id="4-select-the-hpc-model-in-chat">4. Select the HPC model in Chat</h3>
 <p>Open the Chat panel → model picker at the bottom of the input box → choose the model under "Ollama (HPC)" (e.g. <code>qwen2.5-coder:7b</code>).</p>
 <p>All chat traffic now routes through the tunnel to the HPC GPU node — no data leaves the local network to any cloud model provider.</p>
+<h3 id="5-fix-for-no-utility-model-is-configured-for-copilot-utility-small">5. Fix for "No utility model is configured for 'copilot-utility-small'"</h3>
+<p>A Copilot Chat extension update introduced a second required model slot: alongside the <strong>Main Agent Model</strong> (standard chat prompts), Copilot now needs a <strong>Utility Model</strong> (<code>copilot-utility-small</code>) for background tasks like title generation and intent routing. When BYOK is selected as the main model but the utility model is left at <code>None</code>, Chat fails outright instead of falling back automatically, with:</p>
+<blockquote>
+<p><em>"No utility model is configured for 'copilot-utility-small' while the selected main agent model is BYOK."</em></p>
+</blockquote>
+<p><strong>Fix:</strong> in VS Code Settings (<code>Ctrl+,</code> / <code>Cmd+,</code>), search <strong><code>BYOK Utility Model</code></strong>, open <strong>GitHub › Copilot › Chat: BYOK Utility Model Default</strong>, and change it from <code>None</code> to <strong>Main Agent Model</strong> (or explicitly pick the active Ollama model). Background requests then route through the same Ollama (HPC) endpoint as standard chat.</p>
 <hr />
 <h2 id="part-5-choosing-a-model">Part 5: Choosing a model</h2>
 <p>Ollama doesn't load a model into VRAM just because it's pulled/on disk — a model loads only when a request comes in, and unloads after an idle period (default 5 min, tunable via <code>OLLAMA_KEEP_ALIVE</code>). Multiple models can be pulled and visible in VS Code's picker without conflict; the risk is only in <em>choosing</em> one that doesn't fit the GPU actually running the job.</p>
@@ -2638,6 +2666,7 @@ Open via Command Palette → <code>Preferences: Open User Data Folder</code>, or
 <li>Local + remote Ollama both defaulting to port <code>11434</code> causes silent, confusing conflicts (IPv4 vs IPv6 loopback) → use different ports for each</li>
 <li><code>sbatch</code> output/error log directory (<code>OLLAMA_LOGS/</code>) may need to be manually created first on some Slurm systems, not guaranteed to auto-create</li>
 <li>A model too large for the GPU in use doesn't fail cleanly — it either crawls (CPU offload) or OOMs; Ollama has no automatic hardware-fit check</li>
+<li>Copilot Chat extension update requires a <code>copilot-utility-small</code> model in addition to the main BYOK model — left at <code>None</code>, Chat fails instead of falling back; set <code>BYOK Utility Model Default</code> to "Main Agent Model" in Settings</li>
 </ul>
 
 
