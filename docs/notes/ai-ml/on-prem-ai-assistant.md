@@ -226,6 +226,12 @@ Open the Chat panel → model picker at the bottom of the input box → choose t
 
 All chat traffic now routes through the tunnel to the HPC GPU node — no data leaves the local network to any cloud model provider.
 
+### 5. Fix for "No utility model is configured for 'copilot-utility-small'"
+A Copilot Chat extension update introduced a second required model slot: alongside the **Main Agent Model** (standard chat prompts), Copilot now needs a **Utility Model** (`copilot-utility-small`) for background tasks like title generation and intent routing. When BYOK is selected as the main model but the utility model is left at `None`, Chat fails outright instead of falling back automatically, with:
+> *"No utility model is configured for 'copilot-utility-small' while the selected main agent model is BYOK."*
+
+**Fix:** in VS Code Settings (`Ctrl+,` / `Cmd+,`), search **`BYOK Utility Model`**, open **GitHub › Copilot › Chat: BYOK Utility Model Default**, and change it from `None` to **Main Agent Model** (or explicitly pick the active Ollama model). Background requests then route through the same Ollama (HPC) endpoint as standard chat.
+
 ---
 
 ## Part 5: Choosing a model
@@ -275,3 +281,4 @@ VS Code Chat → Ollama (HPC) endpoint (127.0.0.1:11500)
 - Local + remote Ollama both defaulting to port `11434` causes silent, confusing conflicts (IPv4 vs IPv6 loopback) → use different ports for each
 - `sbatch` output/error log directory (`OLLAMA_LOGS/`) may need to be manually created first on some Slurm systems, not guaranteed to auto-create
 - A model too large for the GPU in use doesn't fail cleanly — it either crawls (CPU offload) or OOMs; Ollama has no automatic hardware-fit check
+- Copilot Chat extension update requires a `copilot-utility-small` model in addition to the main BYOK model — left at `None`, Chat fails instead of falling back; set `BYOK Utility Model Default` to "Main Agent Model" in Settings
