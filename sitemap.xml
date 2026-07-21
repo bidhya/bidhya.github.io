@@ -2,138 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://bidhya.github.io/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/profile/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/tags/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/bias-variance/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/ai-ml/embeddings/</loc>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/fine-tuning/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/geospatial-peft/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/gpu-ddp/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/linux-shell-setup/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/llm-temperature/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/multi-node-parallelization/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/on-prem-ai-assistant/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/precision-recall/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/pytorch-foundations/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/qkv-kvcache/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/stats-to-deep-learning/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/tokenization-embeddings/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/transformers/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/vision-transformer/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/vit-data-requirements/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/ai-ml/vllm-hpc-setup/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/geospatial/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/geospatial/gis-cheatsheet/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/geospatial/hvplot-visualization/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/geospatial/hyperspectral-concepts/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/geospatial/kalman-filter/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/geospatial/pyproj-crs/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/geospatial/real-world-patterns/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/tutorials/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/tutorials/change-detection/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/tutorials/nlp-ner/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/tutorials/nlp-sentiment-analysis/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/tutorials/nlp-topic-modeling/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/tutorials/ocean-color/</loc>
-         <lastmod>2026-07-19</lastmod>
+         <lastmod>2026-07-21</lastmod>
     </url>
 </urlset>
