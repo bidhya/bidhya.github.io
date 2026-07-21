@@ -108,6 +108,7 @@ nav:
       - AI & Machine Learning:
           - Overview: notes/ai-ml/index.md
           - Statistics to Deep Learning: notes/ai-ml/stats-to-deep-learning.md
+          - Embeddings Across Domains: notes/ai-ml/embeddings.md
           - Bias–Variance: notes/ai-ml/bias-variance.md
           - Precision-Recall: notes/ai-ml/precision-recall.md
           - PyTorch Fundamentals: notes/ai-ml/pytorch-foundations.md

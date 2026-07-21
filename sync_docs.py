@@ -39,6 +39,8 @@ FILE_MAP = {
     # ------------------
     "KBase/02-AI-and-ML/Machine-Learning/stats_to_deep_learning.md":
         "notes/ai-ml/stats-to-deep-learning.md",
+    "KBase/02-AI-and-ML/embeddings/embeddings.md":
+        "notes/ai-ml/embeddings.md",
     "KBase/02-AI-and-ML/Machine-Learning/bias_variance.md":
         "notes/ai-ml/bias-variance.md",
     "KBase/02-AI-and-ML/Machine-Learning/precision_recall.md":
