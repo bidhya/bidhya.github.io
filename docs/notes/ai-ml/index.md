@@ -14,10 +14,6 @@ The articles follow a deliberate learning arc — building from mathematical fun
 
     The conceptual bridge from classical statistics to neural network optimization — written for domain scientists transitioning from probabilistic modelling to deep learning.
 
--   :material-vector-line: **[Embeddings Across Domains](embeddings.md)**
-
-    How a single vector representation and one formula (cosine similarity) make satellite pixels, biomedical records, and crop stress directly comparable — from geospatial foundation models (Prithvi, Clay, AlphaEarth, OlmoEarth) to the same pattern showing up far outside Earth science.
-
 -   :material-scale-balance: **[Bias–Variance](bias-variance.md)**
 
     The central tension between model simplicity and flexibility: overfitting, underfitting, and the strategies (regularization, cross-validation, ensembles) that keep models generalizable.
@@ -43,6 +39,10 @@ The articles follow a deliberate learning arc — building from mathematical fun
 -   :material-text-box: **[Tokenization & Embeddings](tokenization-embeddings.md)**
 
     How raw text and spatial signals are encoded into dense vector representations: BPE, SentencePiece, and geospatial embedding strategies.
+
+-   :material-vector-line: **[Embeddings Across Domains](embeddings.md)**
+
+    How a single vector representation and one formula (cosine similarity) make satellite pixels, biomedical records, and crop stress directly comparable — from geospatial foundation models (Prithvi, Clay, AlphaEarth, OlmoEarth) to the same pattern showing up far outside Earth science.
 
 -   :material-memory: **[LLM Inference & KV-Cache](qkv-kvcache.md)**
 

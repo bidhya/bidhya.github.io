@@ -108,12 +108,12 @@ nav:
       - AI & Machine Learning:
           - Overview: notes/ai-ml/index.md
           - Statistics to Deep Learning: notes/ai-ml/stats-to-deep-learning.md
-          - Embeddings Across Domains: notes/ai-ml/embeddings.md
           - Bias–Variance: notes/ai-ml/bias-variance.md
           - Precision-Recall: notes/ai-ml/precision-recall.md
           - PyTorch Fundamentals: notes/ai-ml/pytorch-foundations.md
           - Transformers & Attention: notes/ai-ml/transformers.md
           - Tokenization & Embeddings: notes/ai-ml/tokenization-embeddings.md
+          - Embeddings Across Domains: notes/ai-ml/embeddings.md
           - GPU & Distributed Training: notes/ai-ml/gpu-ddp.md
           - Multi-Node Parallelization: notes/ai-ml/multi-node-parallelization.md
           - Ollama on HPC: notes/ai-ml/on-prem-ai-assistant.md
