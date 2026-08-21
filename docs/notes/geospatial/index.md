@@ -36,6 +36,16 @@ Production-grade references for the geospatial Python engineering stack, coordin
 
 </div>
 
+## Machine Learning for Earth Observation
+
+<div class="grid cards" markdown>
+
+-   :material-tune: **[Geospatial PEFT](geospatial-peft.md)**
+
+    Parameter-Efficient Fine-Tuning (LoRA) applied to geospatial vision transformers (Prithvi, Clay) for hydrological and cryospheric classification.
+
+</div>
+
 ## Sensor Physics & Imaging
 
 <div class="grid cards" markdown>

@@ -80,8 +80,15 @@ plugins:
         - Rasterio
         - GeoPandas
         - Claude Code
+  # One entry per URL moved during the structure refactor. Keep these permanently:
+  # removing one silently breaks any link already shared.
   - redirects:
-      redirect_maps: {}
+      redirect_maps:
+        notes/ai-ml/multi-node-parallelization.md: notes/hpc/multi-node-parallelization.md
+        notes/ai-ml/on-prem-ai-assistant.md: notes/hpc/on-prem-ai-assistant.md
+        notes/ai-ml/vllm-hpc-setup.md: notes/hpc/vllm-hpc-setup.md
+        notes/ai-ml/linux-shell-setup.md: notes/hpc/linux-shell-setup.md
+        notes/ai-ml/geospatial-peft.md: notes/geospatial/geospatial-peft.md
   - mkdocs-jupyter:
       include_source: true
       ignore_h1_titles: true
@@ -141,40 +148,42 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - About: profile.md
-  - Engineering Notes:
+  - Notes:
+      - notes/index.md
       - AI & Machine Learning:
-          - Overview: notes/ai-ml/index.md
+          - notes/ai-ml/index.md
           - Statistics to Deep Learning: notes/ai-ml/stats-to-deep-learning.md
-          - Bias–Variance: notes/ai-ml/bias-variance.md
+          - Bias-Variance: notes/ai-ml/bias-variance.md
           - Precision-Recall: notes/ai-ml/precision-recall.md
           - PyTorch Fundamentals: notes/ai-ml/pytorch-foundations.md
           - Transformers & Attention: notes/ai-ml/transformers.md
           - Tokenization & Embeddings: notes/ai-ml/tokenization-embeddings.md
           - Embeddings Across Domains: notes/ai-ml/embeddings.md
-          - GPU & Distributed Training: notes/ai-ml/gpu-ddp.md
-          - Multi-Node Parallelization: notes/ai-ml/multi-node-parallelization.md
-          - Ollama on HPC: notes/ai-ml/on-prem-ai-assistant.md
-          - vLLM on HPC: notes/ai-ml/vllm-hpc-setup.md
-          - Linux Shell Setup: notes/ai-ml/linux-shell-setup.md
-          - Fine-Tuning: notes/ai-ml/fine-tuning.md
-          - Geospatial PEFT: notes/ai-ml/geospatial-peft.md
           - LLM Inference & KV-Cache: notes/ai-ml/qkv-kvcache.md
           - Temperature & Sampling: notes/ai-ml/llm-temperature.md
+          - GPU & Distributed Training: notes/ai-ml/gpu-ddp.md
+          - Fine-Tuning: notes/ai-ml/fine-tuning.md
           - Vision Transformers: notes/ai-ml/vision-transformer.md
           - ViT Data Requirements: notes/ai-ml/vit-data-requirements.md
       - Geospatial & Remote Sensing:
-          - Overview: notes/geospatial/index.md
+          - notes/geospatial/index.md
           - Geospatial Python Stack: notes/geospatial/gis-cheatsheet.md
           - Coordinate Reference Systems: notes/geospatial/pyproj-crs.md
-          - State Estimation & Kalman Filtering: notes/geospatial/kalman-filter.md
-          - Hyperspectral Sensor Physics: notes/geospatial/hyperspectral-concepts.md
           - Production Geospatial Patterns: notes/geospatial/real-world-patterns.md
           - Interactive Visualization with hvPlot: notes/geospatial/hvplot-visualization.md
-  - Field Notes:
-      - Claude Code Across Machines: notes/field-notes/claude-code-across-machines.md
-  - Technical Workflows:
-      - Overview: tutorials/index.md
+          - State Estimation & Kalman Filtering: notes/geospatial/kalman-filter.md
+          - Geospatial PEFT: notes/geospatial/geospatial-peft.md
+          - Hyperspectral Sensor Physics: notes/geospatial/hyperspectral-concepts.md
+      - HPC & Infrastructure:
+          - notes/hpc/index.md
+          - Multi-Node Parallelization: notes/hpc/multi-node-parallelization.md
+          - Ollama on HPC: notes/hpc/on-prem-ai-assistant.md
+          - vLLM on HPC: notes/hpc/vllm-hpc-setup.md
+          - Linux Shell Setup: notes/hpc/linux-shell-setup.md
+      - Practice & Tooling:
+          - Claude Code Across Machines: notes/field-notes/claude-code-across-machines.md
+  - Workflows:
+      - tutorials/index.md
       - Spatio-Temporal & Vision:
           - NASA PACE Ocean Color: tutorials/ocean-color.ipynb
           - Sentinel-2 Change Detection: tutorials/change-detection.ipynb
@@ -183,3 +192,4 @@ nav:
           - Topic Modeling: tutorials/nlp-topic-modeling.ipynb
           - Sentiment & Zero-Shot classification: tutorials/nlp-sentiment-analysis.ipynb
   - Tags: tags.md
+  - About: profile.md

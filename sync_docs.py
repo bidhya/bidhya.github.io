@@ -52,7 +52,7 @@ FILE_MAP = {
     "KBase/02-AI-and-ML/Deep-Learning/fine_tuning.md":
         "notes/ai-ml/fine-tuning.md",
     "KBase/03-Geospatial/GIS-Tutorials/geospatial_peft.md":
-        "notes/ai-ml/geospatial-peft.md",
+        "notes/geospatial/geospatial-peft.md",
     "KBase/02-AI-and-ML/Architecture-Models/qkv.md":
         "notes/ai-ml/qkv-kvcache.md",
     "KBase/02-AI-and-ML/Architecture-Models/llm_temperature.md":
@@ -70,13 +70,13 @@ FILE_MAP = {
     # HPC & Distributed Computing
     # ------------------
     "KBase/04-HPC/multi_node_dask_joblib.md":
-        "notes/ai-ml/multi-node-parallelization.md",
+        "notes/hpc/multi-node-parallelization.md",
     "KBase/04-HPC/ollama_hpc_vscode_setup.md":
-        "notes/ai-ml/on-prem-ai-assistant.md",
+        "notes/hpc/on-prem-ai-assistant.md",
     "KBase/04-HPC/vllm_hpc_uv_setup.md":
-        "notes/ai-ml/vllm-hpc-setup.md",
+        "notes/hpc/vllm-hpc-setup.md",
     "KBase/01-Core-Programming/linux_shell_setup.md":
-        "notes/ai-ml/linux-shell-setup.md",
+        "notes/hpc/linux-shell-setup.md",
 
     # ------------------
     # Geospatial Notes (Phase 3)
@@ -140,6 +140,37 @@ def sanitize_content(content, file_path):
     return sanitized
 
 
+def prune_stale(docs_dir):
+    """
+    Remove synced files whose FILE_MAP destination has changed or been dropped.
+
+    `shutil.copy2` and the markdown writer only ever create files, so an article
+    that moves between categories leaves its old copy behind. MkDocs still indexes
+    that orphan: it pollutes search results and double-counts the article's tags,
+    and none of it fails the build. Anything inside a synced destination directory
+    that is neither a current destination nor a hand-authored `index.md` is stale.
+    """
+    managed_dirs = {os.path.dirname(d) for d in FILE_MAP.values()}
+    current = {os.path.normpath(os.path.join(docs_dir, d)) for d in FILE_MAP.values()}
+
+    removed = []
+    for rel_dir in managed_dirs:
+        abs_dir = os.path.join(docs_dir, rel_dir)
+        if not os.path.isdir(abs_dir):
+            continue
+        for name in os.listdir(abs_dir):
+            if name == "index.md":          # hand-authored overview, never synced
+                continue
+            path = os.path.normpath(os.path.join(abs_dir, name))
+            if os.path.isfile(path) and path not in current:
+                os.remove(path)
+                removed.append(os.path.relpath(path, docs_dir))
+
+    for rel in sorted(removed):
+        print(f"🧹 Pruned stale: {rel}")
+    return removed
+
+
 def run_sync():
     print("=" * 60)
     print("🚀 STARTING PORTFOLIO SYNC (Option B: Single Source of Truth)")
@@ -189,8 +220,11 @@ def run_sync():
             print(f"❌ Failed to sync {src_rel}: {e}")
             fail_count += 1
 
+    pruned = prune_stale(docs_dir)
+
     print("=" * 60)
-    print(f"📊 Sync Summary: {success_count} succeeded, {fail_count} failed.")
+    print(f"📊 Sync Summary: {success_count} succeeded, "
+          f"{fail_count} failed, {len(pruned)} pruned.")
     print("=" * 60)
 
     if fail_count > 0:

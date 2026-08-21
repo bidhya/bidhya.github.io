@@ -56,27 +56,18 @@ The articles follow a deliberate learning arc — building from mathematical fun
 
 ## Scale & Infrastructure
 
+Training-side scaling lives here. For the cluster itself — distributed execution, on-premise
+model serving, and environment configuration — see [HPC & Infrastructure](../hpc/index.md).
+
 <div class="grid cards" markdown>
 
 -   :material-server: **[GPU & Distributed Training](gpu-ddp.md)**
 
     GPU memory management, single- and multi-GPU optimization, Distributed Data Parallel (DDP) configuration, and SLURM HPC integration for deep learning workloads.
 
--   :material-lan-connect: **[Multi-Node Parallelization](multi-node-parallelization.md)**
 
-    Scaling Python workloads with Joblib and Dask from a laptop to a single HPC node to a true multi-node cluster: shared vs. distributed memory, task decomposition, and the network/serialization bottlenecks that separate the two.
 
--   :material-shield-lock: **[Ollama on HPC](on-prem-ai-assistant.md)**
 
-    Hosting Ollama on HPC (H200 GPUs) and tunneling it into VS Code Copilot Chat via BYOK — keeping prompts and institutional data off third-party cloud infrastructure entirely, for research collaborations bound by data governance agreements.
-
--   :material-server-network: **[vLLM on HPC](vllm-hpc-setup.md)**
-
-    Why vLLM is a compiled CUDA inference engine, not a Python package — matching driver, toolkit, PyTorch, and wheel versions exactly, diagnosing manylinux/glibc and JIT-compilation failures, and a working `uv`-managed `pyproject.toml` for CUDA 12.9 / H200.
-
--   :material-console: **[Linux Shell Setup](linux-shell-setup.md)**
-
-    Separating environment configuration from interactive shell behavior (`.bash_profile` vs. `.bashrc`), keeping caches and secrets out of the home directory, and a reproducible pattern for HPC accounts, workstations, WSL, and cloud VMs.
 
 </div>
 
@@ -88,9 +79,6 @@ The articles follow a deliberate learning arc — building from mathematical fun
 
     Full fine-tuning vs. linear probing vs. feature extraction — when to use each strategy and the computational trade-offs involved.
 
--   :material-earth: **[Geospatial PEFT](geospatial-peft.md)**
-
-    Parameter-Efficient Fine-Tuning (LoRA) applied to geospatial vision transformers (Prithvi, Clay) for hydrological and cryospheric classification.
 
 </div>
 
