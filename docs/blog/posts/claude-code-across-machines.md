@@ -1,4 +1,10 @@
 ---
+date: 2026-08-20
+slug: claude-code-across-machines
+authors:
+  - bidhya
+categories:
+  - Practice & Tooling
 tags:
   - Practice & Tooling
   - HPC & Infrastructure
@@ -18,6 +24,8 @@ Claude Code is useful at both ends of that loop, and the diagnosis end is where 
 This is not a bug, and the fix is not to copy your home directory across. The fix is to understand that Claude Code keeps state in **three separate systems**, each with a different answer to the question *does this cross machine boundaries?*
 
 Get it wrong and you either work blind on the cluster, or, worse, run an agent there with no guardrails on hardware you share with everyone else at your institution.
+
+<!-- more -->
 
 ---
 

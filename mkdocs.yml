@@ -42,6 +42,18 @@ theme:
     - content.code.select
 
 plugins:
+  # Must be declared before `tags` so blog posts are picked up by the tag index.
+  # Categories are locked to the same topic vocabulary the nav and tags use, so
+  # the three surfaces cannot drift apart.
+  - blog:
+      blog_dir: blog
+      post_url_format: "{slug}"
+      post_excerpt: required
+      categories_allowed:
+        - AI & Machine Learning
+        - Geospatial & Remote Sensing
+        - HPC & Infrastructure
+        - Practice & Tooling
   - search
   # Controlled tag vocabulary. The build FAILS on any tag not listed here,
   # so the taxonomy is enforced rather than merely documented.
@@ -89,6 +101,7 @@ plugins:
         notes/ai-ml/vllm-hpc-setup.md: notes/hpc/vllm-hpc-setup.md
         notes/ai-ml/linux-shell-setup.md: notes/hpc/linux-shell-setup.md
         notes/ai-ml/geospatial-peft.md: notes/geospatial/geospatial-peft.md
+        notes/field-notes/claude-code-across-machines.md: blog/posts/claude-code-across-machines.md
   - mkdocs-jupyter:
       include_source: true
       ignore_h1_titles: true
@@ -180,8 +193,8 @@ nav:
           - Ollama on HPC: notes/hpc/on-prem-ai-assistant.md
           - vLLM on HPC: notes/hpc/vllm-hpc-setup.md
           - Linux Shell Setup: notes/hpc/linux-shell-setup.md
-      - Practice & Tooling:
-          - Claude Code Across Machines: notes/field-notes/claude-code-across-machines.md
+  - Blog:
+      - blog/index.md
   - Workflows:
       - tutorials/index.md
       - Spatio-Temporal & Vision:

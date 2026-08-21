@@ -89,10 +89,10 @@ FILE_MAP = {
         "notes/geospatial/hvplot-visualization.md",
 
     # ------------------
-    # Field Notes (Practice & Tooling)
+    # Blog posts (dated, opinionated writing)
     # ------------------
     "KBase/02-AI-and-ML/GenAI-Tooling-and-Agents/claude-code-across-machines.md":
-        "notes/field-notes/claude-code-across-machines.md",
+        "blog/posts/claude-code-across-machines.md",
 
     # ------------------
     # Jupyter Notebook Tutorials (.ipynb)
@@ -144,14 +144,21 @@ def prune_stale(docs_dir):
     """
     Remove synced files whose FILE_MAP destination has changed or been dropped.
 
-    `shutil.copy2` and the markdown writer only ever create files, so an article
-    that moves between categories leaves its old copy behind. MkDocs still indexes
-    that orphan: it pollutes search results and double-counts the article's tags,
-    and none of it fails the build. Anything inside a synced destination directory
-    that is neither a current destination nor a hand-authored `index.md` is stale.
+    `shutil.copy2` and the markdown writer only ever create files, so an
+    article that moves between categories leaves its old copy behind. MkDocs
+    keeps indexing that orphan: it pollutes search results and double-counts
+    the article's tags, and none of it fails the build. Anything inside a
+    synced destination directory that is neither a current destination nor a
+    hand-authored `index.md` is stale.
+
+    Note: this only sweeps directories that FILE_MAP still points into. If a
+    whole category is retired, remove its directory by hand.
     """
     managed_dirs = {os.path.dirname(d) for d in FILE_MAP.values()}
-    current = {os.path.normpath(os.path.join(docs_dir, d)) for d in FILE_MAP.values()}
+    current = {
+        os.path.normpath(os.path.join(docs_dir, d))
+        for d in FILE_MAP.values()
+    }
 
     removed = []
     for rel_dir in managed_dirs:
@@ -159,7 +166,8 @@ def prune_stale(docs_dir):
         if not os.path.isdir(abs_dir):
             continue
         for name in os.listdir(abs_dir):
-            if name == "index.md":          # hand-authored overview, never synced
+            # Hand-authored overview pages are never synced, never pruned
+            if name == "index.md":
                 continue
             path = os.path.normpath(os.path.join(abs_dir, name))
             if os.path.isfile(path) and path not in current:
