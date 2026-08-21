@@ -13,6 +13,10 @@
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
+         <loc>https://bidhya.github.io/notes/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
          <loc>https://bidhya.github.io/notes/ai-ml/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
@@ -29,27 +33,11 @@
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
-         <loc>https://bidhya.github.io/notes/ai-ml/geospatial-peft/</loc>
-         <lastmod>2026-08-21</lastmod>
-    </url>
-    <url>
          <loc>https://bidhya.github.io/notes/ai-ml/gpu-ddp/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
-         <loc>https://bidhya.github.io/notes/ai-ml/linux-shell-setup/</loc>
-         <lastmod>2026-08-21</lastmod>
-    </url>
-    <url>
          <loc>https://bidhya.github.io/notes/ai-ml/llm-temperature/</loc>
-         <lastmod>2026-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://bidhya.github.io/notes/ai-ml/multi-node-parallelization/</loc>
-         <lastmod>2026-08-21</lastmod>
-    </url>
-    <url>
-         <loc>https://bidhya.github.io/notes/ai-ml/on-prem-ai-assistant/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
@@ -85,15 +73,15 @@
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
-         <loc>https://bidhya.github.io/notes/ai-ml/vllm-hpc-setup/</loc>
-         <lastmod>2026-08-21</lastmod>
-    </url>
-    <url>
          <loc>https://bidhya.github.io/notes/field-notes/claude-code-across-machines/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/geospatial/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/geospatial/geospatial-peft/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
@@ -118,6 +106,26 @@
     </url>
     <url>
          <loc>https://bidhya.github.io/notes/geospatial/real-world-patterns/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/hpc/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/hpc/linux-shell-setup/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/hpc/multi-node-parallelization/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/hpc/on-prem-ai-assistant/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://bidhya.github.io/notes/hpc/vllm-hpc-setup/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
