@@ -1,10 +1,9 @@
 ---
 tags:
+  - AI & Machine Learning
   - LLM
   - Transformers
   - Inference
-  - KV-Cache
-  - GPU Memory
 ---
 
 # Technical Reference: LLM Architecture, Embedding Math, and KV-Cache Memory Optimization

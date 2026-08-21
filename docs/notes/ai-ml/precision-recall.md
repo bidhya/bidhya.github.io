@@ -1,9 +1,8 @@
 ---
 tags:
-  - Machine Learning
+  - AI & Machine Learning
+  - Model Evaluation
   - Remote Sensing
-  - Classification Metrics
-  - Accuracy Assessment
 ---
 
 # Precision, Recall, and Classification Intuition

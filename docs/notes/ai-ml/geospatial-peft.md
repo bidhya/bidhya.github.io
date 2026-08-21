@@ -1,9 +1,8 @@
 ---
 tags:
-  - PEFT
-  - LoRA
+  - AI & Machine Learning
+  - Geospatial & Remote Sensing
   - Fine-Tuning
-  - Geospatial
   - Foundation Models
 ---
 

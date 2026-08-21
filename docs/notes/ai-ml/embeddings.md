@@ -1,9 +1,9 @@
 ---
 tags:
+  - AI & Machine Learning
   - Embeddings
   - Foundation Models
-  - Geospatial
-  - Representation Learning
+  - Geospatial & Remote Sensing
 ---
 
 # Embeddings: A Quiet Idea Doing a Lot of the Work

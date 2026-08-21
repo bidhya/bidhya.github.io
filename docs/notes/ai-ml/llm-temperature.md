@@ -1,10 +1,8 @@
 ---
 tags:
+  - AI & Machine Learning
   - LLM
   - Inference
-  - Temperature
-  - Sampling
-  - Reasoning Models
 ---
 
 # AI Core Concepts: From Statistical Physics to Reasoning Models

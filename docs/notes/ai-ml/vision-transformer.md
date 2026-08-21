@@ -1,10 +1,9 @@
 ---
 tags:
+  - AI & Machine Learning
   - Computer Vision
-  - Vision Transformers
   - Deep Learning
-  - Attention
-  - ViT
+  - Transformers
 ---
 
 # Vision Transformers — High-Level Conceptual Primer

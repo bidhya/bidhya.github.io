@@ -1,9 +1,7 @@
 ---
 tags:
-  - Linux
-  - Shell
-  - HPC
-  - Developer Tooling
+  - HPC & Infrastructure
+  - Practice & Tooling
 ---
 
 # Linux Shell Setup for HPC, Python, and AI Workflows

@@ -1,10 +1,8 @@
 ---
 tags:
-  - CRS
-  - Projections
-  - PyProj
-  - Geospatial
-  - Python
+  - Geospatial & Remote Sensing
+  - Coordinate Systems
+  - Data Engineering
 ---
 
 # Coordinate Reference Systems and Precision Transformations with PyProj: Reference Guide

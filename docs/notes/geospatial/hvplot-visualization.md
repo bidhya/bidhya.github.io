@@ -1,10 +1,9 @@
 ---
 tags:
+  - Geospatial & Remote Sensing
   - Visualization
-  - hvPlot
   - Xarray
   - GeoPandas
-  - Bokeh
 ---
 
 # Interactive Geospatial Visualizations with hvplot: Implementation Guide

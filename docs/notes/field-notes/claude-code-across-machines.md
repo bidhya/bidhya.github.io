@@ -1,10 +1,8 @@
 ---
 tags:
+  - Practice & Tooling
+  - HPC & Infrastructure
   - Claude Code
-  - AI Agents
-  - HPC
-  - Developer Tooling
-  - Reproducibility
 ---
 
 # Claude Code Across a Laptop and an HPC Cluster

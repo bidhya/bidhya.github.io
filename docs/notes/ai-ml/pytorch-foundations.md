@@ -1,9 +1,8 @@
 ---
 tags:
-  - PyTorch
+  - AI & Machine Learning
   - Deep Learning
-  - Neural Networks
-  - Training
+  - PyTorch
 ---
 
 # Deep Learning with PyTorch — Foundations and Training Loops

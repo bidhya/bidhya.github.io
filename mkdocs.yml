@@ -30,6 +30,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.indexes
     - navigation.top
     - navigation.instant
     - navigation.instant.progress
@@ -42,8 +43,45 @@ theme:
 
 plugins:
   - search
+  # Controlled tag vocabulary. The build FAILS on any tag not listed here,
+  # so the taxonomy is enforced rather than merely documented.
+  # Three tiers: domain (mirrors the site's topic vocabulary), technique, tool.
+  # Adding a tag is a deliberate decision - see SITE_REFACTOR_PLAN.md.
   - tags:
-      tags_file: tags.md
+      tags_allowed:
+        # -- Domain (mirrors nav sections and blog categories) --
+        - AI & Machine Learning
+        - Geospatial & Remote Sensing
+        - HPC & Infrastructure
+        - Practice & Tooling
+        # -- Technique --
+        - Deep Learning
+        - Computer Vision
+        - NLP
+        - LLM
+        - Transformers
+        - Embeddings
+        - Fine-Tuning
+        - Foundation Models
+        - Distributed Computing
+        - Inference
+        - Model Evaluation
+        - State Estimation
+        - Remote Sensing
+        - Coordinate Systems
+        - Data Engineering
+        - Visualization
+        # -- Tool --
+        - PyTorch
+        - CUDA
+        - Dask
+        - SLURM
+        - Xarray
+        - Rasterio
+        - GeoPandas
+        - Claude Code
+  - redirects:
+      redirect_maps: {}
   - mkdocs-jupyter:
       include_source: true
       ignore_h1_titles: true

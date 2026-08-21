@@ -1,10 +1,9 @@
 ---
 tags:
+  - AI & Machine Learning
   - Computer Vision
-  - Vision Transformers
   - Deep Learning
-  - Inductive Bias
-  - Transfer Learning
+  - Transformers
 ---
 
 # Why Vision Transformers Often Need More Data Than CNNs

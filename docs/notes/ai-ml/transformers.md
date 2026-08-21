@@ -1,10 +1,9 @@
 ---
 tags:
-  - Transformers
-  - Attention Mechanism
-  - LLM
-  - Architecture
+  - AI & Machine Learning
   - Deep Learning
+  - Transformers
+  - LLM
 ---
 
 # Autoregressive Language Modeling: Decoder-Only Transformer Architectures

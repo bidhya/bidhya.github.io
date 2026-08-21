@@ -1,11 +1,9 @@
 ---
 tags:
-  - HPC
-  - Ollama
+  - HPC & Infrastructure
   - LLM
-  - Security
-  - VS Code
-  - GitHub Copilot
+  - Inference
+  - Practice & Tooling
 ---
 
 # Secure On-Prem AI Coding Assistant: Ollama on HPC + VS Code Copilot (BYOK)

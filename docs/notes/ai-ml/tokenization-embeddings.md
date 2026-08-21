@@ -1,8 +1,8 @@
 ---
 tags:
+  - AI & Machine Learning
   - NLP
   - Embeddings
-  - Tokenization
   - LLM
   - Transformers
 ---

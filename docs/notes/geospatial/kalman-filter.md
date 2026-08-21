@@ -1,10 +1,7 @@
 ---
 tags:
+  - Geospatial & Remote Sensing
   - State Estimation
-  - Sensor Fusion
-  - Signal Processing
-  - Mathematics
-  - Geospatial
 ---
 
 # Implementing Kalman Filters: A Geosensing Guide to State Estimation and LiDAR Fusion

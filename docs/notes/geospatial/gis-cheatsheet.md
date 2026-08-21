@@ -1,10 +1,10 @@
 ---
 tags:
+  - Geospatial & Remote Sensing
+  - Data Engineering
   - GeoPandas
   - Rasterio
   - Xarray
-  - Geospatial
-  - Python
 ---
 
 # Geospatial Analysis and Multi-Dimensional Data Pipelines: Vector and Raster Reference Guide

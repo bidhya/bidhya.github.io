@@ -1,10 +1,11 @@
 ---
 tags:
-  - PyTorch
-  - CUDA
-  - Distributed Training
-  - HPC
+  - AI & Machine Learning
+  - HPC & Infrastructure
   - Deep Learning
+  - Distributed Computing
+  - CUDA
+  - PyTorch
 ---
 
 # Scaling Deep Learning: Hardware Acceleration, Memory Management, and Distributed (DDP) Architectures

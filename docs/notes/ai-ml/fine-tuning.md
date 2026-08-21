@@ -1,9 +1,9 @@
 ---
 tags:
+  - AI & Machine Learning
   - Fine-Tuning
-  - Transfer Learning
-  - PyTorch
   - Deep Learning
+  - PyTorch
 ---
 
 # Foundations of Model Adaptation: Full Fine-Tuning and Linear Probing Architectures

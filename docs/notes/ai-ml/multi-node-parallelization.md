@@ -1,11 +1,9 @@
 ---
 tags:
-  - HPC
-  - Dask
-  - Joblib
-  - Parallel Computing
-  - SLURM
+  - HPC & Infrastructure
   - Distributed Computing
+  - Dask
+  - SLURM
 ---
 
 # Multi-Node Parallelization: Joblib and Dask on SLURM

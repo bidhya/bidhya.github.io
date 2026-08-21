@@ -1,9 +1,7 @@
 ---
 tags:
-  - Statistics
-  - Machine Learning
+  - AI & Machine Learning
   - Deep Learning
-  - Foundations
 ---
 
 # From Statistics to Machine Learning to Neural Networks

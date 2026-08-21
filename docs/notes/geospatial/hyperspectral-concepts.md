@@ -1,10 +1,7 @@
 ---
 tags:
+  - Geospatial & Remote Sensing
   - Remote Sensing
-  - Hyperspectral
-  - AVIRIS
-  - PACE
-  - Geospatial
 ---
 
 # Hyperspectral Remote Sensing Concepts

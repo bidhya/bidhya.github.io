@@ -1,10 +1,9 @@
 ---
 tags:
-  - HPC
-  - vLLM
+  - HPC & Infrastructure
   - LLM
+  - Inference
   - CUDA
-  - GPU
 ---
 
 # Installing vLLM on HPC: A CUDA 12.9 / H200 Case Study

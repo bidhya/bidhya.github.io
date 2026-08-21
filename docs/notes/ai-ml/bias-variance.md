@@ -1,10 +1,8 @@
 ---
 tags:
-  - Machine Learning
-  - Bias-Variance Tradeoff
-  - Overfitting
-  - Regularization
+  - AI & Machine Learning
   - Deep Learning
+  - Model Evaluation
 ---
 
 # Overfitting, Underfitting, and the Bias–Variance Tradeoff

@@ -1,10 +1,9 @@
 ---
 tags:
-  - Geospatial
+  - Geospatial & Remote Sensing
+  - Data Engineering
   - Rasterio
   - Xarray
-  - Python
-  - Best Practices
 ---
 
 # Production Design Patterns in Geospatial Analysis and Remote Sensing Pipelines
