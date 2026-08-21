@@ -1,0 +1,3267 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Portfolio site showcasing expertise in Spatial Data Science, Remote Sensing, and Machine Learning.">
+      
+      
+        <meta name="author" content="Bidhyananda Yadav">
+      
+      
+        <link rel="canonical" href="https://bidhya.github.io/notes/field-notes/claude-code-across-machines/">
+      
+      
+        <link rel="prev" href="../../geospatial/hvplot-visualization/">
+      
+      
+        <link rel="next" href="../../../tutorials/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Claude Code Across Machines - Bidhyananda Yadav | Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-7X7ET1CZZR"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-7X7ET1CZZR",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-7X7ET1CZZR",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#claude-code-across-a-laptop-and-an-hpc-cluster" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Bidhyananda Yadav | Portfolio" class="md-header__button md-logo" aria-label="Bidhyananda Yadav | Portfolio" data-md-component="logo">
+      
+  <img src="../../../assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bidhyananda Yadav | Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Claude Code Across Machines
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../profile/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ai-ml/" class="md-tabs__link">
+          
+  
+  
+  Engineering Notes
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Field Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tutorials/" class="md-tabs__link">
+          
+  
+  
+  Technical Workflows
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Bidhyananda Yadav | Portfolio" class="md-nav__button md-logo" aria-label="Bidhyananda Yadav | Portfolio" data-md-component="logo">
+      
+  <img src="../../../assets/favicon.svg" alt="logo">
+
+    </a>
+    Bidhyananda Yadav | Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../profile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engineering Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Engineering Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI & Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI & Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/stats-to-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistics to Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/bias-variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bias–Variance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/precision-recall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Precision-Recall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/pytorch-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformers & Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/tokenization-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tokenization & Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embeddings Across Domains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/gpu-ddp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU & Distributed Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/multi-node-parallelization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Node Parallelization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/on-prem-ai-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ollama on HPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/vllm-hpc-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM on HPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/linux-shell-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Shell Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/geospatial-peft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial PEFT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/qkv-kvcache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Inference & KV-Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/llm-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temperature & Sampling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/vision-transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-ml/vit-data-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT Data Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial & Remote Sensing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geospatial & Remote Sensing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/gis-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geospatial Python Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/pyproj-crs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinate Reference Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/kalman-filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Estimation & Kalman Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/hyperspectral-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hyperspectral Sensor Physics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/real-world-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Geospatial Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geospatial/hvplot-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactive Visualization with hvPlot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Field Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Field Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code Across Machines
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code Across Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Permissions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evaluation-order-is-the-whole-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation order is the whole model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-is-the-list-that-grants-privilege" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        allow is the list that grants privilege
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-built-in-read-only-set-never-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The built-in read-only set never prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-session-probably-does-not-start-in-manual-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your session probably does not start in Manual mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-files-two-different-merge-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three files, two different merge rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-the-local-file-to-genuine-deltas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep the local file to genuine deltas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#there-is-a-real-sandbox-now-and-you-probably-cannot-use-it-on-the-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        There is a real sandbox now, and you probably cannot use it on the cluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-rules-are-a-guardrail-not-a-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission rules are a guardrail, not a sandbox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-is-already-protected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .claude/ is already protected
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-that-your-guardrails-actually-fire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test that your guardrails actually fire
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#they-concatenate-they-do-not-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        They concatenate; they do not override
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-clauderules-for-anything-conditional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use .claude/rules/ for anything conditional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-the-repo-is-public-sanitize-before-committing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If the repo is public, sanitize before committing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-pointers-not-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write pointers, not snapshots
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-auto-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Auto memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: Auto memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#never-write-the-same-fact-in-both-places" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Never write the same fact in both places
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-the-cluster-end-of-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: The cluster end of the loop
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 4: The cluster end of the loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-find-out-where-the-agent-can-run-at-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First, find out where the agent can run at all
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-find-and-grep-problem-correctly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The find and grep problem, correctly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lock-out-the-modes-you-do-not-want-on-shared-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lock out the modes you do not want on shared hardware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-copypaste-handoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The copy/paste handoff
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-a-new-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting up a new machine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traps-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traps, collected
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-short-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The short version
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spatio-Temporal & Vision
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spatio-Temporal & Vision
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/ocean-color/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NASA PACE Ocean Color
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/change-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sentinel-2 Change Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Natural Language Processing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Natural Language Processing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/nlp-ner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Named Entity Recognition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/nlp-topic-modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/nlp-sentiment-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sentiment & Zero-Shot classification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Permissions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evaluation-order-is-the-whole-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation order is the whole model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-is-the-list-that-grants-privilege" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        allow is the list that grants privilege
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-built-in-read-only-set-never-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The built-in read-only set never prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-session-probably-does-not-start-in-manual-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your session probably does not start in Manual mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-files-two-different-merge-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three files, two different merge rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-the-local-file-to-genuine-deltas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep the local file to genuine deltas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#there-is-a-real-sandbox-now-and-you-probably-cannot-use-it-on-the-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        There is a real sandbox now, and you probably cannot use it on the cluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-rules-are-a-guardrail-not-a-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission rules are a guardrail, not a sandbox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-is-already-protected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .claude/ is already protected
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-that-your-guardrails-actually-fire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test that your guardrails actually fire
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#they-concatenate-they-do-not-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        They concatenate; they do not override
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-clauderules-for-anything-conditional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use .claude/rules/ for anything conditional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-the-repo-is-public-sanitize-before-committing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If the repo is public, sanitize before committing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-pointers-not-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write pointers, not snapshots
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-auto-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Auto memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: Auto memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#never-write-the-same-fact-in-both-places" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Never write the same fact in both places
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-the-cluster-end-of-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: The cluster end of the loop
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 4: The cluster end of the loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-find-out-where-the-agent-can-run-at-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First, find out where the agent can run at all
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-find-and-grep-problem-correctly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The find and grep problem, correctly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lock-out-the-modes-you-do-not-want-on-shared-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lock out the modes you do not want on shared hardware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-copypaste-handoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The copy/paste handoff
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-a-new-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting up a new machine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traps-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traps, collected
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-short-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The short version
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Field Notes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:ai-agents" class="md-tag">AI Agents</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:claude-code" class="md-tag">Claude Code</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:developer-tooling" class="md-tag">Developer Tooling</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:hpc" class="md-tag">HPC</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:reproducibility" class="md-tag">Reproducibility</a>
+      
+    
+  </nav>
+
+
+
+<h1 id="claude-code-across-a-laptop-and-an-hpc-cluster">Claude Code Across a Laptop and an HPC Cluster</h1>
+<p><em>What travels, what doesn't, and how to build permissions you can actually trust.</em></p>
+<p><em>Verified against Claude Code v2.1.222, August 2026. Permission and sandbox behaviour changes fast; check the version before trusting the specifics.</em></p>
+<p>Our group's compute loop looks like this. Write and test code on a laptop, where iteration is cheap. Push to the cluster through GitHub or <code>rsync</code>. Run there, because that is where the cores, the memory, and the multi-terabyte project storage live. Then stay on the cluster to diagnose: read the logs, inspect the outputs, work out why run 14 disagrees with run 13.</p>
+<p>Claude Code is useful at both ends of that loop, and the diagnosis end is where it earns the most. But when you install it on the cluster it arrives knowing nothing. No project context, no permission guardrails, none of the accumulated understanding from months of sessions on the laptop.</p>
+<p>This is not a bug, and the fix is not to copy your home directory across. The fix is to understand that Claude Code keeps state in <strong>three separate systems</strong>, each with a different answer to the question <em>does this cross machine boundaries?</em></p>
+<p>Get it wrong and you either work blind on the cluster, or, worse, run an agent there with no guardrails on hardware you share with everyone else at your institution.</p>
+<hr />
+<h2 id="the-three-systems">The three systems</h2>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>What it holds</th>
+<th>Does it travel?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Settings</strong></td>
+<td>permissions, model preferences</td>
+<td><strong>Only if you track it in git</strong></td>
+</tr>
+<tr>
+<td><strong>Context</strong> (<code>CLAUDE.md</code>)</td>
+<td>how your project works</td>
+<td><strong>Only if you track it in git</strong></td>
+</tr>
+<tr>
+<td><strong>Auto memory</strong></td>
+<td>facts Claude accumulates itself</td>
+<td><strong>Never, by default</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The pattern is already visible. Nothing travels because it is Claude Code state. Things travel because they are <strong>files in your repository</strong>, and your repository is the thing you already <code>git push</code> between machines. Everything else lives in <code>$HOME</code>, and your <code>$HOME</code> on the cluster is a different directory on a different filesystem owned by a different account.</p>
+<p>That single sentence resolves most of the confusion. The rest of this is the consequences.</p>
+<hr />
+<h2 id="part-1-permissions">Part 1: Permissions</h2>
+<h3 id="evaluation-order-is-the-whole-model">Evaluation order is the whole model</h3>
+<p>Claude Code permissions have three lists, and one rule governs them:</p>
+<blockquote>
+<p>Rules are evaluated in order: <strong>deny, then ask, then allow.</strong> The first match determines the outcome, and rule specificity does not change the order.</p>
+</blockquote>
+<p>That ordering is worth internalising because it is not what most people assume. A broad <code>deny</code> like <code>Bash(aws *)</code> blocks every matching call <em>including</em> one that also matches a narrow allow like <code>Bash(aws s3 ls)</code>. Deny rules cannot carry allowlist exceptions. The same holds between ask and allow: a matching ask rule prompts even when a more specific allow rule also matches.</p>
+<p>There is also a distinction in how deny rules are written. A bare tool name like <code>Bash</code> removes the tool from Claude's context entirely, so it never sees the tool exists. A scoped rule like <code>Bash(rm *)</code> leaves the tool available and blocks matching calls when Claude attempts them. The second is usually what you want; the first is for tools you have no use for at all.</p>
+<h3 id="allow-is-the-list-that-grants-privilege"><code>allow</code> is the list that grants privilege</h3>
+<p>Every entry in <code>allow</code> is a standing grant to act without checking with you. That is the list to be stingy with, and the reason is structural: <code>deny</code> is a backstop for the irreversible, while <code>allow</code> is the thing that actually widens what runs unattended.</p>
+<p>The practical build order follows from that. Start with <code>allow</code> nearly empty and let things prompt. When you approve a command with "Yes, and don't ask again", Claude Code writes the rule to <code>.claude/settings.local.json</code> at the <strong>git repository root</strong>, so it applies to future sessions anywhere in that repo. After a week of real work your local file <em>is</em> your evidence log: it contains exactly the commands you approved repeatedly and safely. Promote the durable ones to the shared file. You are now building policy from evidence rather than prediction, and the result will be a third the size of the list you would have written up front.</p>
+<p>From there it is tempting to conclude that <code>ask</code> entries are redundant, since anything unmatched prompts anyway. Two things make that wrong, and both matter more on a cluster than on a laptop.</p>
+<h3 id="the-built-in-read-only-set-never-prompts">The built-in read-only set never prompts</h3>
+<p>Claude Code recognises a built-in set of Bash commands as read-only and <strong>runs them without a permission prompt in every mode</strong>. The set includes <code>ls</code>, <code>cat</code>, <code>echo</code>, <code>pwd</code>, <code>head</code>, <code>tail</code>, <code>grep</code>, <code>find</code>, <code>wc</code>, <code>which</code>, <code>diff</code>, <code>stat</code>, <code>du</code>, <code>cd</code>, and read-only forms of <code>git</code>.</p>
+<p>It is not configurable. Quoting the documentation directly:</p>
+<blockquote>
+<p>The set is not configurable; to require a prompt for one of these commands, add an <code>ask</code> or <code>deny</code> rule for it.</p>
+</blockquote>
+<p>So for these commands the logic inverts. Leaving <code>find</code> out of your allow list achieves nothing, because it was never going to prompt. If you want a prompt, an <strong>explicit <code>ask</code> rule is the only mechanism.</strong> This is the single most consequential thing to get right on shared storage, and I come back to it in Part 4.</p>
+<p>Two related behaviours are worth knowing. Exec wrappers such as <code>watch</code>, <code>setsid</code>, <code>ionice</code>, and <code>flock</code> cannot be auto-approved by a prefix rule like <code>Bash(watch *)</code>, so they always prompt in Manual mode. The same applies to <code>find</code> with <code>-exec</code> or <code>-delete</code>: a <code>Bash(find *)</code> rule does not cover those forms.</p>
+<h3 id="your-session-probably-does-not-start-in-manual-mode">Your session probably does not start in Manual mode</h3>
+<p>On Pro, Max, and Team plans the built-in starting mode is <strong>auto mode</strong>, where a classifier model reviews actions instead of you. There are six modes now:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>default</code> (Manual)</td>
+<td>prompts on first use of each tool</td>
+</tr>
+<tr>
+<td><code>acceptEdits</code></td>
+<td>auto-accepts file edits and common filesystem commands</td>
+</tr>
+<tr>
+<td><code>plan</code></td>
+<td>reads and explores, does not edit source</td>
+</tr>
+<tr>
+<td><code>auto</code></td>
+<td>classifier approves tool calls with background safety checks</td>
+</tr>
+<tr>
+<td><code>dontAsk</code></td>
+<td>auto-<strong>denies</strong> unless pre-approved by an allow rule</td>
+</tr>
+<tr>
+<td><code>bypassPermissions</code></td>
+<td>skips prompts entirely</td>
+</tr>
+</tbody>
+</table>
+<p><code>dontAsk</code> is the interesting one for the argument above: there, <code>allow</code> is load-bearing in the opposite direction, because anything not allowed is refused rather than queued for you. So "keep <code>allow</code> short" is good default advice, not a universal law. Know which mode you are actually in.</p>
+<p>Auto mode is worth understanding in a little more detail, because it enforces its own version of the short-allow-list discipline. Its decision order is: rules resolve first, then read-only actions and in-workspace edits are auto-approved, then everything else goes to the classifier. Two consequences follow. <strong>The built-in read-only commands skip the classifier too</strong>, so auto mode does not help with the <code>find</code> and <code>grep</code> problem below. And on entering auto mode, broad allow rules that grant arbitrary code execution are <strong>dropped</strong>: blanket <code>Bash(*)</code>, wildcarded interpreters like <code>Bash(python*)</code>, package-manager run commands, and <code>Agent</code> allow rules. Narrow rules like <code>Bash(npm test)</code> carry over, and dropped rules are restored when you leave. If a permission you thought you had stops working, check your mode before you edit your config.</p>
+<p>A small set of actions is never auto-approved in <strong>any</strong> mode, <code>bypassPermissions</code> included: anything matched by an explicit <code>ask</code> rule, tools requiring user interaction, and <code>rm</code>/<code>rmdir</code> targeting a critical path. That first item is the lever. An <code>ask</code> rule is the one thing that survives every mode.</p>
+<h3 id="three-files-two-different-merge-rules">Three files, two different merge rules</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Scope</th>
+<th>Travels?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/.claude/settings.json</code></td>
+<td>every project, this machine</td>
+<td>❌ lives in <code>$HOME</code></td>
+</tr>
+<tr>
+<td><code>.claude/settings.json</code></td>
+<td>this project, shared</td>
+<td>✅ if tracked</td>
+</tr>
+<tr>
+<td><code>.claude/settings.local.json</code></td>
+<td>this project, this machine</td>
+<td>❌ conventionally gitignored</td>
+</tr>
+</tbody>
+</table>
+<p>Ordinary settings (model, effort level) follow <strong>narrowest-wins</strong> precedence: managed, then command line arguments, then local, then project, then user.</p>
+<p><strong>Permission rules do not.</strong> They <strong>merge across scopes</strong>, and within that merged set the deny-then-ask-then-allow order applies globally:</p>
+<blockquote>
+<p>If a tool is denied at any level, no other level can allow it. [...] if user settings allow a permission and project settings deny it, the deny rule blocks it. The reverse is also true: a user-level deny blocks a project-level allow.</p>
+</blockquote>
+<p>That symmetry has a design consequence most people discover backwards:</p>
+<blockquote>
+<p><strong>Denies compose upward. Put the loosest acceptable rule in the shared file, and let each machine tighten locally.</strong></p>
+</blockquote>
+<p>Write a strict rule into the shared file and you are stuck with it everywhere, because no local file can loosen it. Write the permissive version and each machine hardens as needed. If you want a command merely prompting on the laptop but hard-denied on the cluster, the <em>shared</em> file must carry the prompt and the <em>cluster's local file</em> must carry the deny. Getting this backwards is the most common structural mistake I see.</p>
+<h3 id="keep-the-local-file-to-genuine-deltas">Keep the local file to genuine deltas</h3>
+<p>Two settings files cannot usefully disagree. One silently wins and the other misleads whoever reads it next.</p>
+<p>I audited a config where the local file had 42 permission rules. Twenty-nine were byte-identical to the shared file. Six were subsumed by broader shared rules. Two were actively wrong: the local file listed <code>rm</code> under <code>ask</code> while the shared file <strong>denied</strong> it. Deny wins, so those lines did nothing, but anyone reading the local file would reasonably conclude <code>rm</code> was available with approval.</p>
+<p>Slimming it to seven real deltas made both files honest. <strong>If it matches the baseline, it does not belong in the local file.</strong></p>
+<h3 id="there-is-a-real-sandbox-now-and-you-probably-cannot-use-it-on-the-cluster">There is a real sandbox now, and you probably cannot use it on the cluster</h3>
+<p>A lot of writing on this topic, including advice I gave earlier, tells you to stop trying to build a sandbox out of permission rules because no sandbox exists. That is now out of date. Claude Code ships an OS-enforced Bash sandbox that isolates filesystem and network access, on macOS, Linux, and WSL2. Run <code>/sandbox</code> to see its state.</p>
+<p>On a research cluster, though, look closely before you count on it. On Linux it depends on two packages:</p>
+<ul>
+<li><code>bubblewrap</code>, which enforces filesystem isolation through unprivileged user namespaces</li>
+<li><code>socat</code>, which relays network traffic through the sandbox proxy</li>
+</ul>
+<p>The documented install path is <code>sudo apt-get install bubblewrap socat</code>, and you do not have <code>sudo</code> on a shared cluster. Worse, many HPC sites disable unprivileged user namespaces at the kernel level as a matter of policy, which is exactly the primitive bubblewrap needs. There is an <code>enableWeakerNestedSandbox</code> escape hatch for hosts in that state, and the documentation is blunt that it "considerably weakens security and should only be used when additional isolation is otherwise enforced."</p>
+<p>Check with <code>/sandbox</code> on your login node. If the panel shows only a Dependencies tab, you are not getting a sandbox, and note the default failure mode:</p>
+<blockquote>
+<p>By default, if the sandbox cannot start because dependencies are missing or the platform is unsupported, Claude Code shows a warning and runs commands without sandboxing.</p>
+</blockquote>
+<p>It degrades quietly. Set <code>sandbox.failIfUnavailable</code> to <code>true</code> if you would rather it stop than proceed unsandboxed.</p>
+<p>So on the laptop, use the sandbox. On the cluster, assume you have permission rules and nothing else, which makes the rest of this section load-bearing rather than academic.</p>
+<h3 id="permission-rules-are-a-guardrail-not-a-sandbox">Permission rules are a guardrail, not a sandbox</h3>
+<p>Rules match <strong>command text</strong>. None of these trip a <code>Bash(rm *)</code> deny:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python -c &quot;import shutil; shutil.rmtree(path)&quot;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>FOO=&quot;rm -rf /path&quot;; $FOO
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>bash cleanup.sh
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ssh host &#39;rm -rf /path&#39;
+</span></code></pre></div>
+<p>You cannot close the hole by restricting <code>python</code>, because on any real project running Python <em>is</em> the work.</p>
+<p>The matcher is smarter than it first appears in one respect worth crediting. It understands shell operators, so <code>Bash(safe-cmd *)</code> does not authorise <code>safe-cmd &amp;&amp; other-cmd</code>. The recognised separators are <code>&amp;&amp;</code>, <code>||</code>, <code>;</code>, <code>|</code>, <code>|&amp;</code>, <code>&amp;</code>, and newlines, and a rule must match each subcommand independently. But the four lines above are still wide open, so design the layering deliberately:</p>
+<ol>
+<li><strong><code>deny</code></strong> for the few actions that are irreversible or hit shared resources</li>
+<li><strong>Model judgment</strong> for the long tail</li>
+<li><strong>You</strong>, as approver, for anything consequential</li>
+</ol>
+<p>Layer 2 is genuinely strong but probabilistic, which is precisely why layers 1 and 3 exist. Chasing every permutation through text matching has sharply diminishing returns and produces a config nobody can read.</p>
+<p>One thing worth doing: <strong>state the intent in your context file too.</strong> Something like <em>"do not reach for a Python equivalent to get the same effect."</em> The mechanism cannot enforce that, and the documentation says so plainly ("Permission rules are enforced by Claude Code, not by the model. Instructions in your prompt or <code>CLAUDE.md</code> shape what Claude tries to do, but they don't change what Claude Code allows"). But the instruction is read every session, and layer 2 responds to it. In auto mode this cuts further than you might expect: the classifier is given your <code>CLAUDE.md</code> content along with the tool call, so a clearly stated constraint shapes the automated reviewer as well as the acting model. Tool results are stripped from what the classifier sees, so a hostile file cannot talk back to it.</p>
+<p>For anything that must be enforced rather than encouraged, use a <code>PreToolUse</code> hook. A hook that exits with code 2 stops the call before permission rules are even evaluated, so it overrides allow rules. Hooks cannot loosen anything: deny and ask rules still apply regardless of what a hook returns.</p>
+<h3 id="claude-is-already-protected"><code>.claude/</code> is already protected</h3>
+<p>A common recommendation is to put <code>.claude/**</code> in <code>ask</code> so the agent cannot widen its own <code>allow</code> list, which it will otherwise do from time to time while helpfully trying to reduce friction for you. If the file is tracked, that change then rides along in a commit unnoticed. The concern is real, but the mechanism is now built in. <code>.claude/</code> and <code>.git/</code> are <strong>protected paths</strong>, and writes to them are never auto-approved except in <code>bypassPermissions</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Protected-path writes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>default</code>, <code>acceptEdits</code></td>
+<td>prompted</td>
+</tr>
+<tr>
+<td><code>auto</code></td>
+<td>routed to the classifier</td>
+</tr>
+<tr>
+<td><code>dontAsk</code></td>
+<td>denied</td>
+</tr>
+<tr>
+<td><code>bypassPermissions</code></td>
+<td>allowed</td>
+</tr>
+</tbody>
+</table>
+<p>Note also that allow rules cannot pre-approve these writes at all. The safety check runs <em>before</em> allow rules are evaluated, so an <code>Edit(.claude/**)</code> entry in your settings does not change the table above.</p>
+<p>An explicit <code>ask</code> rule on <code>.claude/**</code> is still defensible as belt-and-braces, but do not expect it to buy you a human prompt in auto mode: protected-path writes route to the classifier there <em>even when a rule matches</em>. Content-matching ask rules on Bash commands, such as <code>Bash(git push *)</code>, do fall back to a real prompt in auto mode. Path-scoped ask rules on protected paths are the case where the built-in behaviour wins. If you want a person in that loop specifically, change the mode rather than the rules.</p>
+<h3 id="test-that-your-guardrails-actually-fire">Test that your guardrails actually fire</h3>
+<p>A guardrail nobody has tested is a guess. Run one denied command and confirm you get a <strong>permission error</strong>, not "command not found":</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Permission to use Bash with command sbatch --version has been denied.
+</span></code></pre></div>
+<p>Then note what that proves, which is less than it looks. Deny is evaluated first in every mode, so a passing deny test tells you nothing about <code>allow</code>, <code>ask</code>, or which mode you are in. Test an <code>ask</code> rule too, since that is the layer whose behaviour actually varies.</p>
+<p>Watch the matching semantics while you are there. A trailing <code>*</code> <strong>with a space before it</strong> enforces a word boundary: the prefix must be followed by a space <strong>or end-of-string</strong>. So <code>Bash(ls *)</code> matches both <code>ls</code> and <code>ls -la</code>, but not <code>lsof</code>. Without the space, <code>Bash(ls*)</code> matches <code>lsof</code> too. The <code>:*</code> suffix is equivalent to a trailing <code>*</code>, and is only recognised at the end of a pattern.</p>
+<hr />
+<h2 id="part-2-context">Part 2: Context</h2>
+<p><code>CLAUDE.md</code> is loaded into every session. Claude Code reads <code>CLAUDE.md</code>, not <code>AGENTS.md</code>, so if your repo already uses <code>AGENTS.md</code> for other agents, the documented bridge is a one-line import:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ni">@AGENTS</span>.md
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="gu">## Claude Code</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Use plan mode for changes under <span class="sb">`src/pipeline/`</span>.
+</span></code></pre></div>
+<p>A symlink works too, if you have nothing Claude-specific to add. Note that imports are expanded at launch and count against your context, and that an import resolving <em>outside</em> the working directory triggers a one-time approval dialog the first time Claude Code sees it.</p>
+<p><strong>Track these files.</strong> This is the mechanism by which project understanding reaches the cluster. It rides the same <code>git push</code> your code does, which is the entire reason the workflow holds together. If your context files are gitignored, a very common default since they feel like personal scratch, then every session on the cluster starts blind, and you will not notice, because the agent will confidently do something reasonable and wrong.</p>
+<h3 id="they-concatenate-they-do-not-override">They concatenate; they do not override</h3>
+<p>It is natural to assume the nearest <code>CLAUDE.md</code> wins, the way settings do. It does not:</p>
+<blockquote>
+<p>All discovered files are concatenated into context rather than overriding each other.</p>
+</blockquote>
+<p>Claude Code walks up the directory tree from your working directory and loads every <code>CLAUDE.md</code> and <code>CLAUDE.local.md</code> it finds, ordered root-first so the file closest to where you launched is read last. Files in <em>sub</em>directories load on demand, when Claude reads a file in that directory.</p>
+<p>The practical consequence: a subfolder file cannot retract something the root file said. It can only add. If you need genuinely different behaviour in a subtree, phrase the root rule so the override is legal, or use a path-scoped rule instead.</p>
+<h3 id="use-clauderules-for-anything-conditional">Use <code>.claude/rules/</code> for anything conditional</h3>
+<p>Rules are markdown files under <code>.claude/rules/</code>, and with a <code>paths</code> frontmatter field they load only when Claude touches matching files:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>---
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>paths:
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="gu">  - &quot;src/pipeline/**/*.py&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="gu">---</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Chunk with Dask before any operation that would materialise a full array.
+</span></code></pre></div>
+<p>This is the right home for instructions that only matter in part of the tree, and it keeps your root file under the ~200 line target where adherence is best. Rules without a <code>paths</code> field load unconditionally, at the same priority as <code>.claude/CLAUDE.md</code>.</p>
+<p>One caveat if you rely on this: after <code>/compact</code>, the project-root <code>CLAUDE.md</code> is re-read from disk and re-injected, but nested files and path-scoped rules are <strong>not</strong>. They reload the next time Claude reads a matching file. An instruction that seems to evaporate mid-session is usually this.</p>
+<h3 id="if-the-repo-is-public-sanitize-before-committing">If the repo is public, sanitize before committing</h3>
+<p>Tracked means published. Before committing a context file, confirm it carries no hostname, username, account, or SSH detail. Git history is permanent, and deleting the line later does not unpublish it.</p>
+<p>The distinction worth internalising: <strong>paths already present in tracked code are not a new disclosure. The authentication chain is.</strong> A directory name is usually fine. <code>user@host.institution.edu</code> is not.</p>
+<h3 id="write-pointers-not-snapshots">Write pointers, not snapshots</h3>
+<p>This is the failure mode I see most often in agent context files, and the one that quietly poisons everything downstream.</p>
+<table>
+<thead>
+<tr>
+<th>Instead of</th>
+<th>Write</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"both branches sit at <code>a1b2c3d</code>"</td>
+<td>"check <code>git log --oneline main dev</code>"</td>
+</tr>
+<tr>
+<td>"active work: none"</td>
+<td><em>(omit, it is derivable)</em></td>
+</tr>
+<tr>
+<td>"verified as of {date}"</td>
+<td>what was checked, and what it does <strong>not</strong> cover</td>
+</tr>
+</tbody>
+</table>
+<p>Anything derivable from git, a changelog, or the code should be pointed at, not copied. A copy is a second source of truth that starts decaying immediately. In an agent-assisted workflow "currently at commit X" can be false within the hour, and then your agent is reasoning from a confident, wrong premise.</p>
+<p>Reserve narration for things with no live source: domain knowledge, hard constraints, incident write-ups, the reasoning behind a decision.</p>
+<hr />
+<h2 id="part-3-auto-memory">Part 3: Auto memory</h2>
+<p>Auto memory is per-project markdown under <code>~/.claude/projects/&lt;project&gt;/memory/</code>, with a <code>MEMORY.md</code> index loaded at the start of every session. The <code>&lt;project&gt;</code> path derives from the git repository, so all worktrees and subdirectories of one repo share a memory directory.</p>
+<p>Only the <strong>first 200 lines or 25KB</strong> of <code>MEMORY.md</code> load. Anything past that is silently dropped, which is why the index should stay an index, with detail pushed into topic files that Claude reads on demand.</p>
+<p>On travel, the documentation is unambiguous:</p>
+<blockquote>
+<p>Auto memory is machine-local. [...] Files are not shared across machines or cloud environments.</p>
+</blockquote>
+<p>There is one asterisk on "never". An <code>autoMemoryDirectory</code> setting can relocate the directory, and pointing it somewhere synced would technically make memory travel. I would not: you would be syncing a store that is deliberately unsanitized, and the reason it holds useful things is precisely that it is private. But "never" is a default, not a law.</p>
+<p>Its properties are the <strong>exact inverse</strong> of a tracked context file, and that inversion is the decision rule:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Tracked <code>CLAUDE.md</code></th>
+<th>Auto memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reaches the cluster</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Public</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Visible to colleagues</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Survives a fresh clone</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Needs sanitizing</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>The fact is…</th>
+<th>Put it in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Needed by a session on the cluster</td>
+<td><strong>context file</strong>, the only thing that travels</td>
+</tr>
+<tr>
+<td>Durable and safe to publish</td>
+<td><strong>context file</strong></td>
+</tr>
+<tr>
+<td>About a person, or not for the internet</td>
+<td><strong>memory</strong></td>
+</tr>
+<tr>
+<td>A quirk of one machine</td>
+<td><strong>memory</strong></td>
+</tr>
+<tr>
+<td>A working preference not worth publishing</td>
+<td><strong>memory</strong></td>
+</tr>
+<tr>
+<td>True only this week</td>
+<td><strong>neither</strong>, use a scratch folder</td>
+</tr>
+</tbody>
+</table>
+<h3 id="never-write-the-same-fact-in-both-places">Never write the same fact in both places</h3>
+<p>Your context file is auto-loaded every session. A memory restating it therefore adds <strong>zero recall value and pure drift risk</strong>.</p>
+<p>This creeps up on you. In one project I reviewed, six of fourteen memories had quietly become duplicates, not because anyone wrote them carelessly, but because the tracked guide had matured past them. One duplicate asserted a commit hash that had already moved on, so the memory was simply wrong, and it loaded into every session as background truth.</p>
+<p>The model to copy: <strong>keep the rule public and the reason private.</strong> "No AI attribution in commit messages" belongs in the tracked guide. <em>Why</em>, a specific colleague's preference about AI-generated work, belongs only in memory. Publishing the reason would be indiscreet. Losing it would make the rule look arbitrary and invite someone to "fix" it.</p>
+<hr />
+<h2 id="part-4-the-cluster-end-of-the-loop">Part 4: The cluster end of the loop</h2>
+<p>Everything above applies to any two machines. This part is specific to the second one being shared.</p>
+<h3 id="first-find-out-where-the-agent-can-run-at-all">First, find out where the agent can run at all</h3>
+<p>The agent needs outbound network access to reach the API, and on many clusters compute nodes have no route to the internet. That is the common case. Where it holds, <strong>the login node is your only option</strong>, and login-node discipline is the whole story.</p>
+<p>Some sites do permit outbound traffic from compute nodes. Check yours; it is a five-minute test and it decides the shape of your workflow. If you are on one of them, you get a second mode worth using:</p>
+<table>
+<thead>
+<tr>
+<th>Where you start the agent</th>
+<th>Good for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Login node</strong></td>
+<td>reading files, checking git, queue status, log triage</td>
+</tr>
+<tr>
+<td><strong>Inside an interactive allocation</strong></td>
+<td>test runs, and anything touching real data at scale</td>
+</tr>
+</tbody>
+</table>
+<p>Allocate first, then start the agent inside the allocation. Its commands now run on hardware reserved for you rather than the node everyone shares, and you stop having to ration what the agent may touch.</p>
+<blockquote>
+<p>⚠️ <strong>The session dies when the allocation ends.</strong> A four-hour allocation caps your conversation at four hours, mid-thought or not. Size the wall time for the conversation, not just the job.</p>
+</blockquote>
+<p><strong>If your compute nodes are firewalled, you are not stuck</strong>, and this is where most readers will land. The agent stays on the login node doing what login nodes are for: reading logs, inspecting outputs, reasoning about what went wrong. That is the diagnosis half of our loop, and it is the half where the agent is most valuable anyway. The heavy work still happens on compute nodes; the agent hands you the command to launch it.</p>
+<h3 id="the-find-and-grep-problem-correctly">The <code>find</code> and <code>grep</code> problem, correctly</h3>
+<p>Treat the login node as shared, because it is. Every command the agent runs lands there alongside everyone else's work.</p>
+<table>
+<thead>
+<tr>
+<th>Fine on a login node</th>
+<th>Allocate first</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reading files, <code>git log</code></td>
+<td>recursive <code>find</code> or <code>grep</code> over project storage</td>
+</tr>
+<tr>
+<td>queue status</td>
+<td>anything touching real data at scale</td>
+</tr>
+<tr>
+<td>tailing a log</td>
+<td>comparisons, conversions, analysis runs</td>
+</tr>
+</tbody>
+</table>
+<p>Moving to a compute node removes the <strong>CPU</strong> contention, not the <strong>I/O</strong>. A recursive scan of shared project storage loads that filesystem for everyone regardless of which node issued it.</p>
+<p>This is where the read-only set from Part 1 bites hardest. The intuitive move is to leave <code>find</code> and <code>grep</code> out of your allow list so they prompt and you can see the scope before they run. <strong>That does nothing.</strong> Both are built-in read-only commands: they run without prompting in every mode, they skip the classifier in auto mode, and your allow list is not consulted either way.</p>
+<p>To actually get a prompt, write explicit <code>ask</code> rules in the cluster's local settings file:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;permissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;ask&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="s2">&quot;Bash(find *)&quot;</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="s2">&quot;Bash(grep *)&quot;</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="s2">&quot;Bash(du *)&quot;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Local file, not shared, because on the laptop there is no shared filesystem and these should stay frictionless. Same repository, different posture per machine. That is exactly what the shared/local split is for.</p>
+<p>Note that <code>find</code> with <code>-exec</code> or <code>-delete</code> is not covered by a <code>Bash(find *)</code> rule in the first place, and always prompts in Manual mode. That is a helpful default rather than something to work around.</p>
+<h3 id="lock-out-the-modes-you-do-not-want-on-shared-hardware">Lock out the modes you do not want on shared hardware</h3>
+<p>Both permissive modes can be disabled from any settings scope, including your own:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;permissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;disableBypassPermissionsMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;disable&quot;</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">&quot;disableAutoMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;disable&quot;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>disableBypassPermissionsMode</code> is the easy call: put it in the cluster's local settings. It is normally an admin control, but the documentation notes a user can set it in their own settings to lock themselves out of bypass mode, which is exactly the right instinct on hardware you share.</p>
+<p><code>disableAutoMode</code> is a genuine tradeoff, not an obvious win, and I would not reach for it first. Auto mode drops your broad allow rules on entry and routes protected-path writes to a reviewer, so it is not simply "less safe" than Manual; what you give up is a human in the loop, and what you gain is not being prompted forty times an hour. Since content-matching <code>ask</code> rules still produce real prompts in auto mode, the <code>ask</code> rules above already buy you the specific protection that matters on shared storage. Disable auto mode when you want to watch everything the agent does on the cluster, not as a default.</p>
+<p>If your centre administers Claude Code centrally, both belong in managed settings at <code>/etc/claude-code/</code>, alongside a managed <code>CLAUDE.md</code> if the site wants standing instructions that no project file can exclude.</p>
+<h3 id="the-copypaste-handoff">The copy/paste handoff</h3>
+<p>For privileged operations, job submission, deletion, writes to shared storage, the pattern that works is:</p>
+<ol>
+<li><strong>Deny the command</strong> so it cannot execute.</li>
+<li><strong>Write a line in your context file</strong> telling the agent to propose these as single-line commands for you to run.</li>
+</ol>
+<p>Both halves are load-bearing. Without the deny, the instruction is a suggestion. Without the instruction, the agent repeatedly tries the command, hits a wall, and you have built friction instead of a workflow.</p>
+<p>Keep proposed commands to <strong>one line each</strong>, no backslash continuations, which break when pasted into a terminal.</p>
+<hr />
+<h2 id="setting-up-a-new-machine">Setting up a new machine</h2>
+<ol>
+<li>Install and authenticate. <strong>Never copy credentials between machines.</strong></li>
+<li><code>git pull</code>. This brings context files and the shared settings file.</li>
+<li>Set machine-local preferences (<code>model</code>, effort level) in <code>~/.claude/settings.json</code>.</li>
+<li>Add a local settings file <strong>only</strong> for genuine deltas from the shared baseline.</li>
+<li>Run <code>/sandbox</code> and find out whether you have one.</li>
+<li>Run <code>/context</code> and confirm your <code>CLAUDE.md</code> actually loaded, under <strong>Memory files</strong>.</li>
+<li>Test one <code>deny</code> rule and one <code>ask</code> rule. Confirm permission errors, not "command not found".</li>
+<li>Consciously note what did <em>not</em> arrive: auto memory, local settings, anything gitignored.</li>
+</ol>
+<p>Step 8 is the one people skip. A session on the new machine genuinely knows less than the one you just left, and that is correct behaviour, not something to work around by copying <code>$HOME</code>.</p>
+<hr />
+<h2 id="traps-collected">Traps, collected</h2>
+<table>
+<thead>
+<tr>
+<th>Trap</th>
+<th>Why it bites</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Omitting <code>find</code>/<code>grep</code> from <code>allow</code> to make them prompt</td>
+<td>they are built-in read-only commands and never prompt; only an <code>ask</code> rule changes that</td>
+</tr>
+<tr>
+<td>Assuming your session is in Manual mode</td>
+<td>Pro/Max/Team start in auto mode, where a classifier approves instead of you</td>
+</tr>
+<tr>
+<td>An allow rule that silently stopped working</td>
+<td>auto mode drops broad rules like <code>Bash(python*)</code> on entry and restores them on exit</td>
+</tr>
+<tr>
+<td>Assuming the nearest <code>CLAUDE.md</code> wins</td>
+<td>they concatenate; a subfolder file can add but never retract</td>
+</tr>
+<tr>
+<td>A passing <code>deny</code> test</td>
+<td>deny is evaluated first in every mode, so it proves nothing about <code>ask</code> or <code>allow</code></td>
+</tr>
+<tr>
+<td>Expecting the sandbox to be there</td>
+<td>on Linux it needs bubblewrap and user namespaces, and it degrades to unsandboxed with only a warning</td>
+</tr>
+<tr>
+<td><code>!</code> exceptions inside an ignored directory</td>
+<td>files look untracked but are not; a later cleanup deletes them from every checkout</td>
+</tr>
+<tr>
+<td>Duplicated rules across settings files</td>
+<td>they cannot disagree usefully; one silently wins, the other misleads readers</td>
+</tr>
+<tr>
+<td>Commit hashes written into context files</td>
+<td>stale within hours; the agent then reasons from a confident wrong premise</td>
+</tr>
+<tr>
+<td>Memory restating a tracked guide</td>
+<td>no recall benefit, guaranteed drift</td>
+</tr>
+<tr>
+<td><code>MEMORY.md</code> over 200 lines</td>
+<td>everything past the limit is silently dropped at load</td>
+</tr>
+<tr>
+<td>Permissions in <code>~/.claude/settings.json</code></td>
+<td>applies to every project, travels to none</td>
+</tr>
+<tr>
+<td>Gitignored context files</td>
+<td>agent context silently never arrives on the second machine</td>
+</tr>
+</tbody>
+</table>
+<p>On that first ignore-pattern row: if you need to track one file inside an ignored directory, do not reach for a negation pattern. Ignore the specific personal file instead.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Avoid
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>.claude/*
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>!.claude/settings.json
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a># Prefer
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>.claude/settings.local.json
+</span></code></pre></div>
+<p>Same outcome, no exception, and no chance of the silent-deletion failure that negation patterns inside ignored directories are famous for.</p>
+<hr />
+<h2 id="the-short-version">The short version</h2>
+<p>Track your context files and your shared settings file so understanding and guardrails reach the cluster on the same <code>git push</code> as your code; keep a local settings file for per-machine deltas only. Make the shared file the <strong>loosest acceptable</strong> policy, because denies compose upward and can never be loosened locally. Keep <code>allow</code> short and promote to it from evidence, but know that for the built-in read-only commands an <strong><code>ask</code> rule is the only thing that produces a prompt</strong>, and that your session probably starts in auto mode rather than Manual. Use the sandbox on your laptop and verify whether you have one on the cluster, because it fails open. Deny the irreversible, let model judgment cover the long tail, approve anything consequential yourself, and reach for a <code>PreToolUse</code> hook when something must be enforced rather than encouraged. On shared hardware, run the agent on the login node but have it <em>propose</em> privileged commands rather than run them. Put durable, publishable facts in the tracked guides and private or machine-specific ones in memory, and never in both.</p>
+<p>The underlying discipline is smaller than all of that: <strong>know which of your three systems each fact belongs to, and write it down exactly once.</strong></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2026 Bidhyananda Yadav
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/bidhya" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/in/bidhya-n-yadav-48908322" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:yadav.111@osu.edu" target="_blank" rel="noopener" title="Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://scholar.google.com/citations?user=ZMb8ADQAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M500 261.8C500 403.3 403.1 504 260 504 122.8 504 12 393.2 12 256S122.8 8 260 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C270.5 52.6 106.3 116.6 106.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H260v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
