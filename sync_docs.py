@@ -89,6 +89,12 @@ FILE_MAP = {
         "notes/geospatial/hvplot-visualization.md",
 
     # ------------------
+    # Field Notes (Practice & Tooling)
+    # ------------------
+    "KBase/02-AI-and-ML/GenAI-Tooling-and-Agents/claude-code-across-machines.md":
+        "notes/field-notes/claude-code-across-machines.md",
+
+    # ------------------
     # Jupyter Notebook Tutorials (.ipynb)
     # ------------------
     "KBase/03-Geospatial/Remote-Sensing/hyperspectral/10_pace_ocean_color.ipynb":

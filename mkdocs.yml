@@ -133,6 +133,8 @@ nav:
           - Hyperspectral Sensor Physics: notes/geospatial/hyperspectral-concepts.md
           - Production Geospatial Patterns: notes/geospatial/real-world-patterns.md
           - Interactive Visualization with hvPlot: notes/geospatial/hvplot-visualization.md
+  - Field Notes:
+      - Claude Code Across Machines: notes/field-notes/claude-code-across-machines.md
   - Technical Workflows:
       - Overview: tutorials/index.md
       - Spatio-Temporal & Vision:
