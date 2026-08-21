@@ -12,8 +12,9 @@ hide:
 
 Seven years designing TB-scale Earth observation pipelines, ML/AI workflows, and HPC infrastructure for NASA and NSF programmes at The Ohio State University.
 
-[Engineering Notes](notes/ai-ml/index.md){ .md-button .md-button--primary }
-[Technical Workflows](tutorials/index.md){ .md-button }
+[Engineering Notes](notes/index.md){ .md-button .md-button--primary }
+[Workflows](tutorials/index.md){ .md-button }
+[Blog](blog/index.md){ .md-button }
 
 </div>
 
@@ -103,16 +104,24 @@ Seven years designing TB-scale Earth observation pipelines, ML/AI workflows, and
 
     ---
 
-    Deep-dives into GPU and distributed training, transformer architectures, Kalman filtering, hyperspectral physics, and the geospatial Python engineering stack. Developed as public reference material to help domain scientists and research teams build practical intuition for AI/ML workflows.
+    Evergreen references across three domains: **AI & Machine Learning** (transformers, LLM inference, fine-tuning), **Geospatial & Remote Sensing** (the Python stack, coordinate systems, sensor physics), and **HPC & Infrastructure** (distributed execution, on-premise model serving). Written as public reference material to help domain scientists build practical intuition for AI/ML workflows.
 
-    [:octicons-arrow-right-24: Browse Engineering Notes](notes/ai-ml/index.md)
+    [:octicons-arrow-right-24: Browse Engineering Notes](notes/index.md)
 
--   :material-test-tube: **Technical Workflows**
+-   :material-test-tube: **Workflows**
 
     ---
 
     End-to-end Jupyter notebooks: the NASA PACE hyperspectral series, a satellite change detection pipeline, and applied NLP workflows.
 
-    [:octicons-arrow-right-24: Browse Technical Workflows](tutorials/index.md)
+    [:octicons-arrow-right-24: Browse Workflows](tutorials/index.md)
+
+-   :material-post: **Blog**
+
+    ---
+
+    Dated field notes on tooling and practice: running AI coding agents across a laptop and a shared HPC cluster, and other things that will look different in a year.
+
+    [:octicons-arrow-right-24: Read the Blog](blog/index.md)
 
 </div>

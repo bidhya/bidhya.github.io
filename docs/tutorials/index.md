@@ -1,4 +1,4 @@
-# Technical Workflows & Jupyter Notebooks
+# Workflows
 
 End-to-end computational workflows implemented as fully-documented Jupyter notebooks — covering real satellite and scientific text datasets from raw acquisition through validated final outputs.
 
@@ -38,12 +38,17 @@ End-to-end computational workflows implemented as fully-documented Jupyter noteb
 
 ---
 
-## Running Notebooks Locally
+## Running These Notebooks
 
-All tutorials are managed through the `pixi` environment for full reproducibility:
+The raw `.ipynb` source for every workflow lives in the site repository, under
+[`docs/tutorials/`](https://github.com/bidhya/bidhya.github.io/tree/main/docs/tutorials){target="_blank"}.
+Download a single notebook from there, or clone the lot:
 
 ```bash
 git clone https://github.com/bidhya/bidhya.github.io.git
-cd bidhya.github.io
-pixi run jupyter notebook
+cd bidhya.github.io/docs/tutorials
 ```
+
+The `pixi` environment in this repository builds the site; it does not install Jupyter or
+the scientific stack each notebook needs. Run them under your own environment, installing
+the imports each notebook declares in its first cell.
