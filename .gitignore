@@ -22,6 +22,7 @@ __pycache__/
 
 # AI Agent instruction references containing private/raw details
 AGENTS.md
+CLAUDE.md
 README.md
 JUPYTER_RENDER_AGENT.md
 GIT_BRANCHING_PLAN.md
