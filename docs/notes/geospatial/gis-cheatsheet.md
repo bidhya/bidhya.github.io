@@ -405,6 +405,120 @@ for idx, polygon in polygons_gdf.iterrows():
 
 ---
 
+## Array and Tabular Post-Processing
+
+Once values have been extracted from a raster or joined onto a vector layer, the
+work leaves the geospatial libraries and becomes ordinary array and dataframe
+manipulation. These are the operations that recur at that boundary.
+
+### NumPy Array Operations
+```python
+# Drop to the underlying array once spatial metadata is no longer needed
+data = da.values
+
+# Summary statistics
+mean = np.mean(data)
+std = np.std(data)
+min_val = np.min(data)
+max_val = np.max(data)
+
+# Percentiles — more robust than min/max on imagery with outliers
+p25 = np.percentile(data, 25)
+p75 = np.percentile(data, 75)
+
+# Exclude sentinel and NaN values before any statistic
+valid_data = data[data != nodata_value]
+valid_data = data[~np.isnan(data)]
+
+# Locate cells satisfying a threshold condition
+indices = np.where(data > 100)
+```
+
+Statistics computed over an array that still contains nodata sentinels are
+silently wrong: a `-9999` fill value drags a mean far below the true value
+without raising anything. Mask before reducing, not after.
+
+### Pandas / GeoDataFrame Operations
+```python
+# Attribute filtering
+filtered = gdf[gdf['area'] > 1000]
+filtered = gdf[gdf['name'].str.contains('River')]
+
+# Ordering
+sorted_gdf = gdf.sort_values('area', ascending=False)
+
+# Grouped aggregation across a categorical attribute
+grouped = gdf.groupby('category').agg({
+    'area': ['mean', 'sum'],
+    'elevation': 'max'
+})
+
+# Derived columns — convert to physical units at the point of use
+gdf['area_km2'] = gdf['area'] / 1e6
+
+# Schema maintenance
+gdf = gdf.rename(columns={'old_name': 'new_name'})
+gdf = gdf.drop(columns=['unnecessary_col'])
+```
+
+A `GeoDataFrame` is a `DataFrame` with a geometry column, so the full pandas API
+applies unchanged. The one constraint is that the geometry column must survive
+any operation that rebuilds the frame, or the result degrades to a plain
+`DataFrame` and loses its CRS.
+
+---
+
+## Diagnostic Output Formatting
+
+Spatial pipelines fail quietly. Formatted checkpoints between stages are what
+make a wrong CRS or an unexpected array shape visible at the step that caused
+it rather than at the end.
+
+```python
+print(f"CRS: {gdf.crs}")
+print(f"Number of features: {len(gdf)}")
+print(f"Area: {area:.2f} km²")        # fixed precision
+print(f"Large number: {value:,.0f}")  # thousands separator
+
+# Block summary at a pipeline boundary
+print(f"""
+Dataset Summary:
+- CRS: {crs}
+- Dimensions: {width} x {height}
+- Resolution: {res_x:.2f} x {res_y:.2f}
+- Bounds: {bounds}
+""")
+```
+
+---
+
+## Visualization
+
+A quick render is the fastest way to catch a georeferencing error that no
+assertion will find — data in the wrong hemisphere, an inverted latitude axis,
+a clip that silently returned an empty extent.
+
+```python
+# Vector: geometry alone, then attribute-driven symbology
+gdf.plot()
+gdf.plot(column='elevation', cmap='terrain', legend=True)
+
+# Raster: select a band explicitly, since plotting is 2D
+if 'band' in da.dims:
+    da.sel(band=1).plot(cmap='viridis')
+else:
+    da.plot(cmap='viridis')
+
+# Interactive inspection — pan, zoom and hover for pixel values
+import hvplot.xarray
+da.hvplot(cmap='viridis', width=600, height=400)
+```
+
+For large rasters, pass `rasterize=True` to hvplot so rendering is server-side
+and the browser receives an image rather than the full array.
+
+---
+
 ## Download Data
 
 ### Download from URL
@@ -538,6 +652,55 @@ if len(intersection) == 0:
 
 ---
 
+## Common Failure Modes
+
+Most defects in a spatial pipeline come from a small, recurring set of causes.
+Each of these fails silently — producing a plausible-looking result rather than
+an exception — which is what makes them worth memorizing.
+
+| Failure mode | Correction |
+|---|---|
+| CRS mismatch between layers | `gdf2 = gdf2.to_crs(gdf1.crs)` |
+| Nodata sentinels contaminating statistics | `da.where(da != da.rio.nodata)` |
+| Empty intersection treated as valid | guard with `if len(result) > 0:` |
+| Missing input file | check `if Path(file).exists():` |
+| Reversed coordinate order | `(x, y) = (lon, lat)` |
+| Band dimension on a multi-band raster | `da.sel(band=1)`, or test `'band' in da.dims` |
+
+---
+
+## Instrumented Workflow Pattern
+
+The ordering below is deliberate: alignment is enforced *before* the clip, and
+the result is validated *before* it propagates downstream. A clip performed
+across mismatched coordinate systems returns an empty array rather than an
+error, so the CRS check is what stands between that and a silent empty result.
+
+```python
+# 1. Open the raster and inspect its spatial characteristics
+da = rioxarray.open_rasterio('dem.tif')
+print(f"Raster CRS: {da.rio.crs}")
+
+# 2. Enforce coordinate reference alignment before any spatial operation
+if gdf.crs != da.rio.crs:
+    print("CRS mismatch - aligning vector layer to raster coordinate system")
+    gdf = gdf.to_crs(da.rio.crs)
+
+# 3. Clip the raster to the geometry boundaries
+da_clipped = da.rio.clip(gdf.geometry, gdf.crs, drop=True)
+
+# 4. Validate the result before it propagates downstream
+print(f"Clipped raster shape: {da_clipped.shape}")
+print(f"Value range: {da_clipped.min().values} to {da_clipped.max().values}")
+```
+
+In a production deployment, these `print` checkpoints become structured logging,
+and the shape and range assertions become explicit validation — `pydantic` models
+at pipeline boundaries, or plain assertions that halt on an empty extent instead
+of passing it along.
+
+---
+
 ## Critical Reminders
 
 ### ✅ ALWAYS Check CRS First
@@ -568,19 +731,39 @@ point = Point(-105.0, 40.0)  # longitude first!
 bbox = box(-105.5, 39.5, -104.5, 40.5)  # (minx, miny, maxx, maxy)
 ```
 
----
-
-## Your Competitive Advantages
-
-### Modern Stack
-> "I use **rioxarray** for raster operations—it's more Pythonic than raw rasterio and scales to big data with Dask."
-
-### NetCDF/Climate Data
-> "I use **xarray** extensively for NetCDF climate data—I used it for NEXRAD precipitation analysis in my dissertation."
-
-### Production Experience
-> "For TB-scale satellite processing in my research, I use rioxarray with Dask chunking for lazy loading."
+### ✅ Validate on a Subset First
+```python
+# Establish correctness on a spatial subset before committing to a full run.
+# A logic error found on one tile costs seconds; the same error found after a
+# continental-scale job costs the whole allocation.
+da_test = da.isel(x=slice(0, 500), y=slice(0, 500))
+```
 
 ---
 
-**Keep this open during the interview for quick syntax reference!** 🚀
+## Architectural Principles
+
+- **CRS validation** — reconcile coordinate references before any analytical
+  routine runs: `if gdf.crs != da.rio.crs:`. Every spatial operation assumes
+  alignment and none of them verify it.
+- **Data integrity** — mask nodata at ingest rather than before each statistic:
+  `da.where(da != da.rio.nodata)`. Masking once at the boundary means downstream
+  code cannot forget to.
+- **Coordinate schemas** — maintain `(x, y) = (lon, lat)` ordering throughout.
+  Reversed pairs produce valid geometries in the wrong hemisphere, which no type
+  check will catch.
+- **Fluent pipeline composition** — the `.rio` accessor chains, so a full
+  transformation reads as one expression:
+  `da.rio.clip().rio.reproject().rio.to_raster()`.
+
+**Design rationale.** Combining `rioxarray`, `xarray`, and `dask` buys two
+things at once: the accessor pattern keeps transformation code readable, and
+lazy evaluation keeps the same code correct when the array no longer fits in
+memory. A pipeline written against in-memory arrays generally has to be
+rewritten to scale; one written against chunked arrays usually does not, which
+is why the chunked form is worth adopting before the data demands it.
+
+`rioxarray` is preferred over raw `rasterio` for this reason rather than on
+style grounds: it carries CRS and nodata through operations automatically, and
+inherits Dask support from `xarray`. `rasterio` remains the right tool where
+low-level control over file I/O is genuinely required.
