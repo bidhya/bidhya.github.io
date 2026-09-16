@@ -91,7 +91,7 @@ FILE_MAP = {
     # ------------------
     # Blog posts (dated, opinionated writing)
     # ------------------
-    "KBase/02-AI-and-ML/GenAI-Tooling-and-Agents/claude-code-across-machines.md":
+    "KBase/02-AI-and-ML/GenAI-Tooling-and-Agents/claude_code_across_machines.md":
         "blog/posts/claude-code-across-machines.md",
 
     # ------------------
@@ -101,11 +101,11 @@ FILE_MAP = {
         "tutorials/ocean-color.ipynb",
     "KBase/03-Geospatial/Remote-Sensing/satellite_change_detection/04_change_detection.ipynb":
         "tutorials/change-detection.ipynb",
-    "KBase/02-AI-and-ML/NLP/01_NLP_Foundations_NER.ipynb":
+    "KBase/02-AI-and-ML/NLP/01_nlp_foundations_ner.ipynb":
         "tutorials/nlp-ner.ipynb",
-    "KBase/02-AI-and-ML/NLP/02_NLP_Topic_Modeling.ipynb":
+    "KBase/02-AI-and-ML/NLP/02_nlp_topic_modeling.ipynb":
         "tutorials/nlp-topic-modeling.ipynb",
-    "KBase/02-AI-and-ML/NLP/03_NLP_Sentiment_and_Zero_Shot.ipynb":
+    "KBase/02-AI-and-ML/NLP/03_nlp_sentiment_and_zero_shot.ipynb":
         "tutorials/nlp-sentiment-analysis.ipynb"
 }
 
