@@ -493,7 +493,7 @@ plt.show()
 - ✅ `tight_layout()` prevents overlap
 - ✅ Save return value from `imshow()` for colorbar reference
 
-### Save Figure (Interview-Ready)
+### Save Figure (Publication-Quality)
 ```python
 # Create plot
 fig, ax = plt.subplots(figsize=(12, 10))

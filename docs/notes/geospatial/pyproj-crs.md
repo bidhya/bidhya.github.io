@@ -378,7 +378,7 @@ print(f"Distance: {dist_m / 1000:.2f} km")
 
 ---
 
-## Practice Questions
+## Verification Scenarios
 
 1. **Transform point** (-105.27, 40.02) from WGS84 to UTM Zone 13N
 2. **Calculate distance** between Denver (-104.99, 39.74) and Boulder (-105.27, 40.02)
@@ -386,18 +386,18 @@ print(f"Distance: {dist_m / 1000:.2f} km")
 4. **Check if CRS match**: EPSG:4326 vs EPSG:32613
 
 <details>
-<summary>Solutions</summary>
+<summary>Reference Implementation</summary>
 
 ```python
 # 1. Transform point
 transformer = Transformer.from_crs("EPSG:4326", "EPSG:32613", always_xy=True)
 x, y = transformer.transform(-105.27, 40.02)
-print(f"UTM: ({x:.2f}, {y:.2f})")  # (478613.97, 4429833.85)
+print(f"UTM: ({x:.2f}, {y:.2f})")  # (476959.59, 4430011.94)
 
 # 2. Calculate distance
 geod = Geod(ellps="WGS84")
 _, _, dist = geod.inv(-104.99, 39.74, -105.27, 40.02)
-print(f"Distance: {dist/1000:.2f} km")  # ~37.5 km
+print(f"Distance: {dist/1000:.2f} km")  # 39.25 km
 
 # 3. Find UTM zone
 utm_list = query_utm_crs_info(
