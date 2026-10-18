@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Python utility script to synchronize technical engineering notes and
-Jupyter notebook tutorials from the private parent directory ('job/')
+Jupyter notebook tutorials from the private sibling directory ('../KBase/')
 to the public MkDocs portfolio directory ('githubio/docs/').
 
 This implements 'Option B' (Automated Structured Synchronization) ensuring
@@ -15,7 +15,7 @@ import re
 
 # Resolve absolute paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# Reference: parent folder `/home/bny/Github/job`
+# Reference: parent folder `~/Github/portfolio` (KBase/ and githubio/ are siblings)
 PARENT_DIR = os.path.dirname(SCRIPT_DIR)
 
 # Hardcoded mapping of source to destination paths relative to githubio/docs
