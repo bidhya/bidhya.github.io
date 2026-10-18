@@ -30,6 +30,12 @@ Sub-meter detection of river surface water from satellite imagery requires model
 ### ICESat-2 Processing Toolkit
 Processing ICESat-2 laser altimetry data across Antarctica and the Arctic involves correcting systematic vertical biases against reference DEMs (ArcticDEM, REMA, WorldDEM) at continental scale. I built an open-source Python toolkit that automated what had been weeks-long manual processing workflows into a reproducible pipeline, presented at NASA Goddard and adopted by collaborators across the cryosphere community.
 
+### Greenland Glacier Velocity
+Outlet glaciers carry Greenland's ice to the ocean, and tracking how their speed changes needs denser imagery than any one satellite provides. I built a satellite pipeline that maps ice velocity across Greenland's outlet glaciers from Sentinel-2 (A/B/C) and Landsat imagery. The [pipeline is open source](https://github.com/bidhya/greenland-glacier-flow){target="_blank"}, its data products are archived at [NSIDC DAAC](https://nsidc.org/data/nsidc-0777/versions/1/){target="_blank"}, and the work is published in *The Cryosphere*.
+
+### Fluid Earth Viewer
+Global atmospheric and ocean model output is hard to read for anyone outside the field. On this NSF-funded project I implemented the climate metric aggregations (monthly, seasonal, annual) and derived data products behind [Fluid Earth Viewer](https://fever.byrd.osu.edu/){target="_blank"}, an interactive web application for public science communication. The platform was later adopted by the [Permafrost Discovery Gateway](https://pdg.open.uaf.edu/){target="_blank"}.
+
 ---
 
 ## Experience
