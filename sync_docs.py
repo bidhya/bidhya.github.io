@@ -93,6 +93,8 @@ FILE_MAP = {
     # ------------------
     "KBase/02-AI-and-ML/GenAI-Tooling-and-Agents/claude_code_across_machines.md":
         "blog/posts/claude-code-across-machines.md",
+    "KBase/02-AI-and-ML/Computer-Vision/cv_to_remote_sensing.md":
+        "blog/posts/cv-to-remote-sensing-2026.md",
 
     # ------------------
     # Jupyter Notebook Tutorials (.ipynb)

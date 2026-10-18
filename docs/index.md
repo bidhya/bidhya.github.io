@@ -120,7 +120,7 @@ Seven years designing TB-scale Earth observation pipelines, ML/AI workflows, and
 
     ---
 
-    Dated field notes on tooling and practice: running AI coding agents across a laptop and a shared HPC cluster, and other things that will look different in a year.
+    Dated field notes on fast-moving tools and fields: running AI coding agents across a laptop and a shared HPC cluster, a 2026 map of computer-vision models for remote sensing, and other things that will look different in a year.
 
     [:octicons-arrow-right-24: Read the Blog](blog/index.md)
 
