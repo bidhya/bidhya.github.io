@@ -33,10 +33,12 @@ if [ -n "$(git status --porcelain)" ]; then
     git add .
     COMMIT_MSG=${1:-"sync: update assets and guides $(date '+%Y-%m-%d %H:%M:%S')"}
     git commit -m "$COMMIT_MSG"
-    git push origin dev
 else
-    echo "✅ Main repository files are already up-to-date on 'dev'."
+    echo "✅ No new changes to commit on 'dev'."
 fi
+
+# Push unconditionally so commits made by hand before this script also reach origin; a no-op when up to date
+git push origin dev
 
 # 4. Compile and push static html layout directly to 'gh-pages-dev' staging branch
 echo "🏗️  Locally compiling static files and pushing directly to 'gh-pages-dev' branch..."
