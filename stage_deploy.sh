@@ -5,7 +5,9 @@
 # This script automates Option B:
 # 1. Verifies you are on the 'dev' branch to protect the production system.
 # 2. Runs 'python sync_docs.py' to import & sanitize engineering files.
-# 3. Runs 'mkdocs gh-deploy' to compile and push directly to staging branch.
+# 3. Commits any changes to 'dev' and always pushes 'dev' to origin, so
+#    commits made by hand before running this script reach origin too.
+# 4. Runs 'mkdocs gh-deploy' to compile and push directly to staging branch.
 # ==============================================================================
 
 set -e # Abort script immediately on any command failure
